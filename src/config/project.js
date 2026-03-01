@@ -1,7 +1,7 @@
 export default Object.freeze({
-	name: "AtomicKit",
+	name: "MosaicUI",
 	version: "1.0.0",
-	url: "https://atomickit.com/",
+	url: "https://mosaicui.com/",
 	keywords: [
 		"React",
 		"React components",
@@ -10,13 +10,14 @@ export default Object.freeze({
 		"React component Library",
 		"JavaScript components",
 		"UI Component Library",
-		"Atomickit",
+		"Mosaic ui",
+		"mosaicui",
 	],
 	author: "Darshan Sunil Rajadhyaksha",
 	social: {
 		github: {
 			handle: "darshan-rajadhyaksha",
-			url: "https://github.com/darshan-rajadhyaksha/AtomicKit"
+			url: "https://github.com/darshan-rajadhyaksha/mosaicui"
 		},
 		linkedin: {
 			handle: "darshan-rajadhyaksha",
@@ -28,7 +29,7 @@ export default Object.freeze({
 		},
 	},
 	logo: {
-		small: "/assets/logo/logo-50.jpg", 
+		small: "/assets/logo/logo-50.png", 
 		full: "/assets/logo/logo-500.png",
 	},
 });

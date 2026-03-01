@@ -3,7 +3,7 @@ import project from "@/config/project";
 export default Object.freeze({
   logo: {
     title: project.name,
-    src: project.logo.full,
+    src: project.logo.small,
   },
   primaryLinks: [
     {
@@ -32,7 +32,7 @@ export default Object.freeze({
 export const landingPageConfig = Object.freeze({
   logo: {
     title: project.name,
-    src: project.logo.full,
+    src: project.logo.small,
   },
   secondaryLinks: [
     {

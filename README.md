@@ -1,8 +1,8 @@
-# AtomicKit
+# MosaicUI
 ![Project Banner](public/assets/index.jpg)
 
 ## Links
-- [Introduction](https://atomickit.com/introduction)
-- [Installation](https://atomickit.com/installation)
-- [Components](https://atomickit.com/components)
-- [Changelog](https://atomickit.com/changelog)
+- [Introduction](https://mosaicui.com/introduction)
+- [Installation](https://mosaicui.com/installation)
+- [Components](https://mosaicui.com/components)
+- [Changelog](https://mosaicui.com/changelog)
