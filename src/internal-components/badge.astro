@@ -1,0 +1,55 @@
+---
+interface BagdeProps {
+  variant: "outlined" | "filled";
+  href?: string;
+}
+
+const {
+  variant = "outlined", 
+  href = "",
+} = Astro.props as BagdeProps;
+
+const badgeClassesMap = Object.freeze({
+  outlined: "badge-outlined",
+  filled: "badge-filled",
+});
+
+const getBadgeClass = (
+  variant: BagdeProps["variant"]
+) => (
+  [
+    "badge", 
+    badgeClassesMap?.[variant] ?? ""
+  ].join(" ")
+);
+---
+
+{
+  href ? (
+    <a href={href} class={getBadgeClass(variant)}>
+      <slot />
+    </a>
+  ) : (
+    <span class={getBadgeClass(variant)}>
+      <slot />
+    </span>
+  )
+}
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    user-select: none;
+
+    &.badge-filled {
+      background: var(--layer-primary);
+    }
+
+    &.badge-outlined {
+      border: 1px solid var(--border-primary);
+    }
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+import Badge from "@/internal-components/badge.astro";
+
+interface SidebarProps {
+  items: Array<{
+    title: string;
+    items: Array<{
+      title: string;
+      href: string;
+      badge?: string;
+    }>;
+  }>;
+}
+
+const { items } = Astro.props as SidebarProps;
+
+const isActivePath = (href: string) => (
+  Astro.url.pathname.replace(/\/$/, "") === href.replace(/\/$/, "")
+);
+---
+
+<div class="sidebar">
+  <aside>
+    <nav>
+      {
+        items.map((entry) => {
+          return (
+            <div class="block">
+              <h4>
+                {entry.title}
+              </h4>
+              <div class="links">
+                {entry.items.map((item) => {
+                  return (
+                    <a
+                      href={item.href}
+                      class={[
+                        "link", 
+                        isActivePath(item.href) ? "active" : ""
+                      ].join(" ",)}
+                    >
+                      <span>
+                        {item.title}
+                      </span>
+                      {item.badge && (
+                        <Badge>{item.badge}</Badge>
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })
+      }
+    </nav>
+  </aside>
+</div>
+
+<style>
+  .sidebar {
+    padding: 0 20px;
+    overflow-y: auto;
+
+    .block {
+      margin-bottom: 24px;
+
+      &:first-child {
+        margin-top: 20px;
+      }
+
+      h4 {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+        font-weight: 600;
+        margin: 0 0 6px;
+      }
+
+      .links {
+        border-left: 1px solid var(--border-primary);
+        padding-left: 8px;
+
+        a {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          text-decoration: none;
+          padding: 4px 2px;
+          transition: all 150ms ease-in-out;
+          border: 1px solid transparent;
+          border-radius: 4px;
+          text-indent: 4px;
+
+          > span:nth-child(1) {
+            flex: 1;
+          }
+
+          &:before {
+            content:"";
+            position: absolute;
+            top:50%;
+            left: -10px;
+            transform:translateY(-100%);
+            width: 8px;
+            height: 8px;
+            border-bottom: 1px solid var(--border-primary);
+            border-radius: 0 0 0 50%;
+            overflow: hidden;
+          }
+
+          &.active,
+          &:hover {
+            background: var(--layer-primary);
+            border-color: var(--border-primary);
+            color: var(--text-secondary);
+          }
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  @media (max-width: 994px) {
+    .sidebar {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: calc(100dvh - var(--header-height));
+      background: var(--layer-primary);
+      display: none;
+      z-index: 99;
+      transition: left 250ms ease-in-out;
+      @starting-style {
+        left: -100vw;
+      }
+    }
+    body.show-sidebar {
+      .sidebar {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: 568px) {
+    .sidebar {
+      padding: 0 16px;
+    }
+  }
+</style>

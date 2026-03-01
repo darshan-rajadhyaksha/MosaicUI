@@ -1,0 +1,23 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import ModularGridOutlinedVariantPreview from "./previews/modular-grid-outlined-variant-preview";
+import ModularGridOutlinedVariantPreviewCode from "./previews/modular-grid-outlined-variant-preview?raw";
+---
+
+<div class="example">
+  <h3>Outlined Variant</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ModularGridOutlinedVariantPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ModularGridOutlinedVariantPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

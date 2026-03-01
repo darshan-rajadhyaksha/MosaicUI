@@ -1,0 +1,68 @@
+<div class="table-wrapper">
+  <slot />
+</div>
+
+<style>
+  .table-wrapper {
+    width: 100%;
+    min-width: 0;
+    margin: 16px 0 0;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    table {
+      width: max-content;
+      min-width: 100%;
+      border-collapse: collapse;
+      background-color: var(--layer-primary);
+    }
+
+    thead {
+      tr > * {
+        border-top: none;
+      }
+    }
+
+    tbody {
+      tr > * {
+        border-bottom: none;
+      }
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border: 1px solid var(--border-primary);
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+      min-width: 80px;
+      max-width: 320px;
+      overflow:auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &::-webkit-scrollbar-thumb {
+        display: none;
+      }
+    }
+
+    code {
+      padding: 2px 4px;
+      background: var(--layer-tertiary);
+      border: 1px solid var(--border-primary);
+      border-radius: 4px;
+    }
+  }
+</style>

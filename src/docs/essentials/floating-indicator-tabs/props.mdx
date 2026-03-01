@@ -1,0 +1,7 @@
+| Prop                     | Type                                                                 | Required | Default     | Description |
+|--------------------------|----------------------------------------------------------------------|----------|------------|-------------|
+| tabs                     | `{ id: string; label: React.ReactNode; content: React.ReactNode }[]` | Yes      | —          | Array of tab definitions (e.g. `{ id: "home", label: "Home", content: <h1>Home</h1> }`). |
+| activeTab                | `string`                                                             | No       | —          | Controlled active tab id. When provided, the component works in controlled mode. |
+| defaultTab               | `string`                                                             | No       | First tab  | Initial active tab id when used in uncontrolled mode. |
+| onTabChange              | `(id: string) => void`                                               | No       | —          | Callback fired when the active tab changes. |
+| renderOnlyActiveTabPanel | `boolean`                                                            | No       | `false`    | If `true`, only the active tab panel is mounted in the DOM. |

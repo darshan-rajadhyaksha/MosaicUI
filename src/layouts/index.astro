@@ -1,0 +1,94 @@
+---
+import { ClientRouter } from "astro:transitions";
+import project from "@/config/project";
+import "../styles/global.css";
+
+const websiteDescription = (
+  `${project.name} - a free and open-source collection of high-performance, accessible React components built to power your next web app.`
+); 
+
+const { 
+  meta: {
+    title,
+    description = websiteDescription,
+    url,
+    image,
+    type = "website",
+  },
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>{title}</title>
+
+    <!-- Generic -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={project.keywords.join(" ")}>
+    <meta name="author" content={project.author}>
+    <link rel="canonical" href={url} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- OG -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:url" content={url} />
+    <meta property="og:site_name" content={project.name} />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:width" content="1280" />
+    <meta name="twitter:image:height" content="720" />
+
+    <!-- Theme and Icon -->
+    <meta name="theme-color" content="#0c0c0d" />
+    <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/logo/favicon.ico" />
+
+    <script is:inline>
+      const htmlNode = document.querySelector("html");
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const applyThemeBasedOnSystemTheme = () => {
+        if (media.matches) {
+          htmlNode.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          htmlNode.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      }
+      media.addEventListener("change", applyThemeBasedOnSystemTheme);
+      document.addEventListener("astro:page-load", () => {
+        const theme = localStorage.getItem("theme");
+        if(!theme) {
+          applyThemeBasedOnSystemTheme();
+        } else if(theme === "dark") {
+          htmlNode.classList.add("dark");
+        }
+      }); 
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

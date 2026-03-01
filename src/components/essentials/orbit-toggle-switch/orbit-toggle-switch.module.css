@@ -1,0 +1,59 @@
+.orbit-toggle-switch {
+  --size: 16px;
+  --gap: 8px;
+  --track-color-unchecked: #bbb;
+  --track-color-checked: #5a6be5;
+  --thumb-color: white;
+  --transition-duration: 250ms;
+
+  @media (prefers-color-scheme: dark) {
+    --track-color-unchecked: #888;
+    --track-color-checked: #8d98e7;
+    --thumb-color: black;
+  }
+
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  .track {
+    display: block;
+    width: calc(calc(var(--size) * 2) + calc(var(--gap) * 2));
+    height: calc(var(--size) + var(--gap));
+    background: var(--track-color-unchecked);
+    border-radius: calc(var(--size) * 2);
+    z-index: 2;
+    transition: all var(--transition-duration) ease-in-out;
+  }
+
+  .thumb {
+    position: absolute;
+    left: var(--gap);
+    top: 50%;
+    width: var(--size);
+    height: var(--size);
+    background: var(--thumb-color);
+    border-radius: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transform-origin: 100% 50%;
+    z-index: 3;
+    transition: all var(--transition-duration) ease-in-out;
+  }
+
+  &[aria-disabled="true"] {
+    cursor: initial;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  &[aria-checked="true"] {
+    .track {
+      background: var(--track-color-checked);
+      transform: rotate(180deg);
+    }
+
+    .thumb {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+}

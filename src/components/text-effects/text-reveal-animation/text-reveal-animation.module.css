@@ -1,0 +1,59 @@
+.reveal-text {
+  --background: transparent;
+  --text-color: white; /* should be set same as background */
+  --blob-color: #0b0b0c;
+  --blob-shadow-color: #222;
+  --animation-name: none;
+  --animation-duration: 4s;
+  --width: 0px; /* dynamically set by js */
+
+  @media (prefers-color-scheme: dark) {
+    --text-color: #0b0b0c;
+    --blob-color: white;
+    --blob-shadow-color: #ddd;
+  }
+
+  position: relative;
+  display: inline-block;
+  background: var(--background);
+  font: inherit;
+  white-space: nowrap;
+  word-break: keep-all;
+  text-transform: inherit;
+
+  >span {
+    padding: 0 2px;
+    color: var(--text-color);
+    mix-blend-mode: lighten;
+
+    @media (prefers-color-scheme: dark) {
+      mix-blend-mode: darken;
+    }
+  }
+
+  /* blob */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0px, -50%);
+    height: 100%;
+    aspect-ratio: 1;
+    background: var(--blob-color);
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 32px 8px var(--blob-shadow-color);
+    animation: var(--animation-name) var(--animation-duration) ease-in-out infinite;
+  }
+}
+
+@keyframes reveal-text-keyframes {
+  0%,
+  100% {
+    transform: translate(0px, -50%);
+  }
+
+  50% {
+    transform: translate(calc(var(--width) - 100%), -50%);
+  }
+}

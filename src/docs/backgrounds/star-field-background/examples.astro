@@ -1,0 +1,23 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import StarFieldBackgroundReversePreview from "./previews/star-field-background-reverse-preview";
+import StarFieldBackgroundReversePreviewCode from "./previews/star-field-background-reverse-preview?raw";
+---
+
+<div class="example">
+  <h3>Negative Speed</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <StarFieldBackgroundReversePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={StarFieldBackgroundReversePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

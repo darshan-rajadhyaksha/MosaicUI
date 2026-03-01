@@ -1,0 +1,25 @@
+import TableWrapper from "@/internal-components/table-wrapper.astro";
+
+#### ModularGrid Props
+<TableWrapper>
+| Prop      | Type                         | Required | Default   | Description |
+|-----------|------------------------------|----------|-----------|-------------|
+| spacing   | `number`                     | No       | `16`      | Space between grid items in pixels. Example: `16` = `16px` gap. |
+| variant   | `'none' \| 'outlined'` | No       | `'none'`  | Visual style applied to grid items. |
+| children  | `React.ReactNode`            | Yes      | —         | `ModularGridItem` components rendered inside the grid. |
+</TableWrapper>
+
+<br/>
+
+#### ModularGridItem Props
+<TableWrapper>
+| Prop      | Type     | Required | Default | Description |
+|-----------|----------|----------|---------|-------------|
+| xs        | `number` | No       | `12`    | Columns to span on extra-small screens (0px+). |
+| sm        | `number` | No       | `12`    | Columns to span on small screens (≥576px). |
+| md        | `number` | No       | `12`    | Columns to span on medium screens (≥768px). |
+| lg        | `number` | No       | `12`    | Columns to span on large screens (≥992px). |
+| xl        | `number` | No       | `12`    | Columns to span on extra-large screens (≥1200px). |
+| xxl       | `number` | No       | `12`    | Columns to span on very large screens (≥1400px). |
+| children  | `React.ReactNode` | Yes | — | Content rendered inside the grid item. |
+</TableWrapper>

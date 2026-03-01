@@ -1,0 +1,38 @@
+---
+const {
+  examples: { examplesComponent: ExamplesComponent },
+} = Astro.props;
+---
+
+<section class="examples">
+  <ExamplesComponent />
+</section>
+
+<style>
+  .examples {
+    .example {
+      padding: 16px 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      h3 {
+        margin-bottom: 16px;
+      }
+
+      .preview {
+        border: 1px solid var(--border-primary);
+        background: var(--layer-primary);
+        border-radius: 16px;
+        overflow: hidden;
+        min-height: 240px;
+        display: grid;
+        place-items: center;
+      }
+    }
+  }
+</style>

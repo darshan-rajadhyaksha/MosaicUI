@@ -1,0 +1,31 @@
+.wave-bars-loader {
+  --wave-width: 16px;
+  --wave-height: 64px;
+  --wave-animation-duration: 800ms;
+
+  display: flex;
+  gap: 1px;
+
+  .wave {
+    --wave-color: currentColor;
+    --wave-animation-delay: 0ms;
+
+    width: var(--wave-width);
+    height: var(--wave-height);
+    background: var(--wave-color);
+    animation: wave-bar-keyframes var(--wave-animation-duration) ease-in-out infinite;
+    animation-delay: var(--wave-animation-delay);
+  }
+}
+
+@keyframes wave-bar-keyframes {
+  0%,
+  60%,
+  100% {
+    transform: scaleY(0.05);
+  }
+
+  35% {
+    transform: scale(1);
+  }
+}

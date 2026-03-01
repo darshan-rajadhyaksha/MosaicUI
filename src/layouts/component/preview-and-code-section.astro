@@ -1,0 +1,140 @@
+---
+import InstallationSteps from "@/config/installation-steps";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+const {
+  previewAndCode: {
+    previewComponent: Preview, 
+    installationSteps
+  },
+} = Astro.props;
+---
+
+<section class="preview-and-code">
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <Preview />
+    </div>
+    <div class="code" slot="code">
+      {
+        installationSteps.map((step, index: number) => {
+          let stepDoc = null;
+          switch (step.name) {
+            case InstallationSteps.INSTALL_EXTERNAL_DEPENDENCY:
+              stepDoc = (
+                <>
+                  <h3>{index + 1}. Install the dependency</h3>
+                  <p>
+                    Install the required dependency mentioned below before using
+                    this component.
+                  </p>
+                  <CodeBlock
+                    code={step.code}
+                    lang="bash"
+                    fileName={"Terminal / Command Prompt"}
+                  />
+                </>
+              );
+              break;
+            case InstallationSteps.COPY_COMPONENT_CODE: {
+              stepDoc = (
+                <>
+                  <h3>{index + 1}. Copy the component file</h3>
+                  <p>
+                    Create a new file called <code>{step.fileName}</code> in
+                    your reusable components folder (for example
+                    <code>/src/components/</code>) and paste the following code
+                    into it.
+                  </p>
+                  <CodeBlock
+                    code={step.code}
+                    lang="jsx"
+                    fileName={step.fileName}
+                  />
+                </>
+              );
+              break;
+            }
+            case InstallationSteps.COPY_COMPONENT_STYLES: {
+              stepDoc = (
+                <>
+                  <h3>{index + 1}. Copy the CSS module file</h3>
+                  <p>
+                    In the same folder, create a file called{" "}
+                    <code>{step.fileName}</code> and paste the following CSS.
+                  </p>
+                  <CodeBlock
+                    code={step.code}
+                    lang="css"
+                    fileName={step.fileName}
+                  />
+                </>
+              );
+              break;
+            }
+            case InstallationSteps.COMPONENT_USAGE: {
+              stepDoc = (
+                <>
+                  <h3>{index + 1}. Use the component</h3>
+                  <p>
+                    Now you can import and use the component anywhere in your
+                    project.
+                  </p>
+                  <CodeBlock
+                    code={step.code}
+                    lang="jsx"
+                    fileName={step.fileName}
+                  />
+                </>
+              );
+              break;
+            }
+          }
+          return <div class="step">{stepDoc}</div>;
+        })
+      }
+    </div>
+  </PreviewAndCodeTabs>
+</section>
+
+<style>
+  .preview-and-code {
+    .preview {
+      background: var(--layer-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 540px;
+      display: grid;
+      place-items: center;
+    }
+    .code {
+      .step {
+        margin-bottom: 32px;
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 4px;
+        }
+        p {
+          margin: 6px 0 12px;
+          color: var(--color-900);
+        }
+        ul {
+          margin-left: 16px;
+        }
+        p > code {
+          display: inline-block;
+          margin: 0px 2px;
+          padding: 2px;
+          background: var(--layer-secondary);
+          border: 1px solid var(--border-tertiary);
+          border-radius: 4px;
+          user-select: all;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+</style>

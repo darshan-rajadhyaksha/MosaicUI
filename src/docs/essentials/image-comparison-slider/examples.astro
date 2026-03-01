@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import ImageComparisonSliderDefaultPercentagePreview from "./previews/image-comparison-slider-default-percentage-preview";
+import ImageComparisonSliderDefaultPercentagePreviewCode from "./previews//image-comparison-slider-default-percentage-preview?raw";
+import ImageComparisonSliderStyleSliderPreview from "./previews/image-comparison-slider-style-slider-preview";
+import ImageComparisonSliderStyleSliderPreviewCode from "./previews/image-comparison-slider-style-slider-preview?raw";
+---
+
+<div class="example">
+  <h3>Default Slider Value</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ImageComparisonSliderDefaultPercentagePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ImageComparisonSliderDefaultPercentagePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Customize Slider Styles</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ImageComparisonSliderStyleSliderPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ImageComparisonSliderStyleSliderPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

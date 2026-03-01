@@ -1,0 +1,110 @@
+---
+import project from "@/config/project";
+import getUrl from "@/lib/get-url";
+import IndexLayout from "@/layouts/index.astro";
+import { landingPageConfig } from "@/config/navbar";
+import Hero from "@/internal-components/landing-page/hero.astro";
+import ComponentShowcase from "@/internal-components/landing-page/component-showcase.astro";
+import HowItWorks from "@/internal-components/landing-page/how-it-works.astro";
+import WhyDevsLove from "@/internal-components/landing-page/why-devs-love.astro";
+import CallToAction from "@/internal-components/landing-page/call-to-action.astro";
+import Footer from "@/internal-components/landing-page/footer.astro";
+import Navbar from "@/internal-components/navbar.astro";
+
+const meta = {
+	title: `${project.name} - Beautiful React Components for Your Project`,
+	image: getUrl(`assets/index.jpg`),
+	url: getUrl(),
+};
+---
+
+<IndexLayout meta={meta}>
+	<Navbar
+		headerStyles={{
+			position: "fixed",
+			zIndex: 10,
+		}}
+		navStyles={{
+			width: "calc(100% - 32px)",
+			maxWidth: "1280px",
+			padding: 0,
+		}}
+		showHamBtn={false}
+		alwaysShowSecondaryLinks={true}
+		{...landingPageConfig}
+	/>
+	<main>
+		<Hero />
+		<ComponentShowcase />
+		<HowItWorks />
+		<WhyDevsLove />
+		<CallToAction />
+	</main>
+	<Footer />
+</IndexLayout>
+
+<style>
+	:global(.landing-page-section) {	
+		padding: 108px 0;
+
+		.content-container {
+			width: calc(100% - 32px);
+			margin: 0 auto;
+			max-width: 1280px;
+
+			> h2 {
+				margin: 0 auto 12px;
+				width: calc(100% - 24px);
+				max-width: 640px;
+				font-size: 2.25rem;
+				font-weight: 800;
+				text-align: center;
+				line-height: 1.1;
+				text-wrap: balance;
+			}
+
+			> h2 + p {
+				margin: 0 auto 48px;
+				width: calc(100% - 24px);
+				max-width: 480px;
+				font-size: 1rem;
+				text-align: center;
+				color: var(--text-secondary);
+			}
+
+			.card {
+				padding: 24px;
+				height: 100%;
+				border-radius: 8px;
+				background: var(--layer-primary);
+				box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.05);
+
+				h3 {
+					margin-bottom: 4px;
+				}
+
+				p {
+					color: var(--text-secondary);
+				}
+			}
+		}
+
+		@media (max-width: 568px) {
+			& {
+				padding: 75px 0;
+				h2 {
+					font-size: 1.85rem;
+				}
+			}
+		}
+	}
+	html.dark {
+		.landing-page-section {
+			.component,
+			.card {
+				box-shadow: none;
+				border: 1px solid var(--border-primary);
+			}
+		}
+	}
+</style>

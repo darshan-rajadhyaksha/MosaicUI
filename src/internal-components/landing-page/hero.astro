@@ -1,0 +1,111 @@
+<section class="hero">
+  <div class="content-wrapper">
+    <h1>Beautiful React Components for Your Project</h1>
+    <p>
+      Effortlessly integrate flexible, production-ready components that streamline
+      development, improve consistency, and make your UI feel alive.
+    </p>
+    <div class="cta">
+      <a class="outlined" href="/introduction">Get Started</a>
+      <a class="filled" href="/components"> Browse Components </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--background);
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgb(153 210 240 / 25%) 0%,
+      rgb(126 170 249 / 10%) 40%,
+      transparent 80%
+    );
+    background-size: 100% 100%;
+    -webkit-mask-image: linear-gradient(
+      var(--background) 0%,
+      var(--background) 80%,
+      #0000
+    );
+    mask-image: linear-gradient(
+      var(--background) 0%,
+      var(--background) 80%,
+      #0000
+    );
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content-wrapper {
+      text-align: center;
+      max-width: 768px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+
+      h1 {
+        font-weight: 800;
+        font-size: 3.2rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      p {
+        padding: 0 32px;
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      a {
+        width: fit-content;
+        display: inline-block;
+        padding: 16px 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 2px solid transparent;
+      }
+
+      a.outlined {
+        border:2px solid var(--text-primary);
+        color: var(--text-primary);
+      }
+
+      a.filled {
+        background: var(--text-primary);
+        color: var(--text-inverted-primary);
+      }
+
+    }
+  }
+
+  html.dark {
+    .hero {
+      background-image: radial-gradient(
+        circle at 50% 50%,
+        rgb(92 134 156 / 25%) 0%,
+        rgb(139 144 154 / 10%) 40%,
+        transparent 80%
+      );
+    }
+  }
+
+  @media (max-width: 568px) {
+    .hero {
+      .content-wrapper {
+        h1 {
+          font-size: 2.85rem;
+        }
+      }
+    }
+  }
+</style>

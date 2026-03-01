@@ -1,0 +1,160 @@
+---
+import { Code } from "astro:components";
+import { Icon } from "astro-icon/components";
+import LangIconMap from "@/config/lang-icons";
+import getUniqueId from "@/lib/get-unique-id";
+
+interface CodeBlockProps {
+  code: string,
+  lang: "jsx" | "css" | "bash",
+  fileName: string,
+};
+
+const { 
+  code, 
+  lang,
+  fileName,
+} = Astro.props as CodeBlockProps;
+
+const codeBlockId = getUniqueId("code-block");
+
+const getIconName = (
+  lang: CodeBlockProps["lang"]
+) => {
+  return LangIconMap[lang] ?? "";
+};
+---
+
+<div class="code-block" id={codeBlockId}>
+  <div class="header">
+    <p class="name">
+      <Icon 
+        name={getIconName(lang)} 
+        class="lang-icon" 
+      />
+      <span class="file-name">
+        {fileName}
+      </span>
+    </p>
+    <div class="controls">
+      <button 
+        class="copy-btn"
+        title="Copy code"
+      >
+      <Icon
+        name="clipboard"
+        class="clipboard-icon"
+      />
+      <Icon
+        name="check"
+        class="check-icon"
+      />
+      </button>
+    </div>
+  </div>
+  <div class="code">
+    <Code 
+      code={code} 
+      lang={lang} 
+      theme="night-owl" 
+    />
+  </div>
+</div>
+
+<style>
+  .code-block {
+    --code-block-background: #0d0d0d;
+
+    background: var(--layer-primary);
+    border:1px solid var(--border-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    
+    > .header {
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom:1px solid var(--border-primary);
+      
+      .name {
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        user-select: all;
+        color: var(--text-primary) !important;
+
+        .lang-icon {
+          width:20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .copy-btn {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border:1px solid var(--border-primary);
+      background: var(--layer-primary);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 250ms ease-in-out;
+
+      & .clipboard-icon {
+        display: inline-block;
+      }
+      & .check-icon {
+        display: none;
+        font-size: 1.25rem;
+      }
+
+      &.copied {
+        pointer-events: none;
+
+        & .clipboard-icon {
+          display: none;
+        }
+        & .check-icon {
+          color: var(--text-primary); 
+          fill: var(--text-primary);
+          display: inline-block;
+        }
+      }
+      
+      &:hover {
+        background: var(--layer-tertiary);
+      }
+    }
+
+    > .code {
+      pre {
+        font-size: 0.95rem;
+        padding: 16px;
+        max-height: 480px;
+        background: var(--code-block-background) !important;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+</style>
+
+<script define:vars={{ codeBlockId, code }}>
+  document.addEventListener("astro:page-load", () => {
+    const copyToClipboardBtn = document.querySelector(`#${codeBlockId} .copy-btn`);
+    copyToClipboardBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+        copyToClipboardBtn.classList.add("copied");
+        setTimeout(() => {
+          copyToClipboardBtn.classList.remove("copied");
+        }, 1000);
+      } catch(error) {
+        console.error("failed to copy", error);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+import ModularGrid, {
+  ModularGridItem,
+} from "@/components/essentials/modular-grid/modular-grid";
+
+const howItWorksCards = [
+  {
+    title: "Browse",
+    description:
+      "Explore a curated collection of creative, production-ready components built for modern web apps.",
+  },
+  {
+    title: "Copy",
+    description: "Copy the clean, well-structured code with a single click.",
+  },
+  {
+    title: "Paste & Customize",
+    description:
+      "Paste it into your project, tweak the styles if needed, and you're ready to ship.",
+  },
+];
+---
+
+<section class="how-it-works landing-page-section">
+  <div class="content-container">
+    <h2>Build Faster in 3 Simple Steps</h2>
+    <p>
+      No complex setup. Just clean React components ready to
+      drop into your project. Works seamlessly with React, Next.js, and modern
+      styling solutions.
+    </p>
+    <ModularGrid spacing={16}>
+      {
+        howItWorksCards.map((card, index) => (
+          <ModularGridItem xxl={4} xl={4} lg={4} md={4}>
+            <div class="card">
+              <span class="count">Step {index + 1}</span>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+          </ModularGridItem>
+        ))
+      }
+    </ModularGrid>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    .content-container {
+      .count {
+        display: inline-block;
+        margin-bottom: 12px;
+        background: var(--layer-100);
+        font-style: italic;
+      }
+    }
+  }
+</style>

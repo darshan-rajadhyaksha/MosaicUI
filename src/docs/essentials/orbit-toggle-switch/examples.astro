@@ -1,0 +1,23 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import OrbitToggleSwitchDisabledPreview from "./previews/orbit-toggle-switch-disabled-preview";
+import OrbitToggleSwitchDisabledPreviewCode from "./previews/orbit-toggle-switch-disabled-preview?raw";
+---
+
+<div class="example">
+  <h3>Disabled Switch</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <OrbitToggleSwitchDisabledPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={OrbitToggleSwitchDisabledPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

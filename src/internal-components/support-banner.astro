@@ -1,0 +1,88 @@
+---
+import project from "@/config/project";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="support-banner">
+	<div class="card">
+		<h2>Support {project.name} ❤️</h2>
+		<p>Help us build more components and features for everyone.</p>
+	</div>
+	<div class="controls">
+		<a 
+			class="github"
+			href={project.social.github.url} 
+			target="_blank"
+		>
+			⭐ Star on GitHub
+		</a>
+		<a
+			class="x"
+			href={project.social.x.url}
+			target="_blank"
+		>
+			Shoutout on <Icon name="x">
+		</a>
+		<a 
+			class="linkedin"
+			href={project.social.linkedin.url} 
+			target="_blank"
+		>
+			Post on LinkedIn
+		</a>
+	</div>
+</div>
+
+<style>
+	.support-banner {
+		background: var(--layer-primary);
+		border:1px solid var(--border-primary);
+		border-radius: 8px;
+		padding: 16px;
+
+		.card {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			flex-direction: column;
+			text-align: center;
+			height: 200px;
+			border-radius: 6px;
+			margin-bottom: 12px;
+			padding: 24px;
+			text-wrap: balance;
+			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+		}
+
+		h2 {
+			font-size: 1.05rem;
+			color: #111;
+		}
+
+		p {
+			font-size: 0.95rem;
+			color: #222;
+		}
+
+		.controls {
+			display: grid;
+			gap: 8px;
+			a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 2px;
+				padding: 8px;
+				width: 100%;
+				text-align: center;
+				cursor: pointer;
+				background: var(--layer-secondary);
+				border:1px solid var(--border-primary);
+				color: var(--text-primary);
+				border-radius: 8px;
+			}
+		}
+
+	}
+</style>

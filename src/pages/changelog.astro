@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import project from "@/config/project";
+import getUrl from "@/lib/get-url";
+
+import ChangeLog01March2026 from "@/changelogs/log-01-march-2026.mdx";
+
+const changelogs = [ChangeLog01March2026];
+
+const title = "Changelog";
+
+const meta = {
+	title: `${title} | ${project.name}`,
+	image: getUrl(`assets/index.jpg`),
+	url: getUrl("changelog/"),
+};
+---
+
+<BaseLayout meta={meta}>
+	<section>
+		<h1>{title}</h1>
+		<p>
+			Explore the history of updates and ensure your project is leveraging the latest features.
+		</p>
+	</section>
+
+	<section class="changelogs">
+		{
+			changelogs.map((ChangeLog) => (
+				<div class="changelog">
+					<ChangeLog />
+				</div>
+			))
+		}
+	</section>
+</BaseLayout>
+
+<style>
+	.changelogs {
+		margin-top: 8px;
+
+		.changelog {
+			margin-bottom: 48px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			h3 {
+				margin: 8px 0;
+			}
+			p {
+				margin: 8px 0;
+			}
+			ul {
+				margin: 12px 0;
+				padding-left: 32px;
+				li {
+					margin: 6px 0;
+				}
+			}
+		}
+	}
+</style>

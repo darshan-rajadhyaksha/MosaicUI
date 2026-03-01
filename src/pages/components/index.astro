@@ -1,0 +1,65 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import project from "@/config/project";
+import { componentMap } from "@/config/components";
+import ComponentCard from "@/internal-components/component-card.astro";
+import getUrl from "@/lib/get-url";
+
+const componentsList = Object.entries(componentMap);
+
+const title = "Components";
+
+const meta = {
+	title: `${title} | ${project.name}`,
+	image: getUrl(`assets/index.jpg`),
+	url: getUrl("components/"),
+};
+---
+
+<BaseLayout meta={meta}>
+  <section class="info">
+    <h1>{title}</h1>
+    <p>Explore all available components and find the ones you need for your project.</p>
+  </section>
+
+  <section class="components-list">
+    {
+      componentsList
+        .sort((a, b) => (
+          a[0].localeCompare(b[0])
+        ))
+        .map(([componentKey, component]) => (
+          <ComponentCard
+            href={`/components/${componentKey}`}
+            title={component.info.title}
+            description={component.info.description}
+            thumbnail={{
+              src: `/assets/components/${component.info.category.key}/${componentKey}.jpg`,
+              alt: component.info.title,
+            }}
+          />
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .components-list {
+    margin: 8px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 1200px) {
+    .components-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (max-width: 568px) {
+    .components-list {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

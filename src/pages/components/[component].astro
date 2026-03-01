@@ -1,0 +1,18 @@
+---
+import ComponentLayout from "@/layouts/component/index.astro";
+import { componentMap } from "@/config/components";
+
+const { component: componentKey } = Astro.params;
+
+const componentMeta = componentMap[componentKey];
+
+export const getStaticPaths = async () => {
+  return Object.keys(componentMap).map(componentKey => ({
+    params: { 
+      component: componentKey,
+    },
+  }));
+}
+---
+
+<ComponentLayout component={componentMeta} />

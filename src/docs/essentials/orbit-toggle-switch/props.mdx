@@ -1,0 +1,9 @@
+| Prop          | Type                           | Required | Default | Description |
+|---------------|--------------------------------|----------|---------|-------------|
+| id            | `string`                       | No       | —       | Assigned to the toggle switch control element. |
+| checked       | `boolean`                      | No       | —       | Controls the checked state (controlled mode). |
+| defaultChecked| `boolean`                      | No       | `false` | Sets the initial checked state (uncontrolled mode). |
+| disabled      | `boolean`                      | No       | `false` | Disables the toggle and prevents interaction. |
+| onChange      | `(checked: boolean) => void`   | No       | —       | Callback triggered when the toggle state changes. Receives the new `true`/`false` value. |
+| isInsideLabel | `boolean`                      | No       | `false` | Set to `true` when used inside a `<label>` to enable native label click accessibility behavior. |
+| inputProps    | `React.InputHTMLAttributes<HTMLInputElement>` | No | — | Additional props passed to the native input when `isInsideLabel` is `true`. |

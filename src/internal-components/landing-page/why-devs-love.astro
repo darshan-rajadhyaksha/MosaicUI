@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+import ModularGrid, { ModularGridItem } from "@/components/essentials/modular-grid/modular-grid";
+
+const whyDevsLoveCards = [
+  {
+    icon: "code",
+    title: "Open-Source & Free",
+    description:
+      "Fully open-source and free to use in personal or commercial projects.",
+  },
+  {
+    icon: "customize",
+    title: "Fully Customizable",
+    description:
+      "Easily tweak styles, animation speed, and behavior to match your brand.",
+  },
+  {
+    icon: "stars",
+    title: "Creative & Modern UI",
+    description:
+      "Stand out with unique, polished components that elevate your design.",
+  },
+  {
+    icon: "grid",
+    title: "Clean Component Architecture",
+    description:
+      "Built with predictable logic and reusable patterns to ensure seamless integration.",
+  },
+  {
+    icon: "moon",
+    title: "Dark Mode Ready",
+    description:
+      "Carefully balanced colors and motion ensure consistency across different visual environments.",
+  },
+  {
+    icon: "flash",
+    title: "Lightweight & Performant",
+    description:
+      "Smooth animations and efficient rendering keep your application fast and responsive.",
+  },
+];
+---
+
+<section class="why-devs-love landing-page-section">
+  <div class="content-container">
+    <h2>Why Developers Love It</h2>
+    <p>
+      Everything is crafted to help you move faster without sacrificing quality
+      or creativity.
+    </p>
+    <ModularGrid spacing={16}>
+      {
+        whyDevsLoveCards.map((card) => (
+          <ModularGridItem xxl={4} xl={4} lg={4} md={6} sm={6}>
+            <div class="card">
+              <Icon class="icon" name={card.icon} />
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+          </ModularGridItem>
+        ))
+      }
+    </ModularGrid>
+  </div>
+</section>
+
+<style>
+  .why-devs-love {
+    .content-container {
+      .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+</style>

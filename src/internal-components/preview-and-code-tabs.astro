@@ -1,0 +1,90 @@
+---
+import getUniqueId from "@/lib/get-unique-id";
+import { Icon } from "astro-icon/components";
+
+const tabId = getUniqueId('code-preview-tab');
+---
+<div class="tabs" id={tabId}>
+  <div class="head">
+    <button class="tab active">
+      <Icon name="eye" />
+      <span>Preview</span>      
+    </button>
+    <button class="tab">
+      <Icon name="code" />
+      <span>Code</span>
+    </button>
+  </div>
+  <div class="body">
+    <div class="tab-panel active">
+      <slot name="preview" />
+    </div>
+    <div class="tab-panel">
+      <slot name="code" />
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ tabId }}>
+  document.addEventListener("astro:page-load", () => {
+    const codePreviewTabs = document.querySelector(`#${tabId}`);
+    const tabHeaders = codePreviewTabs?.querySelectorAll(".head > .tab");
+    const tabPanels = codePreviewTabs?.querySelectorAll(".body > .tab-panel");
+    tabHeaders?.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        const activeTab = codePreviewTabs.querySelector(".head > .active");
+        activeTab?.classList.remove("active");
+        const activePanel = codePreviewTabs.querySelector(".body > .active");
+        activePanel?.classList.remove("active");
+        tab.classList.add("active");
+        tabPanels?.[index].classList.add("active");
+      });
+    });
+  });
+</script>
+
+<style>
+  .tabs {
+    .head {
+      width: fit-content;
+      display: flex;
+      border: 1px solid var(--border-primary);
+      border-radius: 8px;
+      overflow: hidden;
+
+      .tab {
+        display:flex;
+        align-items: center;
+        gap:6px;
+        padding: 8px 16px;
+        border-right: 1px solid var(--border-primary);
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        border:none;
+        background: transparent;
+        font:inherit;
+
+        &.active {
+          background: var(--text-primary);
+          color: var(--text-inverted-primary);
+        }
+        
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+    .tab-panel {
+      margin-top: 16px;
+      display: none;
+      .tab-panel:not(.active) > * {
+        animation-play-state: paused !important;
+      }
+      &.active {
+        display: block;
+        animation-play-state:running !important;
+      }
+    }
+  }
+</style>

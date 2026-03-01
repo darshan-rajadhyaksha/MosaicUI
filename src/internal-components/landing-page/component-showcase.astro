@@ -1,0 +1,146 @@
+---
+import ModularGrid, { ModularGridItem } from "@/components/essentials/modular-grid/modular-grid";
+import TextRevealAnimationPreview from "@/docs/text-effects/text-reveal-animation/previews/text-reveal-animation-preview";
+import FloatingTabsPreview from "@/docs/essentials/floating-indicator-tabs/previews/floating-indicator-tabs-preview";
+import OrbitToggleSwitchPreview from "@/docs/essentials/orbit-toggle-switch/previews/orbit-toggle-switch-preview";
+import TypewriterAnimationPreview from "@/docs/text-effects/typewriter-animation/previews/typewriter-animation-preview";
+import StarFieldBackground from "@/components/backgrounds/star-field-background/star-field-background";
+import MazePatternBackground from "@/components/backgrounds/maze-pattern-background/maze-pattern-background";
+
+const componentShowCaseCards = [
+  {
+    component: "TypewriterAnimation",
+    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
+    fullscreen: false,
+  },
+  {
+    component: "FloatingTabs",
+    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
+    fullscreen: false,
+  },
+  {
+    component: "OrbitToggleSwitch",
+    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
+    fullscreen: false,
+  },
+  {
+    component: "StarFieldBackground",
+    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
+    fullscreen: true,
+  },
+  {
+    component: "TextRevealAnimation",
+    sizing: { xxl: 5, xl: 5, lg: 6, md: 6 },
+    fullscreen: false,
+  },
+  {
+    component: "MazePatternBackground",
+    sizing: { xxl: 3, xl: 3, lg: 6, md: 6 },
+    fullscreen: true,
+  },
+];
+---
+
+<section class="component-showcase landing-page-section">
+  <div class="content-container">
+    <h2>Crafted Components for Modern Interfaces</h2>
+    <p>
+      Lightweight, reusable, and easy to integrate components designed to save you
+      hours of development time.
+    </p>
+    <ModularGrid spacing={16}>
+      {
+        componentShowCaseCards.map(({ component, sizing, fullscreen }) => (
+          <ModularGridItem {...sizing}>
+            <div 
+              class={[
+                "component",
+                fullscreen ? "fullscreen" : ""
+              ].join(" ")}
+            >
+              <div class="preview">
+                {component === "TypewriterAnimation" && (
+                  <TypewriterAnimationPreview client:visible />
+                )}
+                {component === "FloatingTabs" && (
+                  <FloatingTabsPreview client:visible />
+                )}
+                {component === "OrbitToggleSwitch" && (
+                  <OrbitToggleSwitchPreview client:visible />
+                )}
+                {component === "TextRevealAnimation" && (
+                  <TextRevealAnimationPreview client:visible />
+                )}
+                {component === "MazePatternBackground" && (
+                  <MazePatternBackground 
+                    client:visible 
+                    mazeSize={15}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    wrapperProps={{
+                      style: {
+                        width: "100%",
+                        height: "240px",
+                        display: "grid",
+                        placeItems: "center",
+                        padding: "24px",
+                        background: "rgba(0,0,0,0.25)",
+                        textAlign: "center",
+                      },
+                    }}
+                  >
+                    <h2 style={{ color: "#ffffff" }}>Maze Pattern Background</h2>
+                  </MazePatternBackground>
+                )}
+                {component === "StarFieldBackground" && (
+                  <StarFieldBackground
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    wrapperProps={{
+                      style: {
+                        width: "100%",
+                        height: "240px",
+                        display: "grid",
+                        placeItems: "center",
+                        padding: "24px",
+                      },
+                    }}
+                    client:only
+                  >
+                    <h2 style={{ color: "#ffffff" }}>Starfield Background</h2>
+                  </StarFieldBackground>
+                )}
+              </div>
+            </div>
+          </ModularGridItem>
+        ))
+      }
+    </ModularGrid>
+  </div>
+</section>
+
+<style>
+  .component-showcase {
+    .component {
+      position: relative;
+      height: 240px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.05);
+
+      &.fullscreen {
+        padding: 0;
+        .preview {
+          width: 100%;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,10 @@
+.aurora-text {
+  &.gradient {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  > .letter {
+    color: var(--color);
+  }
+}

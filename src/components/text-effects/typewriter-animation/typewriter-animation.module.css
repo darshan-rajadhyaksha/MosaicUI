@@ -1,0 +1,53 @@
+.typewriter-animation {
+  --cursor-color: currentcolor;
+
+  .cursor {
+    display: inline-block;
+    background: var(--cursor-color);
+
+    &.blink {
+      animation: cursor-blink-keyframes 1500ms ease-in-out infinite;
+    }
+
+    &.line {
+      width: 4px;
+    }
+
+    &.block {
+      width: 12px;
+    }
+
+    &.underscore {
+      background: transparent;
+      animation-name: cursor-underscore-blink-keyframes;
+    }
+  }
+}
+
+@keyframes cursor-blink-keyframes {
+  0%,
+  25%,
+  75%,
+  100% {
+    background: transparent;
+  }
+
+  30%,
+  70% {
+    background: var(--cursor-color);
+  }
+}
+
+@keyframes cursor-underscore-blink-keyframes {
+  0%,
+  25%,
+  75%,
+  100% {
+    color: transparent
+  }
+
+  30%,
+  70% {
+    color: var(--cursor-color);
+  }
+}

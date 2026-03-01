@@ -1,0 +1,65 @@
+---
+import project from "@/config/project";
+import getUrl from "@/lib/get-url";
+import BaseLayout from "@/layouts/base.astro";
+
+const title = "Introduction";
+
+const meta = {
+	title: `${title} | ${project.name}`,
+	image: getUrl(`assets/index.jpg`),
+	url: getUrl("introduction/"),
+};
+---
+
+<BaseLayout meta={meta}>
+  <section class="info">
+    <h1>Introduction</h1>
+    <p>
+      Welcome to <strong>{project.name}</strong>, a free and open-source collection of high-performance, accessible React components built to power your next React app. 
+    </p> 
+    <p>
+      Instead of relying on heavy UI frameworks, you can simply copy, paste, and customize each component to fit your needs. 
+    </p>
+  </section>
+
+  <section class="why">
+    <h2>How It Helps</h2>
+    <p>We believe that UI components should be flexible, not restrictive. Our components are built on four core pillars:</p>
+    <br />
+    <h3>1. Fully Customizable</h3>
+    <p>Every component is styled using <strong>CSS Modules</strong>. This ensures styles are scoped locally to the component, preventing global namespace collisions while making it incredibly easy for you to tweak the <code >.module.css</code> files to match your brand.</p>
+    <br />
+    <h3>2. Modern React Practices</h3>
+    <p>Built with modern React (17+) using functional components and hooks, delivering clean, maintainable code ready for real-world projects.</p>
+    <br />
+    <h3>3. Performance First</h3>
+    <p>Lightweight and optimized to prevent unnecessary re-renders, ensuring smooth animations and interactions without impacting performance.</p>
+    <br />
+    <h3>4. Accessibility (A11y)</h3>
+    <p>Includes keyboard accessibility where applicable, helping you build inclusive and user-friendly experiences.</p>
+  </section>
+
+
+  <section class="next">
+    <h2>Ready to build?</h3>
+    <p>Check the <a href="/installation">Installation</a> section to get started.</p>  
+    <p>See the <a href="/changelog">Changelog</a> for the latest updates.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    h3 {
+      margin-bottom: 4px;
+    }
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+</style>

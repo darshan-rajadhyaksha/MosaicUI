@@ -1,0 +1,25 @@
+.text-emerge-animation {
+  --animation-duration: 0;
+  > span {
+    opacity: 0;
+    filter: blur(20px);
+    animation: text-emerge-keyframes var(--animation-duration) ease-in-out forwards;
+
+    &.visible {
+      opacity: 1;
+      filter: blur(0px);
+      animation: none;
+    }
+  }
+}
+
+@keyframes text-emerge-keyframes {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}

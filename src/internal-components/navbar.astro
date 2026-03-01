@@ -1,0 +1,322 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Icon } from "astro-icon/components";
+
+type Link = {
+  title: string,
+  href: string,
+  icon?: string,
+  type?: "link-button" | "icon-button",
+};
+
+interface NavbarProps {
+  logo: {
+    src: string,
+    title: string,
+  },
+  primaryLinks?: Array<Link>,
+  secondaryLinks?: Array<Link>,
+  alwaysShowSecondaryLinks?: boolean,
+  showHamBtn?: boolean,
+  headerStyles?: HTMLAttributes<"header">["style"],
+  navStyles?: HTMLAttributes<"nav">["style"],
+};
+
+const linkClassesMap = Object.freeze({
+  "link-button": "link-button",
+  "icon-button": "icon-button",
+});
+
+const {
+  logo,
+  primaryLinks,
+  secondaryLinks,
+  alwaysShowSecondaryLinks = false,
+  showHamBtn = true,
+  headerStyles = null,
+  navStyles = null,
+} = Astro.props as NavbarProps;
+
+const isActive = (href: string) => (
+  Astro.url.pathname.replace(/\/$/, "") === href.replace(/\/$/, "")
+);
+
+const getLinkClass = (link: Link) => (
+  typeof link.type === "string" ? (
+    linkClassesMap[link.type] ?? ""
+ ) : ""
+)
+---
+
+<header style={headerStyles}>
+  <nav style={navStyles}>
+    <div class="primary-links">
+      <a 
+        class="logo" 
+        href="/"
+      >
+        <img 
+          src={logo.src} 
+          alt={logo.title} 
+        />
+        <span>
+          {logo.title}
+        </span>
+      </a>
+      <ul>
+        {primaryLinks?.map((link: Link) => (
+          <li>
+            <a 
+              href={link.href}
+              class={isActive(link.href) ? "active": null}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="secondary-links">
+      <ul
+        class={!alwaysShowSecondaryLinks ? "hide-sm" : undefined}
+      >
+        {
+          secondaryLinks?.map((link: Link) => (
+            <li>
+              <a
+                class={getLinkClass(link)}
+                href={link.href}
+                target="_blank"
+              >
+                {link.icon && (
+                  <Icon name={link.icon} />
+                )}
+                {link.title && (
+                  <span>{link.title}</span>
+                )}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <button class="theme-btn">
+        <Icon class="icon sun" name="sun" />
+        <Icon class="icon moon" name="moon" />
+      </button>
+      {showHamBtn && (
+        <button class="ham-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      )}
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--layer-primary);
+    border-bottom: 1px solid var(--border-primary);
+    z-index: 2;
+
+    nav {
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 8px;
+        img {
+          width: 28px;
+          height: 28px;
+        }
+        span {
+          color: var(--text-primary);
+          font-size: 1rem;
+          font-weight: 800;
+        }
+      }
+
+      ul > li > a {
+        color: var(--text-secondary);
+        padding: 8px 6px;
+        border-radius: 4px;
+        border:1px solid transparent;
+
+        &:hover,
+        &.active,
+        &:active {
+          color: var(--text-primary);
+          background: var(--layer-tertiary);
+          border-color: var(--border-secondary);
+        }
+      }
+
+      a.link-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border:1px solid var(--border-primary);
+        border-radius: 8px;
+      }
+
+      a.icon-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        color: var(--text-primary);
+        font-size:1.25rem;
+        border-radius: 8px;
+
+        &:hover {
+          background: var(--layer-tertiary);
+        }
+      }
+
+      .primary-links,
+      .primary-links ul,
+      .secondary-links,
+      .secondary-links ul {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+      }
+      
+      .ham-btn,
+      .theme-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+        background: var(--layer-primary);
+        border: 1px solid var(--border-primary);
+        cursor: pointer; 
+      }
+
+      .theme-btn {
+        display: grid;
+        place-items: center;
+        color: var(--text-primary);
+        .icon {
+          font-size: 1.25rem;
+          display: none;
+        }
+        .moon {
+          display: block;
+        }
+      }
+
+      .ham-btn {
+        display: none;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 60%;
+          height: 2px;
+          border-radius: 5px;
+          background: var(--text-secondary);
+          transition: all 250ms ease-in-out;
+
+          &:nth-child(1) {
+            top: 30%;
+          }
+
+          &:nth-child(3) {
+            top: 70%;
+          }
+        }
+      }
+    }
+  }
+  body.show-sidebar {
+    header {
+      nav {
+        .ham-btn {
+          span {
+            &:nth-child(1) {
+              top: 50%;
+              transform: translate(-50%, -50%) rotate(45deg);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              top: 50%;
+              transform: translate(-50%, -50%) rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+  html.dark {
+    .theme-btn {
+      .sun {
+        display: block !important;
+      }
+      .moon {
+        display: none !important;
+      }
+    }
+  }
+  @media (max-width: 994px) {
+    header {
+      nav {
+        .secondary-links ul.hide-sm {
+          display: none;
+        }
+        .ham-btn {
+          display: block;
+        }
+      }
+    }
+  }
+  @media (max-width: 568px) {
+    header {
+      nav {
+        padding: 0 16px;
+        .primary-links ul {
+          display: none;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const hamBtn = document.querySelector("header .ham-btn");
+    hamBtn?.addEventListener("click", () => {
+      document.body.classList.toggle("show-sidebar");
+    });
+
+    const themeBtn = document.querySelector("header .theme-btn");
+    themeBtn?.addEventListener("click", () => {
+      const htmlNode = document.querySelector("html");
+      document.querySelector("html")?.classList.toggle("dark");
+      if(htmlNode?.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  });
+</script>

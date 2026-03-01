@@ -1,0 +1,78 @@
+---
+interface CardProps {
+  title: string,
+  description: string,
+  thumbnail: {
+    src: string,
+    alt: string,
+  },
+  href?: string,
+};
+
+const { 
+  title,
+  description,
+  thumbnail,
+  href = "",
+} = Astro.props as CardProps;
+---
+
+<a href={href}>
+  <div class="component-card">
+    <div class="thumbnail">
+      <img         
+        src={thumbnail.src} 
+        alt={thumbnail.alt} 
+        loading="lazy"
+      />
+    </div>
+    <div class="content">
+      <h4>{title}</h4>
+      <p>{description}</p>
+    </div>
+  </div>
+</a>
+
+
+<style>
+  .component-card {
+    height: 100%;
+    background: var(--layer-primary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+
+    .thumbnail {
+      border: 1px solid var(--border-tertiary);
+      overflow: hidden;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform-origin: center center;
+        transition: transform 250ms ease-in-out;
+      }
+    }
+
+    .content {
+      padding: 8px 16px;
+      h4 {
+        margin-bottom: 8px;
+        color: var(--text-primary);
+      }
+      p {
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+    }
+
+    &:hover {
+      .thumbnail {
+        img {
+          transform:scale(1.05);
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,10 @@
+| Prop              | Type                                                                 | Required | Default     | Description |
+|------------------|----------------------------------------------------------------------|----------|------------|-------------|
+| beforeImage       | `{ src: string; alt: string }`                                      | Yes      | —          | Object containing `src` and `alt` for the before image. |
+| afterImage        | `{ src: string; alt: string }`                                      | Yes      | —          | Object containing `src` and `alt` for the after image. |
+| imageWidth        | `string \| number`                                                   | No       | undefined  | Sets the width of the image (px or %). |
+| imageHeight       | `string \| number`                                                   | No       | undefined  | Sets the height of the image (px or %). |
+| defaultPercentage | `number`                                                             | No       | 50         | Initial slider position percentage (used in uncontrolled mode). |
+| percentage        | `number`                                                             | No       | undefined  | Controlled value to manually set the slider position. |
+| onSliderChange    | `(percentage: number) => void`                                       | No       | undefined  | Callback triggered when the slider position changes. |
+| sliderStyles      | `{ size?: string \| number; borderColor?: string; backgroundColor?: string; activeBorderColor?: string; activeBackgroundColor?: string }` | No | undefined | Customizes slider appearance including size, border and background colors (default and active states). |

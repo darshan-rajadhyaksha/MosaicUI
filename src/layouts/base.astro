@@ -1,0 +1,123 @@
+---
+import IndexLayout from "@/layouts/index.astro";
+import Navbar from "@/internal-components/navbar.astro";
+import Sidebar from "@/internal-components/sidebar.astro";
+import NavbarConfig from "@/config/navbar";
+import SidebarConfig from "@/config/sidebar";
+import SupportBanner from "@/internal-components/support-banner.astro";
+
+const { meta } = Astro.props;
+---
+
+<IndexLayout meta={meta}>
+  <Navbar
+    {...NavbarConfig}
+  />
+  <div class="wrapper">
+    <Sidebar 
+      items={SidebarConfig} 
+    />
+    <main>
+      <article>
+        <slot />
+      </article>
+      <aside class="support-banner-wrapper">
+        <SupportBanner />
+      </aside>
+    </main>
+  </div>
+</IndexLayout>
+
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    > * {
+      min-height: calc(100dvh - var(--header-height));
+      max-height: calc(100dvh - var(--header-height));
+    }
+  }
+  
+  .support-banner-wrapper {
+    display: none;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+  }
+
+  main {
+    padding: 32px 16px 32px 32px;
+    background: var(--background);
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+
+    > * {
+      min-width: 0;
+    }
+
+    section {
+      width: 100%;
+      max-width: 1080px;
+      margin-inline: auto;
+      padding: 16px 0;
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      h1 + p {
+        font-size: 1rem;
+        color: var(--text-secondary);
+      }
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 6px;
+      }
+      h2 + p {
+        font-size: 1rem;
+        color: var(--text-secondary);
+      }
+    }
+  }
+  @media (min-width: 1580px) {
+    main {
+      grid-template-columns: 1fr 280px;
+    }
+    .support-banner-wrapper {
+      display: block;
+    }
+  }
+  @media (max-width: 1400px) {
+    main {
+      padding: 32px 20px 32px 32px;
+    }
+  }
+  @media (max-width: 994px) {
+    .wrapper {
+      display: block;
+    }
+    main {
+      border-radius: 0;
+      padding: 32px 20px;
+    }
+  }
+  @media (max-width: 568px) {
+    main {
+      padding: 24px 16px;
+      gap: 24px;
+    }
+    .support-banner-wrapper {
+      position: static;
+      display: block;
+    }
+  }
+</style>

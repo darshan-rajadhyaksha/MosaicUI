@@ -1,0 +1,86 @@
+.image-comparison-slider {
+  --before-image-clip-width: 0;
+  --slider-width: 8px;
+  --slider-height: 0;
+  --slider-background-color: #5b83dc;
+  --slider-border-color: #dddddd;
+  --slider-active-background-color: #e25a5a;
+  --slider-active-border-color: #e25a5a;
+
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+
+  img,
+  input {
+    all: unset;
+    user-select: none;
+  }
+
+  .before-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 var(--before-image-clip-width, 0) 0 0);
+  }
+
+  .after-image {
+    vertical-align: middle;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+      display: block;
+      border: 1px solid;
+      border-color: var(--slider-border-color, "#dddddd");
+      background: var(--slider-background-color, "#5b83dc");
+      border-radius: 0;
+      width: var(--slider-width, 8px);
+      height: var(--slider-height, 0);
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+      display: block;
+      border: 1px solid;
+      border-color: var(--slider-border-color, "#dddddd");
+      background: var(--slider-background-color, "#5b83dc");
+      border-radius: 0;
+      width: var(--slider-width, 8px);
+      height: var(--slider-height, 0);
+      cursor: pointer;
+    }
+
+    &::-webkit-slider-thumb:active {
+      background: var(--slider-active-background-color, "#e25a5a");
+      border-color: var(--slider-active-border-color, "#e25a5a");
+      transition: all 250ms ease-in-out;
+    }
+
+    &::-moz-range-thumb:active {
+      background: var(--slider-active-background-color, "#e25a5a");
+      border-color: var(--slider-active-border-color, "#e25a5a");
+      transition: all 250ms ease-in-out;
+    }
+  }
+}

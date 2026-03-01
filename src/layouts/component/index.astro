@@ -1,0 +1,29 @@
+---
+import project from "@/config/project";
+import BaseLayout from "@/layouts/base.astro";
+import InfoSection from "./info-section.astro";
+import PreviewAndCodeSection from "./preview-and-code-section.astro";
+import ExamplesSection from "./examples-section.astro";
+import PropsDocumentSection from "./props-section.astro";
+import getUrl from "@/lib/get-url";
+const { component } = Astro.props;
+
+const meta = {
+  type: "article",
+	title: `${component.info.title} | ${project.name}`,
+	description: component.info.description,
+	image: getUrl(`assets/components/${component.info.category.key}/${component.key}.jpg`),
+	url: getUrl(`components/${component.key}/`),
+};
+---
+
+<BaseLayout meta={meta}>
+  <InfoSection info={component.info} />
+  <PreviewAndCodeSection previewAndCode={component.previewAndCode} />
+  {component.examples && (
+    <ExamplesSection examples={component.examples} />
+  )}
+  {component.propsDocument && (
+    <PropsDocumentSection propsDocument={component.propsDocument} />
+  )}
+</BaseLayout>

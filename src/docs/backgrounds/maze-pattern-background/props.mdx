@@ -1,0 +1,9 @@
+| Prop           | Type                      | Required | Default     | Description                                                                 |
+|----------------|---------------------------|----------|------------|-----------------------------------------------------------------------------|
+| backgroundColor | `string`                   | No       | `"#000000"`  | Background color behind the maze.                                           |
+| mazeColor      | `string`                    | No       | `"#6572e6"`  | Color of the maze lines.                                                   |
+| mazeSize       | `number`                    | No       | `20`         | Size of each maze cell in pixels.                                          |
+| children       | `ReactNode`                 | Yes      | —          | Content rendered on top of the maze background.                             |
+| className      | `string`                    | No       | —          | Additional CSS classes applied to the main container.                      |
+| wrapperProps   | `React.HTMLAttributes<any>` | No       | —         | Extra props passed to the wrapper element containing the children.         |
+| wrapperTagName | `string`                    | No       | `"div"`      | HTML tag used as the wrapper element around the children.                  |

@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import TypewriterAnimationCursorsPreview from "./previews/typewriter-animation-cursors-preview";
+import TypewriterAnimationCursorsPreviewCode from "./previews/typewriter-animation-cursors-preview?raw";
+import TypewriterAnimationCustomizeWordsPreview from "./previews/typewriter-animation-customize-words-preview";
+import TypewriterAnimationCustomizeWordsPreviewCode from "./previews/typewriter-animation-customize-words-preview?raw";
+---
+
+<div class="example">
+  <h3>Cursor Types</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <TypewriterAnimationCursorsPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={TypewriterAnimationCursorsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Customize word speed and style</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <TypewriterAnimationCustomizeWordsPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={TypewriterAnimationCustomizeWordsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

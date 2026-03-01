@@ -1,0 +1,55 @@
+.floating-indicator-tabs {
+  --tab-border-color: #ddd;
+  --tab-color: #555;
+  --tab-active-color: #000;
+  --tab-active-indicator-color: #91b5ff;
+  --tab-list-gap: 8px;
+
+  @media (prefers-color-scheme: dark) {
+    --tab-border-color: #222;
+    --tab-color: #bbb;
+    --tab-active-color: #fff;
+    --tab-active-indicator-color: #3d76ed;
+  }
+
+  > [role="tablist"] {
+    position: relative;
+    width: max-content;
+    display: flex;
+    gap: var(--tab-list-gap);
+    padding: var(--tab-list-gap);
+    border: 1px solid var(--tab-border-color);
+    border-radius: 8px;
+
+    button {
+      padding: 8px 16px;
+      font: inherit;
+      border: none;
+      color: var(--tab-color);
+      cursor: pointer;
+      z-index: 2;
+      background: transparent;
+
+      &[aria-selected="true"],
+      &:hover {
+        color: var(--tab-active-color);
+      }
+    }
+
+    > [data-tab-indicator] {
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 0px;
+      height: calc(100% - calc(var(--tab-list-gap) * 2));
+      background: var(--tab-active-indicator-color);
+      border-radius: 6px;
+      z-index: 1;
+      transition: all 250ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+  }
+
+  > .tab-panel {
+    padding-top: 16px;
+  }
+}

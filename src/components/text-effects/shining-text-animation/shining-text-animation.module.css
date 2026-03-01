@@ -1,0 +1,29 @@
+.shining-text-animation {
+  --background: white;
+  --text-color: black;
+  --animation-duration: 5s;
+
+  @media (prefers-color-scheme: dark) {
+    --background: black;
+    --text-color: white;
+  }
+
+  color: var(--text-color);
+  background: linear-gradient(90deg, var(--background), var(--text-color), var(--background));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shining-text-keyframes var(--animation-duration) ease-in-out infinite;
+}
+
+@keyframes shining-text-keyframes {
+  0% {
+    background-position-x: -500%;
+  }
+
+  100% {
+    background-position-x: 500%;
+  }
+}

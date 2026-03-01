@@ -1,0 +1,23 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import ClassicAccordionMultiplePreview from "./previews/classic-accordion-multiple-preview";
+import ClassicAccordionMultiplePreviewCode from "./previews/classic-accordion-multiple-preview?raw";
+---
+
+<div class="example">
+  <h3>Open multiple accordions</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ClassicAccordionMultiplePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ClassicAccordionMultiplePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
