@@ -30,7 +30,10 @@ const WaveBarsLoader = (props) => {
   }, [count]);
 
   return (
-    <span className={styles["wave-bars-loader"]}>
+    <span 
+      aria-hidden={true}
+      className={styles["wave-bars-loader"]}
+    >
       {wavesMap.map(wave => (
         <span
           className={styles["wave"]}

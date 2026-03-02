@@ -46,7 +46,7 @@ const NightSkyBackground = (props) => {
       stars.push({
         x: random(width),
         y: random(height),
-        radius: random() + 0.25,
+        radius: random(),
         color: (
           random() < 0.8 ? [255, 255, 255] :  (
             [
@@ -56,7 +56,7 @@ const NightSkyBackground = (props) => {
             ]
           )
         ),
-        twinkingRate: random() * 0.02,
+        twinkingRate: random() * 0.01,
         opacity: random(),
         shouldTwinkle: random() < 0.5,
       });
@@ -71,7 +71,7 @@ const NightSkyBackground = (props) => {
     for (const star of stars) {
       let starOpacity = star.opacity;
       if (star.shouldTwinkle) {
-        star.opacity += star.twinkingRate;
+        star.opacity = (star.opacity + star.twinkingRate) % 100;
         starOpacity = Math.cos(star.opacity);
       }
       ctx.beginPath();

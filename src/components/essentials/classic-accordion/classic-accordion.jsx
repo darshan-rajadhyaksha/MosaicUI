@@ -11,13 +11,13 @@ const AccordionItem = (props) => {
 
   const panelRef = useRef(null);
 
-  const accordionHeaderId = useMemo((id) => (
-    `${accordionGroupId}-header-${id}`
-  ), [accordionGroupId]);
+  const accordionHeaderId = useMemo(() => (
+    `${accordionGroupId}-header-${item.id}`
+  ), [accordionGroupId, item.id]);
 
-  const accordionPanelId = useMemo((id) => (
-    `${accordionGroupId}-panel-${id}`
-  ), [accordionGroupId]);
+  const accordionPanelId = useMemo(() => (
+    `${accordionGroupId}-panel-${item.id}`
+  ), [accordionGroupId, item.id]);
 
   useLayoutEffect(() => {
     const height = open ? panelRef.current.scrollHeight : 0;

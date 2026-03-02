@@ -77,6 +77,13 @@ const TypewriterAnimation = (props) => {
     )
   );
 
+  const ariaLabel = useMemo(() => {
+    if (Array.isArray(words)) {
+      return words.map(word => word.text).join(" ");
+    }
+    return text;
+  }, [text, words]);
+
   if(currentText !== text) {
     setCurrentText(text);
     setCurrentWordIndex(0);
@@ -85,15 +92,15 @@ const TypewriterAnimation = (props) => {
 
   return (
     <span 
-      aria-label={text}
+      aria-label={ariaLabel}
       className={styles["typewriter-animation"]}
     >
       {wordsMap.map((word, wordIndex) => (
         <span 
+          {...word.slotProps}
           key={`word-${wordIndex}`}
           aria-hidden={true}
           hidden={wordIndex > currentWordIndex}
-          {...word.slotProps}
         >
           {word.letters.map((letter, letterIndex) => (
             <span 

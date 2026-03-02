@@ -48,12 +48,12 @@ const OrbitToggleSwitch = (props) => {
     >
       {isInsideLabel && (
         <input 
+          {...inputProps}
           type="checkbox" 
           checked={isChecked}
           onChange={toggle}
           aria-hidden={true}
           hidden
-          {...inputProps}
         />
       )}
       <div className={styles["thumb"]}></div>
