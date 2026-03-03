@@ -9,10 +9,14 @@ const ModularGridItem = (props) => {
     xl = 12,
     xxl = 12,
     children,
+    className = "",
+    ...rest
   } = props;
   return (
     <div 
+      {...rest}
       className={[
+        className,
         styles["grid-item"],
         styles[`col-xs-${xs}`],
         styles[`col-sm-${sm}`],
@@ -32,11 +36,19 @@ const ModularGrid = (props) => {
     children,
     spacing = 16,
     variant = "none",
+    className = "",
+    style = {},
+    ...rest
   } = props;
   return (
     <div
-      style={{ "--grid-spacing": spacing }} 
+      {...rest}
+      style={{ 
+        ...style,
+        "--grid-spacing": spacing 
+      }} 
       className={[
+        className,
         styles["modular-grid"],
         styles[`variant-${variant}`]
       ].join(" ")

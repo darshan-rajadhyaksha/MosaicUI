@@ -1,0 +1,54 @@
+.vertical-text-slider {
+  --sliding-animation-duration: 250ms;
+
+  > .text {
+    display: inline-block;
+    word-break: keep-all;
+    animation-duration: var(--sliding-animation-duration);
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    &.direction-down {
+      opacity: 0;
+      transform: translateY(-50%);
+      animation-name: text-slide-down-keyframes;
+    }
+
+    &.direction-up {
+      opacity: 0;
+      transform: translateY(50%);
+      animation-name: text-slide-up-keyframes;
+      animation-direction: reverse;
+    }
+
+    &.pause {
+      opacity: 1 !important;
+      transform: translateY(0%) !important;
+      animation: unset;
+    }
+  }
+}
+
+@keyframes text-slide-up-keyframes {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+}
+
+@keyframes text-slide-down-keyframes {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

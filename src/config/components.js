@@ -20,10 +20,12 @@ import shiningTextAnimationMeta from "@/docs/text-effects/shining-text-animation
 import textEmergeAnimationMeta from "@/docs/text-effects/text-emerge-animation";
 import textRevealAnimationMeta from "@/docs/text-effects/text-reveal-animation";
 import colorizedTextMeta from "@/docs/text-effects/colorized-text";
+import verticalTextSliderMeta from "@/docs/text-effects/vertical-text-slider";
 
 /* -- Loaders -- */
 import threeDotsLoaderMeta from "@/docs/loaders/three-dots-loader";
 import waveBarsLoaderMeta from "@/docs/loaders/wave-bars-loader";
+import fallingTilesLoaderMeta from "@/docs/loaders/falling-tiles-loader";
 
 
 const esssentials = {
@@ -51,6 +53,7 @@ const textEffects = {
   title: ComponentCategories.textEffect.title,
   items: {
     [decryptingTextAnimationMeta.key]: decryptingTextAnimationMeta,
+    [verticalTextSliderMeta.key]: verticalTextSliderMeta,
     [textRevealAnimationMeta.key]: textRevealAnimationMeta,
     [textEmergeAnimationMeta.key]: textEmergeAnimationMeta,
     [typewriterAnimationMeta.key]: typewriterAnimationMeta,
@@ -63,6 +66,7 @@ const loaders = {
   title: ComponentCategories.loader.title,
   items: {
     [waveBarsLoaderMeta.key]: waveBarsLoaderMeta,
+    [fallingTilesLoaderMeta.key]: fallingTilesLoaderMeta,
     [threeDotsLoaderMeta.key]: threeDotsLoaderMeta,
   },
 };

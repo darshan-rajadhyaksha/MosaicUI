@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import VerticalTextSliderDownDirectionPreview from "./previews/vertical-text-slider-down-direction-preview";
+import VerticalTextSliderDownDirectionPreviewCode from "./previews/vertical-text-slider-down-direction-preview?raw";
+import VerticalTextSliderVisibleDurationPreview from "./previews/vertical-text-slider-visible-duration-preview";
+import VerticalTextSliderVisibleDurationPreviewCode from "./previews/vertical-text-slider-visible-duration-preview?raw";
+---
+
+<div class="example">
+  <h3>Down Direction</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <VerticalTextSliderDownDirectionPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={VerticalTextSliderDownDirectionPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Custom Visible Duration</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <VerticalTextSliderVisibleDurationPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={VerticalTextSliderVisibleDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

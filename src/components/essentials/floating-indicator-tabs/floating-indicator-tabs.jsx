@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, memo } from "react";
+import { useState, useRef, useLayoutEffect, useMemo, memo } from "react";
 import styles from "./floating-indicator-tabs.module.css";
 
 const FloatingIndicatorTabs = (props) => {
@@ -22,6 +22,14 @@ const FloatingIndicatorTabs = (props) => {
   });
 
   const selectedTab = isControlled ? activeTab : currentTab;
+
+  const tabListId = useMemo(() => (
+    `tab-list-${Math.random().toString(36).substring(2)}`
+  ), []);
+
+  const getTabId = (tabId) => `${tabListId}-${tabId}-tab`;
+
+  const getTabPanelId = (tabId) => `${tabListId}-${tabId}-panel`;
   
   const handleTabClick = (tab) => {
     if(!isControlled) {
@@ -83,7 +91,8 @@ const FloatingIndicatorTabs = (props) => {
             key={tab.id}
             ref={(el) => (tabsRef.current[index] = el)}
             aria-selected={tab.id === selectedTab}
-            aria-controls={tab.content ? `${tab.id}-panel`: undefined}
+            aria-controls={tab.content ? getTabPanelId(tab.id) : undefined}
+            id={getTabId(tab.id)}
             onClick={() => handleTabClick(tab)}
             onKeyDown={(e) => handleKeyDown(e, index)}
           >
@@ -110,8 +119,8 @@ const FloatingIndicatorTabs = (props) => {
           <div
             key={`${tab.id}-panel`}
             role="tabpanel"
-            aria-labelledby={tab.id}
-            id={`${tab.id}-panel`}
+            aria-labelledby={getTabId(tab.id)}
+            id={getTabPanelId(tab.id)}
             hidden={!isActive}
             className={styles["tab-panel"]}
           >

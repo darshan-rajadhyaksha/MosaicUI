@@ -1,0 +1,44 @@
+.falling-tiles-loader {
+  --tile-size: 8px;
+  --tile-color: black;
+  --tile-offset-y: 100px;
+
+  @media (prefers-color-scheme: dark) {
+    --tile-color: white;
+  }
+
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(var(--tiles-grid-columns), var(--tile-size));
+
+  >.tile {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background: var(--tile-color);
+    opacity: 0;
+    transform: translateY(calc(var(--tile-offset-y) * -1));
+    animation: falling-tiles-keyframes ease-in-out infinite;
+    animation-duration: var(--animation-duration);
+    animation-delay: var(--animation-delay);
+  }
+}
+
+@keyframes falling-tiles-keyframes {
+  0%,
+  15% {
+    transform: translateY(calc(var(--tile-offset-y) * -1));
+    opacity: 0;
+  }
+
+  30%,
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  85%,
+  100% {
+    transform: translateY(var(--tile-offset-y));
+    opacity: 0;
+  }
+}

@@ -320,8 +320,4 @@
   &.variant-outlined>.grid-item {
     border: 1px solid var(--grid-item-border-color);
   }
-
-  &.variant-shadow>.grid-item {
-    box-shadow: 0 2px 6px var(--grid-item-shadow-color);
-  }
 }
