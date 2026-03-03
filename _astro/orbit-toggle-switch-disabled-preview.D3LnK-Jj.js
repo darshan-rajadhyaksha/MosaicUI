@@ -1,1 +1,0 @@
-import{j as e}from"./jsx-runtime.D_zvdyIk.js";import{O as t}from"./orbit-toggle-switch.BfzpIK_H.js";import"./index.DiEladB3.js";import"./_component_.dda31b18.cg3XSEQl.js";const a=()=>e.jsx("div",{children:e.jsx(t,{defaultChecked:!1,disabled:!0})});export{a as default};

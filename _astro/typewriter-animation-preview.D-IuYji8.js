@@ -1,1 +1,0 @@
-import{j as t}from"./jsx-runtime.D_zvdyIk.js";import{T as e}from"./typewriter-animation.CGbuA9Ol.js";import"./index.DiEladB3.js";import"./_component_.dda31b18.cg3XSEQl.js";const m=()=>t.jsx("h2",{children:t.jsx(e,{text:"Typing the future, live.",speed:75})});export{m as default};
