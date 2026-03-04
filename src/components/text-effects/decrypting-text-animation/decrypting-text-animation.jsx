@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState, Fragment } from "react";
 import styles from "./decrypting-text-animation.module.css";
 
 const random = (n = 1) => {
@@ -14,9 +14,9 @@ const DecryptingTextAnimation = (props) => {
 
   const letterVariants = ["outlined", "filled"];
 
-  const getRandomLetterVariant = () => {
+  const getRandomLetterVariant = useCallback(() => {
     return letterVariants[random(letterVariants.length)];
-  };
+  }, []);
 
   const getTextMappings = () => {
     return (
@@ -47,6 +47,12 @@ const DecryptingTextAnimation = (props) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTextMapping((prev) => {
+        const areAllDone = prev.flat().every(entry => {
+          return entry.letter === shuffledCharset[entry.index];
+        });
+        if(areAllDone) {
+          clearInterval(intervalId);
+        }
         return prev.map(word => (
           word.map(entry => {
             const isDone = entry.letter === shuffledCharset[entry.index];
@@ -62,18 +68,11 @@ const DecryptingTextAnimation = (props) => {
           })
         ))
       });
-      const isDone = textMapping.flat().every(entry => {
-        return entry.letter === shuffledCharset[entry.index];
-      });
-      if (isDone) {
-        clearInterval(intervalId);
-        return;
-      }
     }, speed);
     return () => {
       clearInterval(intervalId);
     };
-  }, [shuffledCharset, textMapping, speed]);
+  }, [shuffledCharset, speed, getRandomLetterVariant]);
 
   if (currentText !== text) {
     setCurrentText(text);
@@ -87,14 +86,15 @@ const DecryptingTextAnimation = (props) => {
     >
       {
         textMapping.map((word, wordIndex, arr) => (
-          <>
+          <Fragment key={`word-${wordIndex}`}>
             <span 
               aria-hidden={true}
               className={styles["word"]}
             >
-              {word.map((letter) => {
+              {word.map((letter, letterIndex) => {
                 return (
                   <span
+                    key={`letter-${wordIndex}-${letterIndex}`}
                     aria-hidden={true}
                     className={[
                       styles["letter"],
@@ -111,7 +111,7 @@ const DecryptingTextAnimation = (props) => {
                 &nbsp;
               </span>
             )}
-          </>
+          </Fragment>
         ))
       }
     </span>

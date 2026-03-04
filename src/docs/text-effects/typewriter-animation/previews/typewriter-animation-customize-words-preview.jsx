@@ -1,7 +1,12 @@
+import { useMemo } from "react";
 import TypewriterAnimation from "@/components/text-effects/typewriter-animation/typewriter-animation";
 
 const TypewriterAnimationCustomizeWordsPreview = () => {
-  const words = [
+  /**
+   * Make sure to memoize the words prop value to avoid re-renders 
+   * React recommendation - https://react.dev/reference/react/useMemo
+   */
+  const words = useMemo(() => ([
     { 
       text: "Hello", 
       speed: 500, 
@@ -16,7 +21,7 @@ const TypewriterAnimationCustomizeWordsPreview = () => {
         style: { color: "#de287d" } 
       },
     },
-  ];
+  ]), []);
 
   return (
     <h2>

@@ -26,6 +26,6 @@
   }
 
   35% {
-    transform: scale(1);
+    transform: scaleY(1);
   }
 }

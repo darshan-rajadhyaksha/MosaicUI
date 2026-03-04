@@ -69,6 +69,10 @@ const TextEmergeAnimation = (props) => {
     }
   }, [currentIndex, textMapping, speed]);
 
+  useEffect(() => {
+    setCurrentIndex(-1);
+  }, [text, type]);
+
   return (
     <span 
       aria-label={text}

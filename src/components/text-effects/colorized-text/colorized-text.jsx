@@ -20,7 +20,7 @@ const ColorizedText = (props) => {
 
   return (
     <span
-      aria-hidden={!isGradient}
+      aria-label={!isGradient ? text : undefined}
       className={[
         styles["aurora-text"],
         isGradient ? styles["gradient"] : "",

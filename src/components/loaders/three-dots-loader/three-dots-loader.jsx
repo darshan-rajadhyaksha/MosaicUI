@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./three-dots-loader.module.css";
 
 const ThreeDotsLoader = () => {
@@ -18,4 +19,4 @@ const ThreeDotsLoader = () => {
   );
 };
 
-export default ThreeDotsLoader;
+export default memo(ThreeDotsLoader);

@@ -10,7 +10,7 @@ const VerticalTextSlider = (props) => {
 
   const transitionDurationMs = 250;
 
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const wordNodeRef = useRef();
 
@@ -32,8 +32,8 @@ const VerticalTextSlider = (props) => {
           `text-slide-${direction === "down" ? "up" : "down"}-keyframes`
         ];
         animationEndTimeoutId = setTimeout(() => {
-          setCurrentWordIndex(
-            (currentWordIndex + 1) % texts.length
+          setCurrentTextIndex(
+            (currentTextIndex + 1) % texts.length
           );
         }, transitionDurationMs);
       }, totalAnimationDuration - (transitionDurationMs * 2));
@@ -45,13 +45,13 @@ const VerticalTextSlider = (props) => {
     };
   }, [
     texts.length, 
-    currentWordIndex, 
+    currentTextIndex, 
     direction, 
     totalAnimationDuration,
   ]);
 
   useEffect(() => {
-    setCurrentWordIndex(0);
+    setCurrentTextIndex(0);
   }, [
     texts,
     visibleDuration,
@@ -67,13 +67,13 @@ const VerticalTextSlider = (props) => {
     >
       <span
         ref={wordNodeRef}
-        key={`word-${currentWordIndex}`}
+        key={`word-${currentTextIndex}`}
         className={[
           styles["text"],
           styles[wordDirectionClassName]
         ].join(" ")}
       >
-        {texts[currentWordIndex]}
+        {texts[currentTextIndex]}
       </span>
     </span>
   );

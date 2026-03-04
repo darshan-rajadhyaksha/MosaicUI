@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import styles from "./wave-bars-loader.module.css";
 
 const WaveBarsLoader = (props) => {
@@ -16,17 +16,15 @@ const WaveBarsLoader = (props) => {
 
   const MIN_WAVES = 5;
 
-  const wavesMap = useMemo(() => {
+  const waves = useMemo(() => {
     const wavesCount = Math.max(MIN_WAVES, count);
-    const wavesMap = [];
-    for(let i=0; i < wavesCount; i++) {
-      wavesMap.push({
-        id: `wave-${Math.random()}`,
-        color: colors[i] ?? "currentColor",
-        delay: `${-100 * (wavesCount - i)}ms`,
-      });
-    }
-    return wavesMap;
+    return Array.from({ 
+      length: wavesCount 
+    }, (_, i) => ({
+      id: `wave-${i}`,
+      color: colors[i] ?? "currentColor",
+      delay: `${-100 * (wavesCount - i)}ms`,
+    }));
   }, [count]);
 
   return (
@@ -34,8 +32,9 @@ const WaveBarsLoader = (props) => {
       aria-hidden={true}
       className={styles["wave-bars-loader"]}
     >
-      {wavesMap.map(wave => (
+      {waves.map(wave => (
         <span
+          key={wave.id}
           className={styles["wave"]}
           style={{
             "--wave-color": wave.color,
@@ -48,4 +47,4 @@ const WaveBarsLoader = (props) => {
   );
 };
 
-export default WaveBarsLoader;
+export default memo(WaveBarsLoader);

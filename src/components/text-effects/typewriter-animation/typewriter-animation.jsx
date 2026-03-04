@@ -5,13 +5,12 @@ const TypewriterAnimation = (props) => {
   const {
     text,
     words,
-    hideCursor,
+    hideCursor = false,
     blinkCursor = true,
     cursorVariant = "line",
     speed = 100,
   } = props;
 
-  const [currentText, setCurrentText] = useState(text);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(-1);
 
@@ -27,13 +26,14 @@ const TypewriterAnimation = (props) => {
       const temp = [{
         ...(typeof word === "string" ? ({
           letters: word.split(""),
-          speed: speed,
+          speed,
         }) : ({
           letters: word.text.split(""),
+          speed,
           ...word,
         }))
       }];
-      if (wordIndex !== (arr.length - 1)) { 
+      if (wordIndex !== (arr.length - 1)) {
         temp.push({
           letters: [" "],
           speed,
@@ -68,7 +68,19 @@ const TypewriterAnimation = (props) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [wordsMap, currentWordIndex, currentLetterIndex, speed]);
+  }, [
+    wordsMap,
+    currentWordIndex,
+    currentLetterIndex,
+    isLastWord,
+    isLastLetter,
+    speed,
+  ]);
+
+  useEffect(() => {
+    setCurrentWordIndex(0);
+    setCurrentLetterIndex(-1);
+  }, [text, words, speed]);
 
   const isBlinkCursor = (
     blinkCursor && (
@@ -83,12 +95,6 @@ const TypewriterAnimation = (props) => {
     }
     return text;
   }, [text, words]);
-
-  if(currentText !== text) {
-    setCurrentText(text);
-    setCurrentWordIndex(0);
-    setCurrentLetterIndex(-1);
-  }
 
   return (
     <span 
