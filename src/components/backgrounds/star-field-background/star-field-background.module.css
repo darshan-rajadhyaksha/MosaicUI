@@ -1,6 +1,6 @@
 .star-field {
   position: relative;
-  width: 100%;
+  background: rgb(0, 0, 0);
 
   canvas {
     position: absolute;

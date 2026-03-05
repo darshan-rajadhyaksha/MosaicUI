@@ -41,27 +41,25 @@ const NightSkyBackground = (props) => {
   }, [canvasRef.current]);
 
   const stars = useMemo(() => {
-    const stars = [];
-    for (let i = 0; i < starsCount; i++) {
-      stars.push({
-        x: random(width),
-        y: random(height),
-        radius: random(),
-        color: (
-          random() < 0.8 ? [255, 255, 255] :  (
-            [
-              Math.floor(random(255)),
-              Math.floor(random(255)),
-              Math.floor(random(255)),
-            ]
-          )
-        ),
-        twinkingRate: random() * 0.01,
-        opacity: random(),
-        shouldTwinkle: random() < 0.5,
-      });
-    }
-    return stars;
+    return Array.from({ 
+      length: starsCount,
+    }).map(() => ({
+      x: random(width),
+      y: random(height),
+      radius: random(),
+      color: (
+        random() < 0.8 ? [255, 255, 255] :  (
+          [
+            Math.floor(random(255)),
+            Math.floor(random(255)),
+            Math.floor(random(255)),
+          ]
+        )
+      ),
+      twinkingRate: random() * 0.01,
+      opacity: random(),
+      shouldTwinkle: random() < 0.5,
+    }))
   }, [starsCount, width, height]);
 
   const render = useCallback(() => {

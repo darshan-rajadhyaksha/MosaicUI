@@ -14,14 +14,18 @@ const map = (value, start1, stop1, start2, stop2) => {
   return Math.min(Math.max(newValue, min), max);
 };
 
-function Star(ctx) {
-  this.canvasWidth = 0;
-  this.canvasHeight = 0;
-  this.starColor = "#ffffff";
-  this.starTrailColor = "#dddddd";
-  this.speed = 5;
+class Star {
+  constructor(ctx) {
+    this.ctx = ctx;
+    this.canvasWidth = 0;
+    this.canvasHeight = 0;
+    this.starColor = "#ffffff";
+    this.starTrailColor = "#dddddd";
+    this.speed = 5;
+    this.init();
+  }
 
-  this.init = () => {
+  init(){
     this.x = random(-this.canvasWidth / 2, this.canvasWidth / 2);
     this.y = random(-this.canvasHeight / 2, this.canvasHeight / 2);
     this.z = random(this.canvasWidth);
@@ -29,16 +33,16 @@ function Star(ctx) {
     this.r = 1;
   };
 
-  this.setCanvasSize = (width, height) => {
+  setCanvasSize(width, height){
     this.canvasWidth = width;
     this.canvasHeight = height;
   };
 
-  this.setSpeed = (speed) => {
+  setSpeed(speed){
     this.speed = speed;
   };
 
-  this.update = () => {
+  update(){
     this.z -= this.speed;
     if (
       (this.speed >= 0 && this.z <= 0) ||
@@ -48,26 +52,24 @@ function Star(ctx) {
     }
   };
 
-  this.show = () => {
+  show(){
     const x1 = map(this.x / this.z, -1, 1, -this.canvasWidth / 2, this.canvasWidth / 2);
     const y1 = map(this.y / this.z, -1, 1, -this.canvasHeight / 2, this.canvasHeight / 2);
-    this.sx = map(this.x / this.sz, -1, 1, -this.canvasWidth / 2, this.canvasWidth / 2);
-    this.sy = map(this.y / this.sz, -1, 1, -this.canvasHeight / 2, this.canvasHeight / 2);
+    const x2 = map(this.x / this.sz, -1, 1, -this.canvasWidth / 2, this.canvasWidth / 2);
+    const y2 = map(this.y / this.sz, -1, 1, -this.canvasHeight / 2, this.canvasHeight / 2);
     const radius = map(this.z, -this.canvasWidth / 2, this.canvasWidth / 2, 0.2, 0.8);
-    ctx.beginPath();
-    ctx.fillStyle = this.starColor;
-    ctx.fill();
-    ctx.ellipse(x1, y1, radius, radius, 0, 0, 360, false);
-    ctx.strokeStyle = this.starTrailColor;
-    ctx.lineWidth = 1;
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(this.sx, this.sy);
-    ctx.stroke();
-    ctx.closePath(); 
+    this.ctx.beginPath();
+    this.ctx.fillStyle = this.starColor;
+    this.ctx.fill();
+    this.ctx.ellipse(x1, y1, radius, radius, 0, 0, 360, false);
+    this.ctx.strokeStyle = this.starTrailColor;
+    this.ctx.lineWidth = 1;
+    this.ctx.moveTo(x1, y1);
+    this.ctx.lineTo(x2, y2);
+    this.ctx.stroke();
+    this.ctx.closePath(); 
     this.sz = this.z;
   };
-
-  this.init();
 }
 
 const StarFieldBackground = (props) => {
@@ -88,7 +90,6 @@ const StarFieldBackground = (props) => {
   const Wrapper = wrapperTagName || "div";
 
   const spaceColor = "#000000";
-  const starsCount = 500;
 
   const canvasRef = useRef();
   const containerRef = useRef();
@@ -97,6 +98,8 @@ const StarFieldBackground = (props) => {
   const [mounted, setMounted] = useState(false);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+
+  const starsCount = Math.min(500, width * height * 0.001);
 
   const ctx = useMemo(() => {
     return canvasRef.current?.getContext("2d");

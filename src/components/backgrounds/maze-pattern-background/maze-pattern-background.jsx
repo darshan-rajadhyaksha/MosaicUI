@@ -18,6 +18,8 @@ const MazePatternBackground = (props) => {
     ...restWrapperProps
   } = wrapperProps;
 
+  const _mazeSize = Math.max(1, mazeSize);
+
   const Wrapper = wrapperTagName || "div";
 
   const containerRef = useRef(null);
@@ -35,15 +37,15 @@ const MazePatternBackground = (props) => {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
     ctx.save();
-    for (let y = 0; y < height; y += mazeSize) {
-      for (let x = 0; x < width; x += mazeSize) {
+    for (let y = 0; y < height; y += _mazeSize) {
+      for (let x = 0; x < width; x += _mazeSize) {
         ctx.beginPath();
         if (Math.random() < 0.5) {
           ctx.moveTo(x, y);
-          ctx.lineTo(x + mazeSize, y + mazeSize);
+          ctx.lineTo(x + _mazeSize, y + _mazeSize);
         } else {
-          ctx.moveTo(x + mazeSize, y);
-          ctx.lineTo(x, y + mazeSize);
+          ctx.moveTo(x + _mazeSize, y);
+          ctx.lineTo(x, y + _mazeSize);
         }
         ctx.strokeStyle = mazeColor;
         ctx.lineWidth = 1;
@@ -52,7 +54,7 @@ const MazePatternBackground = (props) => {
       }
     }
     ctx.restore();
-  }, [ctx, backgroundColor, mazeColor, width, height, mazeSize]);
+  }, [ctx, backgroundColor, mazeColor, width, height, _mazeSize]);
 
   useEffect(() => {
     const updateContainerDimensions = () => {
@@ -75,7 +77,7 @@ const MazePatternBackground = (props) => {
   useLayoutEffect(() => {
     if (!mounted) return;
     render();
-  }, [render]);
+  }, [mounted, render]);
 
   return (
     <div
