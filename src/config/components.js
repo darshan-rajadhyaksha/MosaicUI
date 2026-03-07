@@ -12,6 +12,7 @@ import mazePatternBackgroundMeta from "@/docs/backgrounds/maze-pattern-backgroun
 import starFieldBackgroundMeta from "@/docs/backgrounds/star-field-background";
 import nightSkyBackgroundMeta from "@/docs/backgrounds/night-sky-background";
 import ghostCubesBackgroundMeta from "@/docs/backgrounds/ghost-cubes-background";
+import gridPatternBackgroundMeta from "@/docs/backgrounds/grid-pattern-background";
 
 /* -- Text Effects -- */
 import typewriterAnimationMeta from "@/docs/text-effects/typewriter-animation";
@@ -42,6 +43,7 @@ const esssentials = {
 const backgrounds = {
   title: ComponentCategories.background.title,
   items: {
+    [gridPatternBackgroundMeta.key]: gridPatternBackgroundMeta,
     [ghostCubesBackgroundMeta.key]: ghostCubesBackgroundMeta,
     [mazePatternBackgroundMeta.key]: mazePatternBackgroundMeta,
     [nightSkyBackgroundMeta.key]: nightSkyBackgroundMeta,

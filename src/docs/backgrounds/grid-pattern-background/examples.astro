@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import GridPatternBackgroundDirectionPreview from "./previews/grid-pattern-background-direction-preview";
+import GridPatternBackgroundDirectionPreviewCode from "./previews/grid-pattern-background-direction-preview?raw";
+import GridPatternBackgroundSpeedPreview from "./previews/grid-pattern-background-speed-preview";
+import GridPatternBackgroundSpeedPreviewCode from "./previews/grid-pattern-background-speed-preview?raw";
+import GridPatternBackgroundGridSizePreview from "./previews/grid-pattern-background-grid-size-preview";
+import GridPatternBackgroundGridSizePreviewCode from "./previews/grid-pattern-background-grid-size-preview?raw";
+---
+
+<div class="example">
+  <h3>Direction</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <GridPatternBackgroundDirectionPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={GridPatternBackgroundDirectionPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Speed</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <GridPatternBackgroundSpeedPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={GridPatternBackgroundSpeedPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Grid Size</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <GridPatternBackgroundGridSizePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={GridPatternBackgroundGridSizePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
