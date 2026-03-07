@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import CircularTextAntiClockwiseDirectionPreview from "./previews/circular-text-anti-clockwise-direction-preview";
+import CircularTextAntiClockwiseDirectionPreviewCode from "./previews/circular-text-anti-clockwise-direction-preview?raw";
+import CircularTextDurationPreview from "./previews/circular-text-duration-preview";
+import CircularTextDurationPreviewCode from "./previews/circular-text-duration-preview?raw";
+---
+
+<div class="example">
+  <h3>Anti-Clockwise Direction</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <CircularTextAntiClockwiseDirectionPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={CircularTextAntiClockwiseDirectionPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Duration</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <CircularTextDurationPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={CircularTextDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

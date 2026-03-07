@@ -1,0 +1,37 @@
+.circular-text {
+  position: relative;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  animation-duration: var(--duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &.rotate-clockwise {
+    animation-name: circular-text-keyframes;
+  }
+
+  &.rotate-anti-clockwise {
+    animation-name: circular-text-keyframes;
+    animation-direction: reverse;
+  }
+
+  >span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    transform:
+      translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
+      rotate(var(--angle));
+  }
+}
+
+@keyframes circular-text-keyframes {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
