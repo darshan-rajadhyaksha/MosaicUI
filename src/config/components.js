@@ -24,6 +24,7 @@ import textRevealAnimationMeta from "@/docs/text-effects/text-reveal-animation";
 import colorizedTextMeta from "@/docs/text-effects/colorized-text";
 import verticalTextSliderMeta from "@/docs/text-effects/vertical-text-slider";
 import circularTextMeta from "@/docs/text-effects/circular-text";
+import rollingLettersAnimationMeta from "@/docs/text-effects/rolling-letters-animation";
 
 /* -- Loaders -- */
 import threeDotsLoaderMeta from "@/docs/loaders/three-dots-loader";
@@ -59,6 +60,7 @@ const textEffects = {
   items: {
     [circularTextMeta.key]: circularTextMeta,
     [decryptingTextAnimationMeta.key]: decryptingTextAnimationMeta,
+    [rollingLettersAnimationMeta.key]: rollingLettersAnimationMeta,
     [verticalTextSliderMeta.key]: verticalTextSliderMeta,
     [textRevealAnimationMeta.key]: textRevealAnimationMeta,
     [textEmergeAnimationMeta.key]: textEmergeAnimationMeta,

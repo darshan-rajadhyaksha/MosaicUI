@@ -1,0 +1,52 @@
+.rolling-letters-animation {
+  display: inline-block;
+  height: var(--letter-block-size);
+
+  >.letters-wrapper {
+    display: inline-block;
+    width: var(--letter-block-size);
+    height: var(--letter-block-size);
+    overflow: hidden;
+
+    >.letter {
+      display: grid;
+      place-items: center;
+      width: var(--letter-block-size);
+      height: var(--letter-block-size);
+      overflow: hidden;
+
+      &:first-child {
+        animation: rolling-letters-keyframes var(--animation-duration) cubic-bezier(0, 0.34, 0.1, 1.11) forwards;
+      }
+    }
+
+    &:nth-child(odd) {
+      >.letter {
+        &:first-child {
+          margin-top: calc(var(--total-rolling-letters) * var(--letter-block-size) * -1);
+          animation-name: rolling-letters-reverse-keyframes;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rolling-letters-keyframes {
+  from {
+    margin-top: 0%;
+  }
+
+  to {
+    margin-top: calc(var(--total-rolling-letters) * calc(var(--letter-block-size) * -1));
+  }
+}
+
+@keyframes rolling-letters-reverse-keyframes {
+  from {
+    margin-top: calc(var(--total-rolling-letters) * calc(var(--letter-block-size) * -1));
+  }
+
+  to {
+    margin-top: 0%;
+  }
+}
