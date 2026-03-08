@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import DotGridGradientBackgroundDirectionPreview from "./previews/dot-grid-gradient-background-direction-preview";
+import DotGridGradientBackgroundDirectionPreviewCode from "./previews/dot-grid-gradient-background-direction-preview?raw";
+import DotGridGradientBackgroundDotScalePreview from "./previews/dot-grid-gradient-background-dot-scale-preview";
+import DotGridGradientBackgroundDotScalePreviewCode from "./previews/dot-grid-gradient-background-dot-scale-preview?raw";
+import DotGridGradientBackgroundDecayPreview from "./previews/dot-grid-gradient-background-decay-preview";
+import DotGridGradientBackgroundDecayPreviewCode from "./previews/dot-grid-gradient-background-decay-preview?raw";
+---
+
+<div class="example">
+  <h3>Direction</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <DotGridGradientBackgroundDirectionPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={DotGridGradientBackgroundDirectionPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Dot Scale</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <DotGridGradientBackgroundDotScalePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={DotGridGradientBackgroundDotScalePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Decay</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <DotGridGradientBackgroundDecayPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={DotGridGradientBackgroundDecayPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
