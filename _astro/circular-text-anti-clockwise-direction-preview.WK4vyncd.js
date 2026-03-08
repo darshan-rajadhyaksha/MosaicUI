@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime.D_zvdyIk.js";import{C as r}from"./circular-text.DgwLQ2Mi.js";import"./index.DiEladB3.js";import"./_component_.abe5225a.BMhuz3Gj.js";const a=()=>t.jsx(r,{text:"CODE • DESIGN • SHIP •",radius:85,rotate:!0,direction:"anti-clockwise"});export{a as default};
