@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import MarqueeAxisPreview from "./previews/marquee-axis-preview";
+import MarqueeAxisPreviewCode from "./previews/marquee-axis-preview?raw";
+import MarqueeDurationPreview from "./previews/marquee-duration-preview";
+import MarqueeDurationPreviewCode from "./previews/marquee-duration-preview?raw";
+---
+
+<div class="example">
+  <h3>Vertical</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <MarqueeAxisPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={MarqueeAxisPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Duration</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <MarqueeDurationPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={MarqueeDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

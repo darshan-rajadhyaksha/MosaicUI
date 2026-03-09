@@ -1,0 +1,98 @@
+.marquee {
+  --gap: 16px;
+  --mask-breakpoint: 20%;
+
+  overflow: hidden;
+
+  >.wrapper {
+    display: flex;
+    gap: var(--gap);
+    width: max-content;
+
+    >.batch {
+      display: flex;
+      gap: var(--gap);
+      animation-duration: var(--animation-duration);
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.pause-on-hover:hover {
+    >.wrapper {
+      >.batch {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &.reverse {
+    >.wrapper {
+      >.batch {
+        animation-direction: reverse;
+      }
+    }
+  }
+
+  &.axis-horizontal {
+    &.mask {
+      mask: linear-gradient(
+        to right, 
+        transparent, 
+        white var(--mask-breakpoint), 
+        white calc(100% - var(--mask-breakpoint)), 
+        transparent
+      );
+    }
+
+    >.wrapper {
+      flex-direction: row;
+
+      >.batch {
+        flex-direction: row;
+        animation-name: marquee-list-horizontal-keyframes;
+      }
+    }
+  }
+
+  &.axis-vertical {
+    &.mask {
+      mask: linear-gradient(
+        to bottom, 
+        transparent, 
+        white var(--mask-breakpoint), 
+        white calc(100% - var(--mask-breakpoint)), 
+        transparent
+      );
+    }
+
+    >.wrapper {
+      flex-direction: column;
+
+      >.batch {
+        flex-direction: column;
+        animation-name: marquee-list-vertical-keyframes;
+      }
+    }
+  }
+}
+
+@keyframes marquee-list-horizontal-keyframes {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-list-vertical-keyframes {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
