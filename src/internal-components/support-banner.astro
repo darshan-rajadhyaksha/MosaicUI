@@ -20,8 +20,9 @@ import { Icon } from "astro-icon/components";
 			class="x"
 			href={project.social.x.url}
 			target="_blank"
+			aria-label="Shoutout on X"
 		>
-			Shoutout on <Icon name="x">
+			Shoutout on <Icon aria-hidden={true} name="x">
 		</a>
 		<a 
 			class="linkedin"

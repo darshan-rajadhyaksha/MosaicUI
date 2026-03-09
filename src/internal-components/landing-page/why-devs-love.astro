@@ -54,7 +54,7 @@ const whyDevsLoveCards = [
         whyDevsLoveCards.map((card) => (
           <ModularGridItem xxl={4} xl={4} lg={4} md={6} sm={6}>
             <div class="card">
-              <Icon class="icon" name={card.icon} />
+              <Icon aria-hidden={true} class="icon" name={card.icon} />
               <h3>{card.title}</h3>
               <p>{card.description}</p>
             </div>

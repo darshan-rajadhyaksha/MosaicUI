@@ -55,9 +55,10 @@ const getLinkClass = (link: Link) => (
         class="logo" 
         href="/"
       >
-        <img 
+        <img
+          aria-hidden={true}
           src={logo.src} 
-          alt={logo.title} 
+          alt={logo.title}
         />
         <span>
           {logo.title}
@@ -84,14 +85,17 @@ const getLinkClass = (link: Link) => (
           secondaryLinks?.map((link: Link) => (
             <li>
               <a
+                {...(link.type === "icon-button" && ({
+                  "aria-label": link.title,
+                }))}
                 class={getLinkClass(link)}
                 href={link.href}
                 target="_blank"
               >
                 {link.icon && (
-                  <Icon name={link.icon} />
+                  <Icon aria-hidden={true} name={link.icon} />
                 )}
-                {link.title && (
+                {link.title && link.type !== "icon-button" && (
                   <span>{link.title}</span>
                 )}
               </a>
@@ -99,9 +103,12 @@ const getLinkClass = (link: Link) => (
           ))
         }
       </ul>
-      <button class="theme-btn">
-        <Icon class="icon sun" name="sun" />
-        <Icon class="icon moon" name="moon" />
+      <button 
+        aria-label="Change theme"
+        class="theme-btn"
+      >
+        <Icon aria-hidden={true} class="icon sun" name="sun" />
+        <Icon aria-hidden={true} class="icon moon" name="moon" />
       </button>
       {showHamBtn && (
         <button class="ham-btn">
