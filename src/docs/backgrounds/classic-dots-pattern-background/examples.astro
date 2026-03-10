@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import ClassicDotsPatternBackgroundVariantsPreview from "./previews/classic-dots-pattern-background-variants-preview";
+import ClassicDotsPatternBackgroundVariantsPreviewCode from "./previews/classic-dots-pattern-background-variants-preview?raw";
+import ClassicDotsPatternBackgroundCustomizationsPreview from "./previews/classic-dots-pattern-background-customizations-preview";
+import ClassicDotsPatternBackgroundCustomizationsPreviewCode from "./previews/classic-dots-pattern-background-customizations-preview?raw";
+---
+
+<div class="example">
+  <h3>Variants</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ClassicDotsPatternBackgroundVariantsPreview client:only />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ClassicDotsPatternBackgroundVariantsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Customizations</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <ClassicDotsPatternBackgroundCustomizationsPreview client:only />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={ClassicDotsPatternBackgroundCustomizationsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

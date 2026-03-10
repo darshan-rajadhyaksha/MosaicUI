@@ -1,0 +1,14 @@
+| Prop             | Type                           | Required | Default                    | Description |
+|------------------|--------------------------------|----------|----------------------------|-------------|
+| children       | `React.ReactNode`              | No       | —                          | Content rendered inside the background wrapper. |
+| variant        | `"standard" \| "radial" \| "random"` | No | `"standard"` | Determines how dots are distributed in the background. `standard` renders a grid pattern, `radial` creates a radial fade effect, and `random` distributes dots randomly. |
+| dotColor       | `string`                       | No       | `"rgb(255, 255, 255)"`     | Color of the dots. Accepts `rgb`, `rgba`, or `hex`. For the `radial` variant, the alpha channel is used to produce the radial fade effect. |
+| dotScale       | `number`                       | No       | `1`                        | Controls the size of the dots. Recommended range: `0.1 – 5`. |
+| gap            | `number`                       | No       | `4`                        | Space between dots in the grid. Minimum value: `1`. |
+| radialDirection| `"in" \| "out"`                | No       | `"in"`                     | Direction of the radial effect when using the `radial` variant. `in` fades toward the center, `out` fades toward the edges. |
+| radialScale    | `number`                       | No       | `0.25`                     | Intensity/scale of the radial effect. Recommended range: `0.1 – 1`. Only applies to the `radial` variant. |
+| density        | `number`                       | No       | `0.5`                      | Controls how many dots appear in the `random` variant. Range: `0.1 – 1`. Higher values produce denser patterns. |
+| className      | `string`                       | No       | —                          | Additional class names applied to the background container. |
+| style          | `React.CSSProperties`         | No       | —                          | Inline styles applied to the background container. |
+| wrapperTagName | `string`  | No       | `"div"`                    | HTML tag used as the wrapper element around the children. |
+| wrapperProps   | `HTMLAttributes<HTMLElement>`         | No       | —                       | Additional props passed to the wrapper element containing the children. |

@@ -15,6 +15,7 @@ import nightSkyBackgroundMeta from "@/docs/backgrounds/night-sky-background";
 import ghostCubesBackgroundMeta from "@/docs/backgrounds/ghost-cubes-background";
 import gridPatternBackgroundMeta from "@/docs/backgrounds/grid-pattern-background";
 import dotGridGradientBackgroundMeta from "@/docs/backgrounds/dot-grid-gradient-background";
+import classicDotsPatternBackgroundMeta from "@/docs/backgrounds/classic-dots-pattern-background";
 
 /* -- Text Effects -- */
 import typewriterAnimationMeta from "@/docs/text-effects/typewriter-animation";
@@ -48,6 +49,7 @@ const esssentials = {
 const backgrounds = {
   title: ComponentCategories.background.title,
   items: {
+    [classicDotsPatternBackgroundMeta.key]: classicDotsPatternBackgroundMeta,
     [dotGridGradientBackgroundMeta.key]: dotGridGradientBackgroundMeta,
     [gridPatternBackgroundMeta.key]: gridPatternBackgroundMeta,
     [ghostCubesBackgroundMeta.key]: ghostCubesBackgroundMeta,
