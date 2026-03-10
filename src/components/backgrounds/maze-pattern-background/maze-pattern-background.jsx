@@ -29,14 +29,24 @@ const MazePatternBackground = (props) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    return {
+      devicePixelRatio,
+      canvasWidth: width * devicePixelRatio,
+      canvasHeight: height * devicePixelRatio,
+    };
+  }, [width, height]);
+
   const ctx = useMemo(() => {
     return canvasRef.current?.getContext("2d");
   }, [canvasRef.current]);
 
   const render = useCallback(() => {
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, width, height);
-    ctx.save();
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     for (let y = 0; y < height; y += _mazeSize) {
       for (let x = 0; x < width; x += _mazeSize) {
         ctx.beginPath();
@@ -53,8 +63,17 @@ const MazePatternBackground = (props) => {
         ctx.closePath();
       }
     }
-    ctx.restore();
-  }, [ctx, backgroundColor, mazeColor, width, height, _mazeSize]);
+  }, [
+    ctx,
+    devicePixelRatio,
+    backgroundColor,
+    mazeColor,
+    width,
+    height,
+    canvasWidth,
+    canvasHeight,
+    _mazeSize,
+  ]);
 
   useEffect(() => {
     const updateContainerDimensions = () => {
@@ -90,8 +109,8 @@ const MazePatternBackground = (props) => {
     >
       <canvas
         aria-hidden={true}
-        width={width}
-        height={height}
+        width={canvasWidth}
+        height={canvasHeight}
         ref={canvasRef}
       />
       <Wrapper

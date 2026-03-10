@@ -35,7 +35,7 @@ const ClassicDotsPatternBackground = (props) => {
   const [height, setHeight] = useState(0);
 
   const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
-    const devicePixelRatio = window.devicePixelRatio || 1;
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
     return {
       devicePixelRatio,
       canvasWidth: width * devicePixelRatio,
@@ -88,7 +88,7 @@ const ClassicDotsPatternBackground = (props) => {
   }, []);
 
   const render = useCallback(() => {
-    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
     const dotContainerSize = (_gap * 2) + (_dotScale * 2);

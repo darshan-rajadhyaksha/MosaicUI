@@ -30,14 +30,24 @@ const DotGridGradientBackground = (props) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    return {
+      devicePixelRatio,
+      canvasWidth: width * devicePixelRatio,
+      canvasHeight: height * devicePixelRatio,
+    };
+  }, [width, height]);
+
   const ctx = useMemo(() => {
     return canvasRef.current?.getContext("2d");
   }, [canvasRef.current]);
 
   const render = useCallback(() => {
-    ctx.clearRect(0, 0, width, height);
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
     const dotSize = 5 + (10 * dotScale);
     const k = (1 + (decay * 15)) / (height / dotSize);
@@ -81,8 +91,11 @@ const DotGridGradientBackground = (props) => {
     }
   }, [
     ctx,
+    devicePixelRatio,
     width,
     height,
+    canvasWidth,
+    canvasHeight,
     backgroundColor,
     dotScale,
     dotColor,
@@ -128,8 +141,8 @@ const DotGridGradientBackground = (props) => {
     >
       <canvas
         aria-hidden={true}
-        width={width}
-        height={height}
+        width={canvasWidth}
+        height={canvasHeight}
         ref={canvasRef}
       />
       <Wrapper

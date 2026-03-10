@@ -99,6 +99,15 @@ const StarFieldBackground = (props) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    return {
+      devicePixelRatio,
+      canvasWidth: width * devicePixelRatio,
+      canvasHeight: height * devicePixelRatio,
+    };
+  }, [width, height]);
+
   const starsCount = Math.min(500, width * height * 0.001);
 
   const ctx = useMemo(() => {
@@ -110,8 +119,9 @@ const StarFieldBackground = (props) => {
   ), [ctx, starsCount]);
 
   const render = useCallback(() => {
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     ctx.fillStyle = spaceColor;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.save();
     ctx.translate(width / 2, height / 2);
     for (let i = 0; i < stars.length; i++) {
@@ -122,7 +132,17 @@ const StarFieldBackground = (props) => {
     }
     ctx.restore();
     rafId.current = requestAnimationFrame(render);
-  }, [ctx, width, height, stars, speed, spaceColor]);
+  }, [
+    ctx,
+    devicePixelRatio,
+    width,
+    height,
+    canvasWidth,
+    canvasHeight,
+    stars,
+    speed,
+    spaceColor,
+  ]);
 
   useEffect(() => {
     const updateContainerDimensions = () => {
@@ -161,8 +181,8 @@ const StarFieldBackground = (props) => {
     >
       <canvas
         aria-hidden={true}
-        width={width}
-        height={height}
+        width={canvasWidth}
+        height={canvasHeight}
         ref={canvasRef}
       />
       <Wrapper

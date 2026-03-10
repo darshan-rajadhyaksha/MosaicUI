@@ -36,6 +36,15 @@ const NightSkyBackground = (props) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    return {
+      devicePixelRatio,
+      canvasWidth: width * devicePixelRatio,
+      canvasHeight: height * devicePixelRatio,
+    };
+  }, [width, height]);
+
   const ctx = useMemo(() => {
     return canvasRef.current?.getContext("2d");
   }, [canvasRef.current]);
@@ -63,8 +72,9 @@ const NightSkyBackground = (props) => {
   }, [starsCount, width, height]);
 
   const render = useCallback(() => {
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     ctx.fillStyle = spaceColor;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.save();
     for (const star of stars) {
       let starOpacity = star.opacity;
@@ -89,7 +99,15 @@ const NightSkyBackground = (props) => {
     }
     ctx.restore();
     rafId.current = requestAnimationFrame(render);
-  }, [ctx, width, height, stars]);
+  }, [
+    ctx,
+    devicePixelRatio,
+    width,
+    height,
+    canvasWidth,
+    canvasHeight,
+    stars,
+  ]);
 
   useEffect(() => {
     const updateContainerDimensions = () => {
@@ -128,8 +146,8 @@ const NightSkyBackground = (props) => {
     >
       <canvas
         aria-hidden={true}
-        width={width}
-        height={height}
+        width={canvasWidth}
+        height={canvasHeight}
         ref={canvasRef}
       />
       <Wrapper

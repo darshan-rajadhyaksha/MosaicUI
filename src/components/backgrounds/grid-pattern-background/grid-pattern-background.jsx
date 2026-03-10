@@ -32,6 +32,15 @@ const GridPatternBackground = (props) => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
+    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    return {
+      devicePixelRatio,
+      canvasWidth: width * devicePixelRatio,
+      canvasHeight: height * devicePixelRatio,
+    };
+  }, [width, height]);
+
   const ctx = useMemo(() => {
     return canvasRef.current?.getContext("2d");
   }, [canvasRef.current]);
@@ -72,7 +81,8 @@ const GridPatternBackground = (props) => {
     }
     translate.current.x %= _size;
     translate.current.y %= _size;
-    ctx.clearRect(0, 0, width, height);
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     for (let i = -_size; i <= (height + _size); i += _size) {
       ctx.beginPath();
       ctx.moveTo(0, i + translate.current.y);
@@ -96,8 +106,11 @@ const GridPatternBackground = (props) => {
     }
   }, [
     ctx,
+    devicePixelRatio,
     width,
     height,
+    canvasWidth,
+    canvasHeight,
     gridColor,
     direction,
     _size,
@@ -145,8 +158,8 @@ const GridPatternBackground = (props) => {
     >
       <canvas
         aria-hidden={true}
-        width={width}
-        height={height}
+        width={canvasWidth}
+        height={canvasHeight}
         ref={canvasRef}
       />
       <Wrapper
