@@ -1,5 +1,6 @@
 | Prop              | Type                                                                 | Required | Default     | Description |
 |------------------|----------------------------------------------------------------------|----------|------------|-------------|
+| labelText | `string` | Yes       | —       | Accessible label that provides a descriptive name for the component. Helps assistive technologies understand the purpose of the comparison slider. |
 | beforeImage       | `{ src: string; alt: string }`                                      | Yes      | —          | Object containing `src` and `alt` for the before image. |
 | afterImage        | `{ src: string; alt: string }`                                      | Yes      | —          | Object containing `src` and `alt` for the after image. |
 | imageWidth        | `string \| number`                                                   | No       | undefined  | Sets the width of the image (px or %). |
@@ -8,3 +9,5 @@
 | percentage        | `number`                                                             | No       | undefined  | Controlled value to manually set the slider position. |
 | onSliderChange    | `(percentage: number) => void`                                       | No       | undefined  | Callback triggered when the slider position changes. |
 | sliderStyles      | `{ size?: string \| number; borderColor?: string; backgroundColor?: string; activeBorderColor?: string; activeBackgroundColor?: string }` | No | undefined | Customizes slider appearance including size, border and background colors (default and active states). |
+| className| `string`                   | No       | —             | Optional class name applied to the root container. |
+| style    | `React.CSSProperties`      | No       | —             | Inline styles applied to the root container. |

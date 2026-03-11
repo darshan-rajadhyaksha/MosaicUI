@@ -1,5 +1,6 @@
 | Prop          | Type                           | Required | Default | Description |
 |---------------|--------------------------------|----------|---------|-------------|
+| aria-label | `string` | No       | —       | Accessible label that provides a descriptive name for the component. Helps assistive technologies understand the purpose of the toggle switch. |
 | id            | `string`                       | No       | —       | Assigned to the toggle switch control element. |
 | checked       | `boolean`                      | No       | —       | Controls the checked state (controlled mode). |
 | defaultChecked| `boolean`                      | No       | `false` | Sets the initial checked state (uncontrolled mode). |
@@ -7,3 +8,5 @@
 | onChange      | `(checked: boolean) => void`   | No       | —       | Callback triggered when the toggle state changes. Receives the new `true`/`false` value. |
 | isInsideLabel | `boolean`                      | No       | `false` | Set to `true` when used inside a `<label>` to enable native label click accessibility behavior. |
 | inputProps    | `React.InputHTMLAttributes<HTMLInputElement>` | No | — | Additional props passed to the native input when `isInsideLabel` is `true`. |
+| className| `string`                   | No       | —             | Optional class name applied to the root container. |
+| style    | `React.CSSProperties`      | No       | —             | Inline styles applied to the root container. |

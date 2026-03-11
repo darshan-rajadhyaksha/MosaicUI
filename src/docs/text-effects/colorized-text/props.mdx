@@ -3,3 +3,5 @@
 | text     | `string`                   | Yes      | —             | The text content to display. |
 | colors   | `string[]`                 | No       | []            | Array of colors to apply to the text. If empty, inherits the current text color. |
 | variant  | `"gradient" \| "standard"` | No       | `"gradient"` | Determines how the colors are applied.<br />• `"gradient"`: applies a smooth gradient across the text.<br />• `"standard"`: applies each color in `colors` sequentially to each character; cycles through if there are more characters than colors. |
+| className| `string`                   | No       | —             | Optional class name applied to the root container. |
+| style    | `React.CSSProperties`      | No       | —             | Inline styles applied to the root container. |
