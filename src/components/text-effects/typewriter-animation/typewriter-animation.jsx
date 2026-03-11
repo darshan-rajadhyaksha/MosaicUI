@@ -9,6 +9,8 @@ const TypewriterAnimation = (props) => {
     blinkCursor = true,
     cursorVariant = "line",
     speed = 100,
+    className,
+    ...restProps
   } = props;
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -89,7 +91,7 @@ const TypewriterAnimation = (props) => {
     )
   );
 
-  const ariaLabel = useMemo(() => {
+  const srOnlyText = useMemo(() => {
     if (Array.isArray(words)) {
       return words.map(word => word.text).join(" ");
     }
@@ -97,9 +99,12 @@ const TypewriterAnimation = (props) => {
   }, [text, words]);
 
   return (
-    <span 
-      aria-label={ariaLabel}
-      className={styles["typewriter-animation"]}
+    <span
+      {...restProps}
+      className={[
+        className,
+        styles["typewriter-animation"],
+      ].join(" ")}
     >
       {wordsMap.map((word, wordIndex) => (
         <span 
@@ -133,6 +138,11 @@ const TypewriterAnimation = (props) => {
         hidden={hideCursor}
       >
         {cursorVariant === "underscore" ? "_" : <>&nbsp;</>}
+      </span>
+      <span
+        className={styles["sr-only"]}
+      >
+        {srOnlyText}
       </span>
     </span>
   );

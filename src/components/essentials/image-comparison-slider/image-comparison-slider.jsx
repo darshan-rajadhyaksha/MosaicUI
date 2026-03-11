@@ -3,6 +3,8 @@ import styles from "./image-comparison-slider.module.css";
 
 const ImageComparisonSlider = (props) => {
   const {
+    labelText,
+
     beforeImage,
     afterImage,
 
@@ -16,6 +18,9 @@ const ImageComparisonSlider = (props) => {
     onSliderChange,
 
     sliderStyles = {},
+
+    className,
+    style,
   } = props;
 
   const [sliderPercentage, setSliderPercentage] = useState(defaultPercentage);
@@ -83,7 +88,11 @@ const ImageComparisonSlider = (props) => {
 
   return (
     <div
-      className={styles["image-comparison-slider"]}
+      style={style}
+      className={[
+        className,
+        styles["image-comparison-slider"],
+      ].join(" ")}
       ref={imageSliderWrapperNode}
     >
       <img
@@ -105,6 +114,7 @@ const ImageComparisonSlider = (props) => {
         min="0"
         max="100"
         step="1"
+        aria-label={labelText}
         value={sliderPercentage}
         onChange={handleChange}
       />
@@ -115,6 +125,9 @@ const ImageComparisonSlider = (props) => {
 export default memo(ImageComparisonSlider, (prevProps, nextProps) => {
   return (
     [
+      "className",
+      "style",
+      "labelText",
       "imageWidth",
       "imageHeight",
       "percentage",

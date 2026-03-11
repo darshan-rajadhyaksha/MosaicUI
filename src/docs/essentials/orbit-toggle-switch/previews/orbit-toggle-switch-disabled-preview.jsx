@@ -3,7 +3,8 @@ import OrbitToggleSwitch from "@/components/essentials/orbit-toggle-switch/orbit
 const OrbitToggleSwitchDisabledPreview = () => {
   return (
     <div>
-      <OrbitToggleSwitch 
+      <OrbitToggleSwitch
+        aria-label="example"
         defaultChecked={false}
         disabled
       />

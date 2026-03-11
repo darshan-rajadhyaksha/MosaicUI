@@ -30,7 +30,6 @@ const CircularText = (props) => {
 
   return (
     <span
-      aria-label={text}
       {...restProps}
       className={[
         className,
@@ -62,6 +61,11 @@ const CircularText = (props) => {
           </span>
         );
       })}
+      <span
+        className={styles["sr-only"]}
+      >
+        {text}
+      </span>
     </span>
   );
 };

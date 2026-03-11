@@ -3,10 +3,18 @@ import styles from "./shining-text-animation.module.css";
 const ShiningTextAnimation = (props) => {
   const {
     text,
+    className,
+    ...restProps
   } = props;
 
   return (
-    <span className={styles["shining-text-animation"]}>
+    <span
+      {...restProps}
+      className={[
+        className,
+        styles["shining-text-animation"],
+      ].join(" ")}
+    >
       {text}
     </span>
   );

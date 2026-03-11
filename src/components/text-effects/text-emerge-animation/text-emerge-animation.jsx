@@ -32,7 +32,10 @@ const TextEmergeAnimation = (props) => {
   const {
     text,
     type = "word",
-    speed = 100
+    speed = 100,
+    className,
+    style,
+    ...restProps
   } = props;
 
   const animationDurationMs = 800;
@@ -74,10 +77,14 @@ const TextEmergeAnimation = (props) => {
   }, [text, type]);
 
   return (
-    <span 
-      aria-label={text}
-      className={styles["text-emerge-animation"]}
+    <span
+      {...restProps}
+      className={[
+        className,
+        styles["text-emerge-animation"]
+      ].join(" ")}
       style={{
+        ...style,
         "--animation-duration": `${animationDurationMs}ms`
       }}
     >
@@ -91,6 +98,11 @@ const TextEmergeAnimation = (props) => {
           </TextEmergeUnit>
         ) : null
       ))}
+      <span
+        className={styles["sr-only"]}
+      >
+        {text}
+      </span>
     </span>
   )
 };

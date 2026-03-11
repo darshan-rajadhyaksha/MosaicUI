@@ -88,6 +88,8 @@ const FloatingIndicatorTabs = (props) => {
       >
         {tabs.map((tab, index) => (
           <button
+            type="button"
+            role="tab"
             key={tab.id}
             ref={(el) => (tabsRef.current[index] = el)}
             aria-selected={tab.id === selectedTab}

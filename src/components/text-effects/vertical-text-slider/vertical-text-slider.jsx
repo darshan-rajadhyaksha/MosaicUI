@@ -6,6 +6,9 @@ const VerticalTextSlider = (props) => {
     texts,
     direction = "up",
     visibleDuration = 2000,
+    className,
+    style,
+    ...restProps
   } = props;
 
   const transitionDurationMs = 250;
@@ -59,9 +62,14 @@ const VerticalTextSlider = (props) => {
   ]);
 
   return (
-    <span 
-      className={styles["vertical-text-slider"]}
+    <span
+      {...restProps}
+      className={[
+        className,
+        styles["vertical-text-slider"]
+      ].join(" ")}
       style={{
+        ...style,
         "--sliding-animation-duration": `${transitionDurationMs}ms`
       }}
     >

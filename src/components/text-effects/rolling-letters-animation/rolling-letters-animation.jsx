@@ -85,6 +85,11 @@ const RollingLettersAnimation = (props) => {
           </span>
         )
       })}
+      <span
+        className={styles["sr-only"]}
+      >
+        {word}
+      </span>
     </span>
   );
 };

@@ -10,6 +10,8 @@ const DecryptingTextAnimation = (props) => {
     text,
     speed = 50,
     charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%&*-+?",
+    className,
+    ...restProps
   } = props;
 
   const letterVariants = ["outlined", "filled"];
@@ -81,8 +83,11 @@ const DecryptingTextAnimation = (props) => {
 
   return (
     <span
-      aria-label={currentText}
-      className={styles["decrypting-text"]}
+      {...restProps}
+      className={[
+        className,
+        styles["decrypting-text"],
+      ].join(" ")}
     >
       {
         textMapping.map((word, wordIndex, arr) => (
@@ -114,6 +119,11 @@ const DecryptingTextAnimation = (props) => {
           </Fragment>
         ))
       }
+      <span
+        className={styles["sr-only"]}
+      >
+        {currentText}
+      </span>
     </span>
   )
 };

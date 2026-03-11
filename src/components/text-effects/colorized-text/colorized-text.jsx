@@ -8,6 +8,9 @@ const ColorizedText = (props) => {
       "currentColor"
     ],
     variant = "gradient",
+    className,
+    style = null,
+    ...restProps
   } = props;
 
   const isGradient = variant === "gradient";
@@ -20,12 +23,14 @@ const ColorizedText = (props) => {
 
   return (
     <span
-      aria-label={!isGradient ? text : undefined}
+      {...restProps}
       className={[
-        styles["aurora-text"],
+        className,
+        styles["colorized-text"],
         isGradient ? styles["gradient"] : "",
       ].join(" ")}
       style={{
+        ...style,
         "--gradient": gradient,
       }}
     >
@@ -44,6 +49,13 @@ const ColorizedText = (props) => {
             {letter}
           </span>
         ))
+      )}
+      {!isGradient && (
+        <span
+          className={styles["sr-only"]}
+        >
+          {text}
+        </span>
       )}
     </span>
   );

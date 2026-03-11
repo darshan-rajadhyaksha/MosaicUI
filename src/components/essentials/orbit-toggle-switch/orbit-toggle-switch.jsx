@@ -10,6 +10,8 @@ const OrbitToggleSwitch = (props) => {
     onChange,
     isInsideLabel,
     inputProps,
+    className,
+    ...restProps
   } = props;
 
   const isControlled = checked !== undefined;
@@ -34,13 +36,17 @@ const OrbitToggleSwitch = (props) => {
   };
 
   return (
-    <div 
+    <div
+      {...restProps}
       id={id}
       role="checkbox"
       tabIndex={disabled ? -1 : 0}
       aria-checked={isChecked}
       aria-disabled={disabled}
-      className={styles["orbit-toggle-switch"]}
+      className={[
+        className,
+        styles["orbit-toggle-switch"],
+      ].join(" ")}
       onKeyDown={handleKeyDown}
       {...(!isInsideLabel && ({
         onClick: toggle,

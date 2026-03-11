@@ -9,7 +9,7 @@
     --tab-border-color: #222;
     --tab-color: #bbb;
     --tab-active-color: #fff;
-    --tab-active-indicator-color: #3d76ed;
+    --tab-active-indicator-color: #2265f2;
   }
 
   > [role="tablist"] {

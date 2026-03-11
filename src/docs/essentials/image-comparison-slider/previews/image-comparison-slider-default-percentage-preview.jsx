@@ -3,6 +3,7 @@ import ImageComparisonSlider from "@/components/essentials/image-comparison-slid
 const ImageComparisonSliderDefaultPercentagePreview = () => {
   return (
     <ImageComparisonSlider
+      labelText="Time Comparison"
       beforeImage={{
         src: "https://picsum.photos/id/65/800/450?grayscale",
         alt: "Before image"

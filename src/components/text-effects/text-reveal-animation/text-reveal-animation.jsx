@@ -3,7 +3,9 @@ import styles from "./text-reveal-animation.module.css";
 
 const TextRevealAnimation = (props) => {
   const {
-    text
+    text,
+    className,
+    ...restProps
   } = props;
 
   const textRef = useRef(null);
@@ -24,8 +26,12 @@ const TextRevealAnimation = (props) => {
   }, [updateTextSize]);
 
   return (
-    <span 
-      className={styles["reveal-text"]}
+    <span
+      {...restProps}
+      className={[
+        className,
+        styles["reveal-text"],
+      ].join(" ")}
       ref={textRef}
     >
       <span>

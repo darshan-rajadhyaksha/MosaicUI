@@ -16,6 +16,7 @@ const OrbitToggleSwitchPreview = () => {
     <div>
       <label style={labelStyles}>
         <OrbitToggleSwitch 
+          aria-label="example"
           checked={checked}
           onChange={handleChange}
           isInsideLabel
