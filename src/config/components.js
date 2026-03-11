@@ -8,6 +8,7 @@ import modularGridMeta from "@/docs/essentials/modular-grid";
 import orbitToggleSwitchMeta from "@/docs/essentials/orbit-toggle-switch";
 import imageComparisonSliderMeta from "@/docs/essentials/image-comparison-slider";
 import marqueeMeta from "@/docs/essentials/marquee";
+import showcaseWindowMeta from "@/docs/essentials/showcase-window";
 
 /* -- Backgrounds -- */
 import mazePatternBackgroundMeta from "@/docs/backgrounds/maze-pattern-background";
@@ -45,6 +46,7 @@ const esssentials = {
     [marqueeMeta.key]: marqueeMeta,
     [modularGridMeta.key]: modularGridMeta,
     [orbitToggleSwitchMeta.key]: orbitToggleSwitchMeta,
+    [showcaseWindowMeta.key]: showcaseWindowMeta,
   },
 };
 
