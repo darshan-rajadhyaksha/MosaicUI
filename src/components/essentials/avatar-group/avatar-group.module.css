@@ -5,8 +5,8 @@
   @media (prefers-color-scheme: dark) {
     --border-color: #0b0b0c; /* set as per background color of the container in dark mode */
   }
-  
-	display:flex;
+
+  display:flex;
   align-items: center;
 
   > a {
