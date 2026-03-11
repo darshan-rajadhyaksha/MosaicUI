@@ -1,0 +1,7 @@
+| Prop | Type | Required | Default | Description |
+|-----|------|----------|---------|-------------|
+| label | `string` | Yes | — | Descriptive name for the avatar group. This helps assistive technologies understand what the group of avatars represents (for example, "Project members" or "Community members"). |
+| avatars | `{ name: string; url?: string; image: string }[]` | Yes | `[]` | Array of avatar objects. Each avatar requires a `name` for accessibility and an `image` source. `url` is optional and makes the avatar clickable. |
+| additionalText | `string` | No | — | Additional text displayed alongside the avatars, for example `"+99k members"` or `"+3 more"`. |
+| size | `number` | No | `48` | Size of each avatar in pixels. |
+| className | `string` | No | — | Optional class name for custom styling of the avatar group container. |
