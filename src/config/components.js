@@ -2,6 +2,7 @@ import ComponentCategories from "@/config/component-categories";
 
 /* -- Essentials -- */
 import avatarGroupMeta from "@/docs/essentials/avatar-group";
+import circularListMeta from "@/docs/essentials/circular-list";
 import classicAccordionMeta from "@/docs/essentials/classic-accordion";
 import floatingIndicatorTabsMeta from "@/docs/essentials/floating-indicator-tabs";
 import modularGridMeta from "@/docs/essentials/modular-grid";
@@ -40,6 +41,7 @@ const esssentials = {
   title: ComponentCategories.essential.title,
   items: {
     [avatarGroupMeta.key]: avatarGroupMeta,
+    [circularListMeta.key]: circularListMeta,
     [classicAccordionMeta.key]: classicAccordionMeta,
     [floatingIndicatorTabsMeta.key]: floatingIndicatorTabsMeta,
     [imageComparisonSliderMeta.key]: imageComparisonSliderMeta,

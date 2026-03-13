@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import CircularListPauseOnHoverPreview from "./previews/circular-list-pause-on-hover-preview";
+import CircularListPauseOnHoverPreviewCode from "./previews/circular-list-pause-on-hover-preview?raw";
+import CircularListDurationPreview from "./previews/circular-list-duration-preview";
+import CircularListDurationPreviewCode from "./previews/circular-list-duration-preview?raw";
+---
+
+<div class="example">
+  <h3>Duration</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <CircularListDurationPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={CircularListDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Pause on Hover</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <CircularListPauseOnHoverPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={CircularListPauseOnHoverPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
