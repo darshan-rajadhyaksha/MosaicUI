@@ -38,7 +38,7 @@ const CircularText = (props) => {
       ].join(" ")}
       style={{
         ...style,
-        "--radius": `${radius}px`,
+        "--radius": `${_radius}px`,
         "--duration": `${_duration}ms`,
       }}
     >
