@@ -1,5 +1,9 @@
 <section class="hero">
   <div class="content-wrapper">
+    <div class="mini-card">
+      <div class="badge">New</div>
+      <a target="_blank" href="/components/circular-list">Circular List Component</a>
+    </div>
     <h1>Beautiful React Components for Your Project</h1>
     <p>
       Effortlessly integrate flexible, production-ready components that streamline
@@ -15,13 +19,21 @@
 <style>
   .hero {
     background-color: var(--background);
-    background-image: radial-gradient(
-      circle at 50% 50%,
-      rgb(153 210 240 / 25%) 0%,
-      rgb(126 170 249 / 10%) 40%,
-      transparent 80%
-    );
-    background-size: 100% 100%;
+    background-image: 
+      radial-gradient(
+        circle at 1px 1px, 
+        rgba(20, 132, 192, 0.055) 1px, 
+        var(--background) 0
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgb(153 210 240 / 25%) 0%,
+        rgb(126 170 249 / 10%) 40%,
+        transparent 80%
+      );
+    background-size: 
+      8px 8px,
+      100% 100%;
     -webkit-mask-image: linear-gradient(
       var(--background) 0%,
       var(--background) 80%,
@@ -46,6 +58,31 @@
       gap: 20px;
       padding: 24px;
 
+      .mini-card {
+        display:flex;
+        align-items: center;
+        gap: 6px;
+        border:1px solid var(--border-primary);
+        background: var(--layer-tertiary);
+        padding: 6px 8px;
+        border-radius: 8px;
+        margin-top: -16px;
+        margin-bottom: 4px;
+
+        .badge {
+          font-size: 0.75rem;
+          padding: 4px;
+          background: var(--link-color);
+          color: #fff;
+          border-radius: 4px;
+          text-transform: uppercase;
+        }
+
+        a {
+          color: var(--text-primary);
+        }
+      }
+
       h1 {
         font-weight: 800;
         font-size: 3.2rem;
@@ -63,25 +100,25 @@
         display: flex;
         flex-wrap: wrap;
         gap: 16px;
-      }
 
-      a {
-        width: fit-content;
-        display: inline-block;
-        padding: 16px 20px;
-        font-weight: 600;
-        border-radius: 8px;
-        border: 2px solid transparent;
-      }
+        a {
+          width: fit-content;
+          display: inline-block;
+          padding: 16px 20px;
+          font-weight: 600;
+          border-radius: 8px;
+          border: 2px solid transparent;
+        }
 
-      a.outlined {
-        border:2px solid var(--text-primary);
-        color: var(--text-primary);
-      }
+        a.outlined {
+          border:2px solid var(--text-primary);
+          color: var(--text-primary);
+        }
 
-      a.filled {
-        background: var(--text-primary);
-        color: var(--text-inverted-primary);
+        a.filled {
+          background: var(--text-primary);
+          color: var(--text-inverted-primary);
+        }
       }
 
     }
@@ -89,12 +126,18 @@
 
   html.dark {
     .hero {
-      background-image: radial-gradient(
-        circle at 50% 50%,
-        rgb(92 134 156 / 25%) 0%,
-        rgb(139 144 154 / 10%) 40%,
-        transparent 80%
-      );
+      background-image: 
+        radial-gradient(
+          circle at 1px 1px, 
+          rgba(20, 132, 192, 0.055) 1px, 
+          var(--background) 0
+        ),
+        radial-gradient(
+          circle at 50% 50%,
+          rgb(92 134 156 / 25%) 0%,
+          rgb(139 144 154 / 10%) 40%,
+          transparent 80%
+        );
     }
   }
 
