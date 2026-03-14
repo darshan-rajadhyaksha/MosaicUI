@@ -15,4 +15,8 @@ export default Object.freeze({
     key: "backgrounds",
     title: "Backgrounds",
   },
+  interactions: {
+    key: "interactions",
+    title: "Micro Interactions",
+  },
 });

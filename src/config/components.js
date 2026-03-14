@@ -36,6 +36,9 @@ import threeDotsLoaderMeta from "@/docs/loaders/three-dots-loader";
 import waveBarsLoaderMeta from "@/docs/loaders/wave-bars-loader";
 import fallingTilesLoaderMeta from "@/docs/loaders/falling-tiles-loader";
 
+/* -- Micro Interactions -- */
+import hamburgerButtonMeta from "@/docs/interactions/hamburger-button";
+
 
 const esssentials = {
   title: ComponentCategories.essential.title,
@@ -89,17 +92,26 @@ const loaders = {
   },
 };
 
+const interactions = {
+  title: ComponentCategories.interactions.title,
+  items: {
+    [hamburgerButtonMeta.key]: hamburgerButtonMeta,
+  },
+};
+
 export const componentMap = {
   ...textEffects.items,
   ...loaders.items,
   ...esssentials.items,
   ...backgrounds.items,
+  ...interactions.items,
 };
 
 export default ([
   esssentials,
   backgrounds,
   textEffects,
+  interactions,
   loaders,
 ].map(entry => ({
   ...entry,
