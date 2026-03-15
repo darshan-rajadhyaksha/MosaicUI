@@ -38,6 +38,7 @@ import fallingTilesLoaderMeta from "@/docs/loaders/falling-tiles-loader";
 
 /* -- Micro Interactions -- */
 import hamburgerButtonMeta from "@/docs/interactions/hamburger-button";
+import luminousCardMeta from "@/docs/interactions/luminous-card";
 
 
 const esssentials = {
@@ -96,6 +97,7 @@ const interactions = {
   title: ComponentCategories.interactions.title,
   items: {
     [hamburgerButtonMeta.key]: hamburgerButtonMeta,
+    [luminousCardMeta.key]: luminousCardMeta,
   },
 };
 

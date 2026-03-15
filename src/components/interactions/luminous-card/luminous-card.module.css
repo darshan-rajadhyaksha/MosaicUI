@@ -1,0 +1,40 @@
+.luminous-card {
+  --x: 0px;
+  --y: 0px;
+  --luminous-color: var(--light-color);
+
+  @media (prefers-color-scheme: dark) {
+    --luminous-color: var(--dark-color);
+  }
+
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transition: 
+      background 250ms ease-in-out,
+      opacity 250ms ease-in-out;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 0.85;
+      background:
+        radial-gradient(
+          circle at var(--x) var(--y),
+          var(--luminous-color),
+          transparent 85%
+        );
+    }
+  }
+}
