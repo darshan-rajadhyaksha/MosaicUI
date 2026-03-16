@@ -1,0 +1,12 @@
+| Prop         | Type                                  | Required | Default                        | Description |
+|--------------|---------------------------------------|----------|--------------------------------|-------------|
+| children     | `React.ReactNode`                     | No       | —                              | Content rendered above the animated background. |
+| dotScale     | `number`                              | No       | `1`                            | Scale factor for each dot. Accepts values between **0.1 and 5**. |
+| dotColor     | `string`                              | No       | `"rgba(127, 127, 127, 0.5)"`   | Color of the dots. Supports **RGB, RGBA, or HEX** color formats. |
+| gap          | `number`                              | No       | `10`                           | Distance between dots in the grid (in **px**). Minimum value is **5**. |
+| speed        | `number`                              | No       | `0.5`                          | Speed of the oscillation animation. Accepts values between **0.1 and 0.9**. |
+| offset       | `number`                              | No       | `100`                          | Extra area (in px) outside the canvas where additional dots are generated to ensure the screen remains filled during motion. Reduce this if using **radial masking near the corners**. |
+| className    | `string`                              | No       | `""`                           | Additional CSS class names applied to the root container. |
+| style        | `React.CSSProperties`                 | No       | —                              | Inline styles applied to the root container. |
+| wrapperTagName | `string`       | No       | `"div"`                        | HTML tag used as the wrapper element around the children. |
+| wrapperProps | `React.HTMLAttributes<HTMLElement>`   | No       | `{}`                           | Additional props passed to the wrapper element containing the children. |

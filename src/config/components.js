@@ -19,6 +19,7 @@ import ghostCubesBackgroundMeta from "@/docs/backgrounds/ghost-cubes-background"
 import gridPatternBackgroundMeta from "@/docs/backgrounds/grid-pattern-background";
 import dotGridGradientBackgroundMeta from "@/docs/backgrounds/dot-grid-gradient-background";
 import classicDotsPatternBackgroundMeta from "@/docs/backgrounds/classic-dots-pattern-background";
+import wavyDotsBackgroundMeta from "@/docs/backgrounds/wavy-dots-background";
 
 /* -- Text Effects -- */
 import typewriterAnimationMeta from "@/docs/text-effects/typewriter-animation";
@@ -66,6 +67,7 @@ const backgrounds = {
     [mazePatternBackgroundMeta.key]: mazePatternBackgroundMeta,
     [nightSkyBackgroundMeta.key]: nightSkyBackgroundMeta,
     [starFieldBackgroundMeta.key]: starFieldBackgroundMeta,
+    [wavyDotsBackgroundMeta.key]: wavyDotsBackgroundMeta,
   },
 };
 

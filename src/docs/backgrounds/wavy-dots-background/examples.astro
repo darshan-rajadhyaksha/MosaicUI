@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import WavyDotsBackgroundSpeedPreview from "./previews/wavy-dots-background-speed-preview";
+import WavyDotsBackgroundSpeedPreviewCode from "./previews/wavy-dots-background-speed-preview?raw";
+import WavyDotsBackgroundDotScalePreview from "./previews/wavy-dots-background-dot-scale-preview";
+import WavyDotsBackgroundDotScalePreviewCode from "./previews/wavy-dots-background-dot-scale-preview?raw";
+import WavyDotsBackgroundGapPreview from "./previews/wavy-dots-background-gap-preview";
+import WavyDotsBackgroundGapPreviewCode from "./previews/wavy-dots-background-gap-preview?raw";
+---
+
+<div class="example">
+  <h3>Dot Scale</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyDotsBackgroundDotScalePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyDotsBackgroundDotScalePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Speed</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyDotsBackgroundSpeedPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyDotsBackgroundSpeedPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Gap</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyDotsBackgroundGapPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyDotsBackgroundGapPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
