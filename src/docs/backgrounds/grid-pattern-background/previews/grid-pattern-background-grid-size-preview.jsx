@@ -11,21 +11,24 @@ const GridPatternBackgroundGridSizePreview = () => {
   return (
     <GridPatternBackground
       gridSize={gridSize}
-      backgroundColor="#040c1a"
-      gridColor="#3c4d55"
+      gridColor="rgba(162,201,229,0.5)"
       style={gridBackgroundStyles}
       wrapperProps = {{
         style: wrapperStyles,
       }}
     >
-      <span style={labelStyles}>
+      <label
+        htmlFor="grid-pattern-background-grid-size-input"
+        style={labelStyles}
+      >
         Grid Size: {gridSize}
-      </span>
+      </label>
       <input
         type="range"
         min="10"
         max="100"
         step="1"
+        id="grid-pattern-background-grid-size-input"
         value={gridSize}
         onChange={handleSpeedChange}
       />
@@ -45,7 +48,10 @@ const wrapperStyles = {
   gap: "8px",
 };
 const labelStyles = {
+  padding: "2px 4px",
+  background: "#111",
   color: "#fff",
+  borderRadius: "4px",
 };
 
 export default GridPatternBackgroundGridSizePreview;

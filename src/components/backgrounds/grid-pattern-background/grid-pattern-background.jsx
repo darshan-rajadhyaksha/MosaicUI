@@ -5,7 +5,7 @@ const GridPatternBackground = (props) => {
   const {
     children,
     className = "",
-    backgroundColor = "rgba(0, 0, 0, 1)", 
+    backgroundColor = "rgba(0, 0, 0, 0)", 
     gridColor = "rgba(255, 255, 255, 0.5)",
     gridSize = 25,
     direction = "down",

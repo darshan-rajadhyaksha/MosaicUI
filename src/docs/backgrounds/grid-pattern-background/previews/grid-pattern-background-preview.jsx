@@ -3,8 +3,7 @@ import GridPatternBackground from "@/components/backgrounds/grid-pattern-backgro
 const GridPatternBackgroundPreview = () => {
   return (
     <GridPatternBackground
-      backgroundColor="#040c1a"
-      gridColor="#3c4d55"
+      gridColor="rgba(162,201,229,0.5)"
       style={{
         width: "100%",
         height: "100%",
@@ -17,11 +16,7 @@ const GridPatternBackgroundPreview = () => {
         }
       }}
     >
-      <h2 
-        style={{
-        color: "#fff"
-        }}
-      >
+      <h2>
         Grid Pattern Background
       </h2>
     </GridPatternBackground>

@@ -11,21 +11,24 @@ const GridPatternBackgroundSpeedPreview = () => {
   return (
     <GridPatternBackground
       speed={speed}
-      backgroundColor="#040c1a"
-      gridColor="#3c4d55"
+      gridColor="rgba(162,201,229,0.5)"
       style={gridBackgroundStyles}
       wrapperProps = {{
         style: wrapperStyles,
       }}
     >
-      <span style={labelStyles}>
+      <label
+        htmlFor="grid-pattern-background-speed-input"
+        style={labelStyles}
+      >
         Speed: {speed}
-      </span>
+      </label>
       <input
         type="range"
         min="0"
         max="5"
         step="0.1"
+        id="grid-pattern-background-speed-input"
         value={speed}
         onChange={handleSpeedChange}
       />
@@ -45,7 +48,10 @@ const wrapperStyles = {
   gap: "8px",
 };
 const labelStyles = {
+  padding: "2px 4px",
+  background: "#111",
   color: "#fff",
+  borderRadius: "4px",
 };
 
 export default GridPatternBackgroundSpeedPreview;

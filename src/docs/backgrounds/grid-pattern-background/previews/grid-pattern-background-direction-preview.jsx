@@ -9,8 +9,7 @@ const GridPatternBackgroundDirectionPreview = () => {
   return (
     <GridPatternBackground
       direction={direction}
-      backgroundColor="#040c1a"
-      gridColor="#3c4d55"
+      gridColor="rgba(162,201,229,0.5)"
       style={gridBackgroundStyles}
       wrapperProps = {{
         style: wrapperStyles,
@@ -49,15 +48,16 @@ const wrapperStyles = {
 };
 const buttomStyles = {
   padding: "8px 16px",
-  border: "1px solid #fff",
+  border: "1px solid var(--text-primary)",
   borderRadius: "4px",
-  background: "transparent",
+  background: "var(--layer-tertiary)",
   font: "inherit",
-  color: "#fff",
+  color: "var(--text-primary)",
   textTransform: "uppercase",
+  cursor: "pointer",
 };
 const activeButtonStyles = {
-  background: "#fff",
+  background: "rgba(162,201,229,1)",
   color: "#111",
 };
 
