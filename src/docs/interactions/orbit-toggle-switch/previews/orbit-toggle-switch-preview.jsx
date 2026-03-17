@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import OrbitToggleSwitch from "@/components/essentials/orbit-toggle-switch/orbit-toggle-switch";
+import OrbitToggleSwitch from "@/components/interactions/orbit-toggle-switch/orbit-toggle-switch";
 
 const labelStyles = {
   display: "flex",

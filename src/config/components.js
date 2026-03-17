@@ -6,7 +6,6 @@ import circularListMeta from "@/docs/essentials/circular-list";
 import classicAccordionMeta from "@/docs/essentials/classic-accordion";
 import floatingIndicatorTabsMeta from "@/docs/essentials/floating-indicator-tabs";
 import modularGridMeta from "@/docs/essentials/modular-grid";
-import orbitToggleSwitchMeta from "@/docs/essentials/orbit-toggle-switch";
 import imageComparisonSliderMeta from "@/docs/essentials/image-comparison-slider";
 import marqueeMeta from "@/docs/essentials/marquee";
 import showcaseWindowMeta from "@/docs/essentials/showcase-window";
@@ -40,6 +39,7 @@ import fallingTilesLoaderMeta from "@/docs/loaders/falling-tiles-loader";
 /* -- Micro Interactions -- */
 import hamburgerButtonMeta from "@/docs/interactions/hamburger-button";
 import luminousCardMeta from "@/docs/interactions/luminous-card";
+import orbitToggleSwitchMeta from "@/docs/interactions/orbit-toggle-switch";
 
 
 const esssentials = {
@@ -52,7 +52,6 @@ const esssentials = {
     [imageComparisonSliderMeta.key]: imageComparisonSliderMeta,
     [marqueeMeta.key]: marqueeMeta,
     [modularGridMeta.key]: modularGridMeta,
-    [orbitToggleSwitchMeta.key]: orbitToggleSwitchMeta,
     [showcaseWindowMeta.key]: showcaseWindowMeta,
   },
 };
@@ -100,6 +99,7 @@ const interactions = {
   items: {
     [hamburgerButtonMeta.key]: hamburgerButtonMeta,
     [luminousCardMeta.key]: luminousCardMeta,
+    [orbitToggleSwitchMeta.key]: orbitToggleSwitchMeta,
   },
 };
 
