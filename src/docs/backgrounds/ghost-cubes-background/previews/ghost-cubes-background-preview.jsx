@@ -3,6 +3,7 @@ import GhostCubesBackground from "@/components/backgrounds/ghost-cubes-backgroun
 const GhostCubesBackgroundPreview = () => {
   return (
     <GhostCubesBackground
+      backgroundColor="rgba(162,201,229,0.8)"
       style={{
         width: "100%",
         height: "100%",

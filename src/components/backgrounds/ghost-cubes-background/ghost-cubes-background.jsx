@@ -47,7 +47,7 @@ const GhostCubesBackground = (props) => {
     style = null,
     wrapperProps = {},
     wrapperTagName = "div",
-    backgroundColor = "#d37185",
+    backgroundColor = "rgba(0,0,0,0)",
     ...rest
   } = props;
 
