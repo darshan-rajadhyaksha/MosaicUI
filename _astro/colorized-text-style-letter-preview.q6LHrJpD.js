@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime.D_zvdyIk.js";import{C as r}from"./colorized-text.CK6zYVVe.js";import"./index.DiEladB3.js";import"./_component_.abe5225a.i5qh-5FM.js";const F=()=>t.jsx("h1",{style:{fontSize:"5rem"},children:t.jsx(r,{variant:"standard",colors:["#FF0000","#FFA500","#FFFF00","#008000","#0000FF","#4B0082","#EE82EE"],text:"Rainbow"})});export{F as default};
