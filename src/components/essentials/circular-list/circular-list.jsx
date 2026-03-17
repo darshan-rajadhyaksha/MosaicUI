@@ -7,6 +7,7 @@ const CircularList = (props) => {
     radius = 100,
     duration = 10 * 1000,
     rotate = true,
+    rotationLock = true,
     pauseOnHover = false,
     direction = "clockwise",
     children,
@@ -44,6 +45,7 @@ const CircularList = (props) => {
         className={[
           styles["orbit"],
           rotate ? styles[`rotate-${direction}`] : "",
+          rotationLock ? styles["rotation-lock"] : "",
           pauseOnHover ? styles["pause-on-hover"] : "",
         ].join(" ")}
       >

@@ -8,12 +8,12 @@
     --orbit-border-color: #222;
   }
 
-  > .orbit {
+  >.orbit {
     position: relative;
     width: 100%;
     height: 100%;
 
-    border:1px solid var(--orbit-border-color);
+    border: 1px solid var(--orbit-border-color);
     border-radius: 50%;
 
     animation-duration: var(--duration);
@@ -22,6 +22,12 @@
 
     &.rotate-clockwise {
       animation-name: circular-list-keyframes;
+
+      &.rotation-lock {
+        >span {
+          animation-direction: reverse;
+        }
+      }
     }
 
     &.rotate-anti-clockwise {
@@ -35,6 +41,15 @@
       }
     }
 
+    &.rotation-lock {
+      >span {
+        animation-name: circular-list-rotatation-lock-keyframes;
+        animation-duration: var(--duration);
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+    }
+
     >span {
       position: absolute;
       top: 50%;
@@ -43,6 +58,8 @@
       transform:
         translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
         rotate(var(--angle));
+      display: inline-block;
+      line-height: 0;
     }
   }
 }
@@ -54,5 +71,19 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes circular-list-rotatation-lock-keyframes {
+  from {
+    transform:
+      translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
+      rotate(360deg);
   }
 }
