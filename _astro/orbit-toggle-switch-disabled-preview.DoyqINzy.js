@@ -1,1 +1,0 @@
-import{j as e}from"./jsx-runtime.D_zvdyIk.js";import{O as r}from"./orbit-toggle-switch.DJwUFsSX.js";import"./index.DiEladB3.js";import"./_component_.dda31b18.B-_I5eBJ.js";const o=()=>e.jsx("div",{children:e.jsx(r,{"aria-label":"example",defaultChecked:!1,disabled:!0})});export{o as default};

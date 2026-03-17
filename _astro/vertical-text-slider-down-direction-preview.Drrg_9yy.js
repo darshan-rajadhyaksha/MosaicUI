@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime.D_zvdyIk.js";import{V as r}from"./vertical-text-slider.DU2ghT4Q.js";import"./index.DiEladB3.js";import"./_component_.abe5225a.D70uJxa0.js";const l=()=>e.jsx("h2",{children:e.jsx(r,{texts:["Build faster","Ship smarter","Scale confidently","Delight users"],direction:"down"})});export{l as default};
