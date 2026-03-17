@@ -11,19 +11,24 @@ const DotGridGradientBackgroundDecayPreview = () => {
   return (
     <DotGridGradientBackground
       decay={decay}
+      dotColor="rgba(162,201,229,0.8)"
       style={dotGridBackgroundStyles}
       wrapperProps = {{
         style: wrapperStyles,
       }}
     >
-      <span style={labelStyles}>
+      <label 
+        htmlFor="dot-grid-background-decay-input"
+        style={labelStyles}
+      >
         Decay: {decay}
-      </span>
+      </label>
       <input
         type="range"
         min="0.1"
         max="1"
         step="0.1"
+        id="dot-grid-background-decay-input"
         value={decay}
         onChange={handleDecayChange}
       />
@@ -43,9 +48,10 @@ const wrapperStyles = {
   gap: "8px",
 };
 const labelStyles = {
-  padding: "2px",
+  padding: "2px 4px",
   background: "#111",
   color: "#fff",
+  borderRadius: "4px",
 };
 
 export default DotGridGradientBackgroundDecayPreview;

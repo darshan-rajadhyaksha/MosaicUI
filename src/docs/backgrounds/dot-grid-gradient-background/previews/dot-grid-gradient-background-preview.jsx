@@ -3,7 +3,7 @@ import DotGridGradientBackground from "@/components/backgrounds/dot-grid-gradien
 const DotGridGradientBackgroundPreview = () => {
   return (
     <DotGridGradientBackground
-      dotColor="#bbb"
+      dotColor="rgba(162,201,229,0.8)"
       style={{
         width: "100%",
         height: "100%",
@@ -16,10 +16,7 @@ const DotGridGradientBackgroundPreview = () => {
         }
       }}
     >
-      <h2 
-        style={{
-          color: "#fff"
-      }}>
+      <h2>
         Dot Grid Background
       </h2>
     </DotGridGradientBackground>

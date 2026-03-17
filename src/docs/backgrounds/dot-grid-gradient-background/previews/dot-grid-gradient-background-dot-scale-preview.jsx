@@ -11,19 +11,24 @@ const DotGridGradientBackgroundDotScalePreview = () => {
   return (
     <DotGridGradientBackground
       dotScale={dotScale}
+      dotColor="rgba(162,201,229,0.8)"
       style={dotGridBackgroundStyles}
       wrapperProps = {{
         style: wrapperStyles,
       }}
     >
-      <span style={labelStyles}>
+      <label
+        htmlFor="dot-grid-background-dot-scale-input"
+        style={labelStyles}
+      >
         Dot Scale: {dotScale}
-      </span>
+      </label>
       <input
         type="range"
         min="0.1"
         max="1"
         step="0.1"
+        id="dot-grid-background-dot-scale-input"
         value={dotScale}
         onChange={handleDotScaleChange}
       />
@@ -43,9 +48,10 @@ const wrapperStyles = {
   gap: "8px",
 };
 const labelStyles = {
-  padding: "2px",
+  padding: "2px 4px",
   background: "#111",
   color: "#fff",
+  borderRadius: "4px",
 };
 
 export default DotGridGradientBackgroundDotScalePreview;

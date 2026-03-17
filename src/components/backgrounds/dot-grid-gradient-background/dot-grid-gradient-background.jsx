@@ -4,7 +4,7 @@ import styles from "./dot-grid-gradient-background.module.css";
 const DotGridGradientBackground = (props) => {
   const {
     children,
-    backgroundColor = "rgba(0, 0, 0, 1)",
+    backgroundColor = "rgba(0, 0, 0, 0)",
     dotColor = "rgba(250, 250, 250, 1)",
     dotScale = 0.5,
     direction = "down",
