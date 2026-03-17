@@ -3,7 +3,7 @@ import WavyDotsBackground from "@/components/backgrounds/wavy-dots-background/wa
 const WavyDotsBackgroundPreview = () => {
   return (
     <WavyDotsBackground
-      dotColor="rgb(162,201,229,0.5)"
+      dotColor="rgba(162,201,229,0.5)"
       style={{
         width: "100%",
         height: "100%"

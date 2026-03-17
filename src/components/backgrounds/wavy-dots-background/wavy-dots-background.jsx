@@ -12,8 +12,8 @@ class Dot {
   constructor(x, y, cx, cy, cd, waves) {
     const dx = cx - x;
     const dy = cy - y;
-    this.x1 = x;
-    this.y1 = y;
+    this.x = x;
+    this.y = y;
     this.length = Math.hypot(dx, dy);
     this.dirX = dx / this.length;
     this.dirY = dy / this.length;
@@ -30,8 +30,8 @@ class Dot {
     const wave = (Math.sin(this.time) + 1) / 2;
     const offset = wave * this.magScale * this.length;
     return {
-      x: this.x1 + this.dirX * offset,
-      y: this.y1 + this.dirY * offset,
+      x: this.x + this.dirX * offset,
+      y: this.y + this.dirY * offset,
     };
   }
 
