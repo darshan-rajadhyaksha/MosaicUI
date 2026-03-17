@@ -61,8 +61,8 @@ const backgrounds = {
   items: {
     [classicDotsPatternBackgroundMeta.key]: classicDotsPatternBackgroundMeta,
     [dotGridGradientBackgroundMeta.key]: dotGridGradientBackgroundMeta,
-    [gridPatternBackgroundMeta.key]: gridPatternBackgroundMeta,
     [ghostCubesBackgroundMeta.key]: ghostCubesBackgroundMeta,
+    [gridPatternBackgroundMeta.key]: gridPatternBackgroundMeta,
     [mazePatternBackgroundMeta.key]: mazePatternBackgroundMeta,
     [nightSkyBackgroundMeta.key]: nightSkyBackgroundMeta,
     [starFieldBackgroundMeta.key]: starFieldBackgroundMeta,
@@ -74,23 +74,23 @@ const textEffects = {
   title: ComponentCategories.textEffect.title,
   items: {
     [circularTextMeta.key]: circularTextMeta,
+    [colorizedTextMeta.key]: colorizedTextMeta,
     [decryptingTextAnimationMeta.key]: decryptingTextAnimationMeta,
     [rollingLettersAnimationMeta.key]: rollingLettersAnimationMeta,
-    [verticalTextSliderMeta.key]: verticalTextSliderMeta,
-    [textRevealAnimationMeta.key]: textRevealAnimationMeta,
-    [textEmergeAnimationMeta.key]: textEmergeAnimationMeta,
-    [typewriterAnimationMeta.key]: typewriterAnimationMeta,
     [shiningTextAnimationMeta.key]: shiningTextAnimationMeta,
-    [colorizedTextMeta.key]: colorizedTextMeta,
+    [textEmergeAnimationMeta.key]: textEmergeAnimationMeta,
+    [textRevealAnimationMeta.key]: textRevealAnimationMeta,
+    [typewriterAnimationMeta.key]: typewriterAnimationMeta,
+    [verticalTextSliderMeta.key]: verticalTextSliderMeta,
   },
 };
 
 const loaders = {
   title: ComponentCategories.loader.title,
   items: {
-    [waveBarsLoaderMeta.key]: waveBarsLoaderMeta,
     [fallingTilesLoaderMeta.key]: fallingTilesLoaderMeta,
     [threeDotsLoaderMeta.key]: threeDotsLoaderMeta,
+    [waveBarsLoaderMeta.key]: waveBarsLoaderMeta,
   },
 };
 
