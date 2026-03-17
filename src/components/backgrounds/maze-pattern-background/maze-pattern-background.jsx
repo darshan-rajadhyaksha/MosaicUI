@@ -3,8 +3,8 @@ import styles from "./maze-pattern-background.module.css";
 
 const MazePatternBackground = (props) => {
   const {
-    backgroundColor = "#000000",
-    mazeColor = "#6572e6",
+    backgroundColor = "rgba(0,0,0,0)",
+    mazeColor = "rgba(127,127,127,0.5)",
     mazeSize = 20,
     children,
     className,
