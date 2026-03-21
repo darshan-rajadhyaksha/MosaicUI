@@ -1,0 +1,11 @@
+| Prop            | Type                     | Required | Default                         | Description                                                                 |
+|-----------------|--------------------------|----------|----------------------------------|-----------------------------------------------------------------------------|
+| children        | `React.ReactNode`          | No       | —                                | Content rendered inside the animated threads component.                     |
+| threadColor     | `string`                   | No       | `"rgba(127, 127, 127, 0.5)"`       | Color of the threads. Accepts HEX or RGBA values.                           |
+| threadCount     | `number`                   | No       | `10`                               | Number of threads to render. Range: 1–100.                                  |
+| speed           | `number`                   | No       | `0.5`                              | Animation speed multiplier. Range: 0–1.                                     |
+| amplitude       | `number`                   | No       | `50`                               | Height/intensity of the wave distortion. Range: 0–100.                      |
+| className       | `string`                   | No       | —                                | Optional CSS class applied to the root container.                           |
+| style           | `React.CSSProperties`      | No       | —                                | Inline styles applied to the root container.                                |
+| wrapperTagName  | `string` | No    | `"div"`                            | HTML tag used as the wrapper element around the children.                   |
+| wrapperProps    | `React.HTMLAttributes<HTMLElement>`      | No       | `{} `                              | Additional props passed to the wrapper element containing the children.     |

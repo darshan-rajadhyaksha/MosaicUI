@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import WavyThreadsBackgroundSpeedPreview from "./previews/wavy-threads-background-speed-preview";
+import WavyThreadsBackgroundSpeedPreviewCode from "./previews/wavy-threads-background-speed-preview?raw";
+import WavyThreadsBackgroundThreadCountPreview from "./previews/wavy-threads-background-thread-count-preview";
+import WavyThreadsBackgroundThreadCountPreviewCode from "./previews/wavy-threads-background-thread-count-preview?raw";
+import WavyThreadsBackgroundAmplitudePreview from "./previews/wavy-threads-background-amplitude-preview";
+import WavyThreadsBackgroundAmplitudePreviewCode from "./previews/wavy-threads-background-amplitude-preview?raw";
+---
+
+<div class="example">
+  <h3>Speed</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyThreadsBackgroundSpeedPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyThreadsBackgroundSpeedPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Thread Count</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyThreadsBackgroundThreadCountPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyThreadsBackgroundThreadCountPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Amplitude</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <WavyThreadsBackgroundAmplitudePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={WavyThreadsBackgroundAmplitudePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

@@ -19,6 +19,7 @@ import gridPatternBackgroundMeta from "@/docs/backgrounds/grid-pattern-backgroun
 import dotGridGradientBackgroundMeta from "@/docs/backgrounds/dot-grid-gradient-background";
 import classicDotsPatternBackgroundMeta from "@/docs/backgrounds/classic-dots-pattern-background";
 import wavyDotsBackgroundMeta from "@/docs/backgrounds/wavy-dots-background";
+import wavyThreadsBackgroundMeta from "@/docs/backgrounds/wavy-threads-background";
 
 /* -- Text Effects -- */
 import typewriterAnimationMeta from "@/docs/text-effects/typewriter-animation";
@@ -67,6 +68,7 @@ const backgrounds = {
     [nightSkyBackgroundMeta.key]: nightSkyBackgroundMeta,
     [starFieldBackgroundMeta.key]: starFieldBackgroundMeta,
     [wavyDotsBackgroundMeta.key]: wavyDotsBackgroundMeta,
+    [wavyThreadsBackgroundMeta.key]: wavyThreadsBackgroundMeta,
   },
 };
 
