@@ -8,11 +8,11 @@ export default Object.freeze({
   primaryLinks: [
     {
       title: "Components",
-      href: "/components",
+      href: "/components/",
     },
     {
       title: "Changelog",
-      href: "/changelog",
+      href: "/changelog/",
     },
   ],
   secondaryLinks: [

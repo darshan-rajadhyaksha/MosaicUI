@@ -6,19 +6,19 @@ export default Object.freeze([
     items: [
       {
         title: "Introduction",
-        href: "/introduction",
+        href: "/introduction/",
       },
       {
         title: "Installation",
-        href: "/installation",
+        href: "/installation/",
       },
       {
         title: "Components",
-        href: "/components",
+        href: "/components/",
       },
       {
         title: "Changelog",
-        href: "/changelog",
+        href: "/changelog/",
       }
     ],
   },
@@ -27,7 +27,7 @@ export default Object.freeze([
       title: entry.title,
       items: entry.items.map(item => ({
         title: item.info.title,
-        href: `/components/${item.key}`,
+        href: `/components/${item.key}/`,
       })),
     }
   })
