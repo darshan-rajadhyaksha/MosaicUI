@@ -100,7 +100,7 @@ const StarFieldBackground = (props) => {
   const [height, setHeight] = useState(0);
 
   const { devicePixelRatio, canvasWidth, canvasHeight } = useMemo(() => {
-    const devicePixelRatio = globalThis.devicePixelRatio || 1;
+    const devicePixelRatio = Math.max(1, globalThis.devicePixelRatio || 1);
     return {
       devicePixelRatio,
       canvasWidth: width * devicePixelRatio,
