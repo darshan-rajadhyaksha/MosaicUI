@@ -1,0 +1,53 @@
+.border-beam-container {
+  position: relative;
+}
+
+.border-beam {
+  --size: 50px;
+  --width: 1px;
+  --offset: 0%;
+  --duration: 5000ms;
+  --timing-funtion: linear;
+
+  position: absolute;
+  inset: calc(var(--width) * -1);
+  border: var(--width) solid #0000;
+  border-radius: inherit;
+  pointer-events: none;
+  mask-clip: 
+    padding-box,
+    border-box;
+  mask-composite: intersect;
+  mask-image:
+    linear-gradient(#0000, #0000),
+    linear-gradient(#000, #000);
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: var(--size);
+    height: var(--size);
+    background: var(--gradient);
+    offset-path: rect(0px auto auto 0px round var(--size));
+    z-index: 2;
+    pointer-events: none;
+    animation: border-beam-keyframes var(--duration) var(--timing-funtion) infinite;
+  }
+
+  &.reverse {
+    &:before {
+      animation-direction: reverse;
+    }
+  }
+}
+
+@keyframes border-beam-keyframes {
+  from {
+    offset-distance: var(--offset);
+  }
+
+  to {
+    offset-distance: calc(100% + var(--offset));
+  }
+}

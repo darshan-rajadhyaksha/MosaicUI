@@ -42,6 +42,8 @@ import hamburgerButtonMeta from "@/docs/interactions/hamburger-button";
 import luminousCardMeta from "@/docs/interactions/luminous-card";
 import orbitToggleSwitchMeta from "@/docs/interactions/orbit-toggle-switch";
 
+/* -- Visual Effects -- */
+import borderBeamMeta from "@/docs/visual-effects/border-beam";
 
 const esssentials = {
   title: ComponentCategories.essential.title,
@@ -105,16 +107,25 @@ const interactions = {
   },
 };
 
+const visualEffects = {
+  title: ComponentCategories.visualEffect.title,
+  items: {
+    [borderBeamMeta.key]: borderBeamMeta,
+  }
+};
+
 export const componentMap = {
   ...textEffects.items,
   ...loaders.items,
   ...esssentials.items,
   ...backgrounds.items,
   ...interactions.items,
+  ...visualEffects.items,
 };
 
 export default ([
   esssentials,
+  visualEffects,
   backgrounds,
   textEffects,
   interactions,

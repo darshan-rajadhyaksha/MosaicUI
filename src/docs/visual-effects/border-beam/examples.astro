@@ -1,0 +1,77 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import BorderBeamMultipleBeamsPreview from "./previews/border-beam-multiple-beams-preview";
+import BorderBeamMultipleBeamsPreviewCode from "./previews/border-beam-multiple-beams-preview?raw";
+import BorderBeamWidthPreview from "./previews/border-beam-width-preview";
+import BorderBeamWidthPreviewCode from "./previews/border-beam-width-preview?raw";
+import BorderBeamReversePreview from "./previews/border-beam-reverse-preview";
+import BorderBeamReversePreviewCode from "./previews/border-beam-reverse-preview?raw";
+import BorderBeamDurationPreview from "./previews/border-beam-duration-preview";
+import BorderBeamDurationPreviewCode from "./previews/border-beam-duration-preview?raw";
+---
+
+<div class="example">
+  <h3>Multiple Beams</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <BorderBeamMultipleBeamsPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={BorderBeamMultipleBeamsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Beam Width</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <BorderBeamWidthPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={BorderBeamWidthPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Reverse Direction</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <BorderBeamReversePreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={BorderBeamReversePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Duration</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <BorderBeamDurationPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={BorderBeamDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
