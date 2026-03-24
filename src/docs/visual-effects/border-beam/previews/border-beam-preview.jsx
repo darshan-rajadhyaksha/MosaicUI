@@ -5,13 +5,14 @@ const BorderBeamPreview = () => {
     <BorderBeamContainer
       style={borderBeamContainerStyles}
     >
-      <BorderBeam 
+      <BorderBeam
         colors={[
           "#0000",
           "#84fab0",
           "#8fd3f4",
           "#0000",
         ]}
+        width={2}
       />
 
       {/* Add your content here */}
