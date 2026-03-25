@@ -44,6 +44,7 @@ import orbitToggleSwitchMeta from "@/docs/interactions/orbit-toggle-switch";
 
 /* -- Visual Effects -- */
 import borderBeamMeta from "@/docs/visual-effects/border-beam";
+import auraBorderMeta from "@/docs/visual-effects/aura-border";
 
 const esssentials = {
   title: ComponentCategories.essential.title,
@@ -110,6 +111,7 @@ const interactions = {
 const visualEffects = {
   title: ComponentCategories.visualEffect.title,
   items: {
+    [auraBorderMeta.key]: auraBorderMeta,
     [borderBeamMeta.key]: borderBeamMeta,
   }
 };

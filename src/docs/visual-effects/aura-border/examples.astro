@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import AuraBorderWidthPreview from "./previews/aura-border-width-preview";
+import AuraBorderWidthPreviewCode from "./previews/aura-border-width-preview?raw";
+import AuraBorderIntensityPreview from "./previews/aura-border-intensity-preview";
+import AuraBorderIntensityPreviewCode from "./previews/aura-border-intensity-preview?raw";
+import AuraBorderSpeedPreview from "./previews/aura-border-speed-preview";
+import AuraBorderSpeedPreviewCode from "./previews/aura-border-speed-preview?raw";
+---
+
+<div class="example">
+  <h3>Border Width</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <AuraBorderWidthPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={AuraBorderWidthPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Intensity</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <AuraBorderIntensityPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={AuraBorderIntensityPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Speed</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <AuraBorderSpeedPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={AuraBorderSpeedPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

@@ -1,0 +1,34 @@
+import TableWrapper from "@/internal-components/table-wrapper.astro";
+
+Use **AuraBorderContainer** only if you encounter stacking or z-index issues with **AuraBorder**. It creates a dedicated stacking context to ensure your glow and border render correctly.
+
+<br/>
+
+#### AuraBorderContainer Props
+
+<TableWrapper>
+| Prop          | Type                     | Required | Default      | Description                                                                 |
+|---------------|-------------------------|----------|-------------|-----------------------------------------------------------------------------|
+| children      | `ReactNode`             | Yes      | —           | The content to be wrapped inside the container.                             |
+| tagName       | `string`                | No       | `div`       | HTML tag or React element type to use as the wrapper container.             |
+| className     | `string`                | No       | —           | Additional CSS class names to apply to the wrapper for custom styling.      |
+| style         | `React.CSSProperties`   | No       | —           | Inline styles to apply directly to the wrapper container.                   |
+</TableWrapper>
+
+<br/>
+<br/>
+
+#### AuraBorder Props
+
+<TableWrapper>
+| Prop        | Type                     | Required | Default                                | Description                                                                 |
+|-------------|-------------------------|----------|----------------------------------------|-----------------------------------------------------------------------------|
+| children    | `ReactNode`             | Yes      | —                                      | The content to be wrapped inside the AuraBorder.                             |
+| colors      | `string[]`              | No       | `["rgba(127, 127, 127, 1)"]`          | Array of colors or gradients for the border glow. Accepts any valid CSS color. |
+| width       | `number`                | No       | `1`                                    | Width of the border in pixels. Minimum value: 0.                               |
+| speed       | `number`                | No       | `0.5`                                  | Speed of rotation. Value between 0 (no rotation) and 1 (fastest).           |
+| intensity   | `number`                | No       | `0.5`                                  | Glow intensity. Value between 0 (no glow) and 1 (maximum glow).             |
+| tagName     | `string`                | No       | `div`                                  | HTML tag or React element type used as the wrapper container.               |
+| className   | `string`                | No       | —                                      | Additional CSS class names applied to the wrapper.                           |
+| style       | `React.CSSProperties`   | No       | —                                      | Inline styles applied directly to the wrapper container.                     |
+</TableWrapper>

@@ -1,0 +1,30 @@
+.aura-border-container {
+  isolation: isolate;
+}
+
+.aura-border {
+  --conic-angle: 0deg;
+  --width: 1px;
+  --intensity: 2px;
+
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--gradient);
+    border-radius: inherit;
+    transition: background 100ms linear;
+  }
+
+  &:before {
+    inset: calc(var(--width) * -1);
+  }
+
+  &:after {
+    inset: 0;
+    filter: blur(var(--intensity));
+  }
+}
