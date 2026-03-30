@@ -6,6 +6,8 @@ import CircularTextAntiClockwiseDirectionPreview from "./previews/circular-text-
 import CircularTextAntiClockwiseDirectionPreviewCode from "./previews/circular-text-anti-clockwise-direction-preview?raw";
 import CircularTextDurationPreview from "./previews/circular-text-duration-preview";
 import CircularTextDurationPreviewCode from "./previews/circular-text-duration-preview?raw";
+import CircularTextPauseOnHoverPreview from "./previews/circular-text-pause-on-hover-preview";
+import CircularTextPauseOnHoverPreviewCode from "./previews/circular-text-pause-on-hover-preview?raw";
 ---
 
 <div class="example">
@@ -33,6 +35,22 @@ import CircularTextDurationPreviewCode from "./previews/circular-text-duration-p
     <div slot="code">
       <CodeBlock
         code={CircularTextDurationPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Pause on Hover</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <CircularTextPauseOnHoverPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={CircularTextPauseOnHoverPreviewCode}
         lang="jsx"
         fileName={meta.key}
       />

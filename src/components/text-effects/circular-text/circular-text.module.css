@@ -15,6 +15,12 @@
     animation-direction: reverse;
   }
 
+  &.pause-on-hover {
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
   >span {
     position: absolute;
     top: 50%;

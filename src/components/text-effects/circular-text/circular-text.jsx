@@ -7,6 +7,7 @@ const CircularText = (props) => {
     radius,
     addTrailingSpace = true,
     rotate = false,
+    pauseOnHover = false,
     direction = "clockwise",
     duration = 10 * 1000,
     className,
@@ -35,6 +36,7 @@ const CircularText = (props) => {
         className,
         styles["circular-text"],
         rotate ? styles[`rotate-${direction}`] : "",
+        pauseOnHover ? styles["pause-on-hover"] : "",
       ].join(" ")}
       style={{
         ...style,

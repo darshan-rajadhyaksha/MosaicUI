@@ -38,6 +38,10 @@
     &.pause-on-hover {
       &:hover {
         animation-play-state: paused;
+        
+        >span {
+          animation-play-state: paused;
+        }
       }
     }
 
