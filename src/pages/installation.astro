@@ -3,10 +3,18 @@ import CodeBlock from "@/internal-components/code-block.astro";
 import { componentMap } from "@/config/components";
 import project from "@/config/project";
 import BaseLayout from "@/layouts/base.astro";
+import getUniqueId from "@/lib/get-unique-id";
 import getUrl from "@/lib/get-url";
 
 const exampleInstallationMeta = Object.values(componentMap)[0];
 const exampleInstallationSteps = exampleInstallationMeta?.previewAndCode?.installationSteps;
+
+const cliExampleCommand = `
+# npx mosaicui-cli@latest <component-type>/<component-name> 
+npx mosaicui-cli@latest ${exampleInstallationMeta.info.category.key}/${exampleInstallationMeta.key}
+`.trim();
+
+const tabId = getUniqueId('component-installation-tab');
 
 const title = "Installation";
 
@@ -31,59 +39,110 @@ const meta = {
 				<p>Browse the <a href="/components">components</a> library and select the component you want to use.</p>
 			</div>
 			<div class="step">
-				<h3>2. Install Dependencies (If Required)</h3>
-				<p>Navigate to the <strong>code</strong> tab of the component to see the installation instructions for any required dependencies.</p>	
-				<p>Some components rely on additional packages like react-three-fiber, or framer-motion. Only install these when needed.</p>
-				<div class="code-container">
-					<CodeBlock 
-						code="npm install react-thee-fiber" 
-						lang="bash" 
-						fileName="Terminal / Command Propmpt"
-					/>
-				</div>
-			</div>
-			<div class="step">
-				<h3>3. Copy the Code</h3>
-				<p>Each component provides a code tab containing the component file and a corresponding CSS module.</p>
-				<br>
-				<h4>3.1. Copy the Component File</h4>
-				<p>Copy the component code into your reusable components folder in your project (For example: <code>/src/components/</code>)</p>
-				<div class="code-container">
-					<CodeBlock 
-						code={exampleInstallationSteps.at(0).code} 
-						lang="jsx" 
-						fileName={exampleInstallationSteps.at(0).fileName}
-					/>
-				</div>
-				<br>
-				<h4>3.2. Copy the CSS Module File</h4>
-				<p>Copy the associated CSS module file into the <strong>same</strong> folder:</p>
-				<div class="code-container">
-					<CodeBlock 
-						code={exampleInstallationSteps.at(1).code} 
-						lang="css" 
-						fileName={exampleInstallationSteps.at(1).fileName}
-					/>
-				</div>
-				<br>
-				<p>Using CSS Modules ensures:</p>
-				<ul>
-					<li>Scoped styles, preventing class name collisions</li>
-					<li>Seamless integration with React components</li>
-				</ul>
-			</div>
-			<div class="step">
-				<h3>4. Use the Component in Your Project</h3>
+				<h3>2. Installation</h3>
+				<p>Navigate to the <b>Code</b> tab of the selected component to view installation instructions.</p>
 				<p>
-					Import the component into your React app and render it. 
-					Follow the example code provided with the component, and check the <strong>Props</strong> section to see which props are supported for customization.
+					There are two ways to install the component in your React project: CLI or Manual.
+					Click on one of the options below and follow the instructions.
 				</p>
-				<div class="code-container">
-					<CodeBlock 
-						code={exampleInstallationSteps.at(2).code} 
-						lang="jsx" 
-						fileName={exampleInstallationSteps.at(2).fileName}
-					/>
+			</div>
+			<div class="static-tabs" id={tabId}>
+				<div class="head">
+					<button class="tab active">
+						CLI
+					</button>
+					<button class="tab">
+						Manual
+					</button>
+				</div>
+				<div class="body">
+					<div class="tab-panel active">
+						<div class="step">
+							<h3>3. Install via CLI</h3>
+							<p>
+								Run the provided command from your project root directory (the folder containing package.json).
+								This will automatically add the component code to your specified components directory.
+							</p>	
+							<div class="code-container">
+								<CodeBlock 
+									code={cliExampleCommand}
+									lang="bash" 
+									fileName="Terminal / Console"
+								/>
+							</div>
+						</div>
+						<div class="step">
+							<h3>4. Use the Component in Your Project</h3>
+							<p>
+								Import the installed component into your React app and render it. 
+								Follow the example code provided with the component, and check the <strong>Props</strong> section to see which props are supported for customization.
+							</p>
+							<div class="code-container">
+								<CodeBlock 
+									code={exampleInstallationSteps.at(2).code} 
+									lang="jsx" 
+									fileName={exampleInstallationSteps.at(2).fileName}
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="tab-panel">
+						<div class="step">
+							<h3>3. Install Dependencies (If Required)</h3>
+							<p>Some components rely on additional packages like react-three-fiber or framer-motion. Only install these when needed.</p>
+							<div class="code-container">
+								<CodeBlock 
+									code="npm install react-thee-fiber" 
+									lang="bash" 
+									fileName="Terminal / Console"
+								/>
+							</div>
+						</div>
+						<div class="step">
+							<h3>4. Copy the Code</h3>
+							<p>Each component provides a code tab containing the component file and a corresponding CSS module.</p>
+							<br>
+							<h4>4.1. Copy the Component File</h4>
+							<p>Copy the component code into your reusable components folder in your project (For example: <code>/src/components/</code>)</p>
+							<div class="code-container">
+								<CodeBlock 
+									code={exampleInstallationSteps.at(0).code} 
+									lang="jsx" 
+									fileName={exampleInstallationSteps.at(0).fileName}
+								/>
+							</div>
+							<br>
+							<h4>4.2. Copy the CSS Module File</h4>
+							<p>Copy the associated CSS module file into the <strong>same</strong> folder:</p>
+							<div class="code-container">
+								<CodeBlock 
+									code={exampleInstallationSteps.at(1).code} 
+									lang="css" 
+									fileName={exampleInstallationSteps.at(1).fileName}
+								/>
+							</div>
+							<br>
+							<p>Using CSS Modules ensures:</p>
+							<ul>
+								<li>Scoped styles, preventing class name collisions</li>
+								<li>Seamless integration with React components</li>
+							</ul>
+						</div>
+						<div class="step">
+							<h3>5. Use the Component in Your Project</h3>
+							<p>
+								Import the component into your React app and render it. 
+								Follow the example code provided with the component, and check the <strong>Props</strong> section to see which props are supported for customization.
+							</p>
+							<div class="code-container">
+								<CodeBlock 
+									code={exampleInstallationSteps.at(2).code} 
+									lang="jsx" 
+									fileName={exampleInstallationSteps.at(2).fileName}
+								/>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -130,4 +189,16 @@ const meta = {
 			}
 		}
 	}
+	.static-tabs {
+		margin-top: -8px;
+		> .body {
+			margin-top: 24px;
+		}
+	}
 </style>
+
+<script define:vars={{ tabId }}>
+  document.addEventListener("astro:page-load", () => {
+    initStaticTabs(tabId);
+  });
+</script>

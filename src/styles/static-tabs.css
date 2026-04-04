@@ -1,0 +1,48 @@
+.static-tabs {
+  >.head {
+    width: fit-content;
+    display: flex;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    overflow: hidden;
+
+    >.tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-right: 1px solid var(--border-primary);
+      color: var(--text-primary);
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      background: transparent;
+      font: inherit;
+
+      &.active {
+        background: var(--text-primary);
+        color: var(--text-inverted-primary);
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  >.body {
+    .tab-panel {
+      margin-top: 16px;
+      display: none;
+
+      &:not(.active)>* {
+        animation-play-state: paused !important;
+      }
+
+      &.active {
+        display: block;
+        animation-play-state: running !important;
+      }
+    }
+  }
+}

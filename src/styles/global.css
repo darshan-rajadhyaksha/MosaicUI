@@ -1,3 +1,5 @@
+@import "./static-tabs.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +15,7 @@
   --text-primary: #111827;
   --text-secondary: #374151;
   --text-tertiary: #6b7280;
-  --text-disabled: #9ca3af;  
+  --text-disabled: #9ca3af;
 
   --text-inverted-primary: #ffffff;
   --text-inverted-secondary: #e5e7eb;
@@ -75,10 +77,12 @@ html.dark {
   width: 10px;
   height: 8px;
   opacity: 0;
+
   &:hover {
     opacity: 1;
   }
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border-primary);
   border-radius: 10px;

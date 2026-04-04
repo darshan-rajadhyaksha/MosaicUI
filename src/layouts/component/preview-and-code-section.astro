@@ -1,13 +1,22 @@
 ---
 import InstallationSteps from "@/config/installation-steps";
+import getUniqueId from "@/lib/get-unique-id";
 import CodeBlock from "@/internal-components/code-block.astro";
 import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
 const {
+  componentType,
+  componentName,
   previewAndCode: {
-    previewComponent: Preview, 
+    previewComponent: Preview,
     installationSteps
   },
 } = Astro.props;
+
+const usageStep = installationSteps.find(
+  (step) => step.name === InstallationSteps.COMPONENT_USAGE,
+);
+
+const tabId = getUniqueId('code-installation-tab');
 ---
 
 <section class="preview-and-code">
@@ -16,83 +25,92 @@ const {
       <Preview />
     </div>
     <div class="code" slot="code">
-      {
-        installationSteps.map((step, index: number) => {
-          let stepDoc = null;
-          switch (step.name) {
-            case InstallationSteps.INSTALL_EXTERNAL_DEPENDENCY:
-              stepDoc = (
-                <>
-                  <h3>{index + 1}. Install the dependency</h3>
-                  <p>
-                    Install the required dependency mentioned below before using
-                    this component.
-                  </p>
-                  <CodeBlock
-                    code={step.code}
-                    lang="bash"
-                    fileName={"Terminal / Command Prompt"}
-                  />
-                </>
-              );
-              break;
-            case InstallationSteps.COPY_COMPONENT_CODE: {
-              stepDoc = (
-                <>
-                  <h3>{index + 1}. Copy the component file</h3>
-                  <p>
-                    Create a new file called <code>{step.fileName}</code> in
-                    your reusable components folder (for example
-                    <code>/src/components/</code>) and paste the following code
-                    into it.
-                  </p>
-                  <CodeBlock
-                    code={step.code}
-                    lang="jsx"
-                    fileName={step.fileName}
-                  />
-                </>
-              );
-              break;
+      <CodeBlock
+        code={usageStep.code}
+        lang="jsx"
+        fileName={usageStep.fileName}
+      />
+      <br />
+      <h2>Installation</h2>
+      <div class="static-tabs" id={tabId}>
+        <div class="head">
+          <button class="tab active">CLI</button>
+          <button class="tab">Manual</button>
+        </div>
+        <div class="body">
+          <div class="tab-panel active cli-tab">
+            <p>Run the command from your project root directory (the folder that contains package.json).</p>
+            <CodeBlock
+              code={`npx mosaicui-cli@latest ${componentType}/${componentName}`}
+              lang="bash"
+              fileName="Terminal / Console"
+            />
+          </div>
+          <div class="tab-panel">
+            {
+              installationSteps.map((step, index: number) => {
+                let stepDoc = null;
+                switch (step.name) {
+                  case InstallationSteps.INSTALL_EXTERNAL_DEPENDENCY:
+                    stepDoc = (
+                      <>
+                        <h3>{index + 1}. Install the dependency</h3>
+                        <p>
+                          Install the required dependency mentioned below before
+                          using this component.
+                        </p>
+                        <CodeBlock
+                          code={step.code}
+                          lang="bash"
+                          fileName={"Terminal / Command Prompt"}
+                        />
+                      </>
+                    );
+                    break;
+                  case InstallationSteps.COPY_COMPONENT_CODE: {
+                    stepDoc = (
+                      <>
+                        <h3>{index + 1}. Copy the component file</h3>
+                        <p>
+                          Create a new file called <code>{step.fileName}</code>{" "}
+                          in your reusable components folder (for example
+                          <code>/src/components/</code>) and paste the following
+                          code into it.
+                        </p>
+                        <CodeBlock
+                          code={step.code}
+                          lang="jsx"
+                          fileName={step.fileName}
+                        />
+                      </>
+                    );
+                    break;
+                  }
+                  case InstallationSteps.COPY_COMPONENT_STYLES: {
+                    stepDoc = (
+                      <>
+                        <h3>{index + 1}. Copy the CSS module file</h3>
+                        <p>
+                          In the same folder, create a file called{" "}
+                          <code>{step.fileName}</code> and paste the following
+                          CSS.
+                        </p>
+                        <CodeBlock
+                          code={step.code}
+                          lang="css"
+                          fileName={step.fileName}
+                        />
+                      </>
+                    );
+                    break;
+                  }
+                }
+                return <div class="step">{stepDoc}</div>;
+              })
             }
-            case InstallationSteps.COPY_COMPONENT_STYLES: {
-              stepDoc = (
-                <>
-                  <h3>{index + 1}. Copy the CSS module file</h3>
-                  <p>
-                    In the same folder, create a file called{" "}
-                    <code>{step.fileName}</code> and paste the following CSS.
-                  </p>
-                  <CodeBlock
-                    code={step.code}
-                    lang="css"
-                    fileName={step.fileName}
-                  />
-                </>
-              );
-              break;
-            }
-            case InstallationSteps.COMPONENT_USAGE: {
-              stepDoc = (
-                <>
-                  <h3>{index + 1}. Use the component</h3>
-                  <p>
-                    Now you can import and use the component anywhere in your
-                    project.
-                  </p>
-                  <CodeBlock
-                    code={step.code}
-                    lang="jsx"
-                    fileName={step.fileName}
-                  />
-                </>
-              );
-              break;
-            }
-          }
-          return <div class="step">{stepDoc}</div>;
-        })
-      }
+          </div>
+        </div>
+      </div>
     </div>
   </PreviewAndCodeTabs>
 </section>
@@ -109,6 +127,14 @@ const {
       place-items: center;
     }
     .code {
+      .static-tabs {
+        margin-top: 16px;
+      }
+      .cli-tab {
+        p {
+          margin-bottom: 12px;
+        }
+      }
       .step {
         margin-bottom: 32px;
         h3 {
@@ -138,3 +164,9 @@ const {
     }
   }
 </style>
+
+<script define:vars={{ tabId }}>
+  document.addEventListener("astro:page-load", () => {
+    initStaticTabs(tabId);
+  });
+</script>

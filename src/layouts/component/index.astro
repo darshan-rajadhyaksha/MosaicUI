@@ -19,7 +19,11 @@ const meta = {
 
 <BaseLayout meta={meta}>
   <InfoSection info={component.info} />
-  <PreviewAndCodeSection previewAndCode={component.previewAndCode} />
+  <PreviewAndCodeSection 
+    componentType={component.info.category.key}
+    componentName={component.key}
+    previewAndCode={component.previewAndCode} 
+  />
   {component.examples && (
     <ExamplesSection examples={component.examples} />
   )}
