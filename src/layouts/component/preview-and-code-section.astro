@@ -105,7 +105,9 @@ const tabId = getUniqueId('code-installation-tab');
                     break;
                   }
                 }
-                return <div class="step">{stepDoc}</div>;
+                if(stepDoc) {
+                  return <div class="step">{stepDoc}</div>;
+                }
               })
             }
           </div>
