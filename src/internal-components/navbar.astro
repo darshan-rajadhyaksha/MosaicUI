@@ -70,6 +70,7 @@ const getLinkClass = (link: Link) => (
             <a 
               href={link.href}
               class={isActive(link.href) ? "active": null}
+              rel="noreferrer noopener"
             >
               {link.title}
             </a>
@@ -91,6 +92,7 @@ const getLinkClass = (link: Link) => (
                 class={getLinkClass(link)}
                 href={link.href}
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 {link.icon && (
                   <Icon aria-hidden={true} name={link.icon} />
