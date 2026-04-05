@@ -1,6 +1,6 @@
 export default Object.freeze({
 	name: "MosaicUI",
-	version: "1.0.17",
+	version: "1.0.18",
 	url: "https://mosaicui.com/",
 	keywords: [
 		"React",
