@@ -1,0 +1,59 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import TextAnimationVariantsPreview from "./previews/text-animation-variants-preview";
+import TextAnimationVariantsPreviewCode from "./previews/text-animation-variants-preview?raw";
+import TextAnimationUnitAndStaggerPreview from "./previews/text-animation-unit-and-stagger-preview";
+import TextAnimationUnitAndStaggerPreviewCode from "./previews/text-animation-unit-and-stagger-preview?raw";
+import TextAnimationDelayPreview from "./previews/text-animation-delay-preview";
+import TextAnimationDelayPreviewCode from "./previews/text-animation-delay-preview?raw";
+---
+
+<div class="example">
+  <h3>Variants</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <TextAnimationVariantsPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={TextAnimationVariantsPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Unit & Stagger</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <TextAnimationUnitAndStaggerPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={TextAnimationUnitAndStaggerPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Delay</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <TextAnimationDelayPreview client:visible />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={TextAnimationDelayPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>

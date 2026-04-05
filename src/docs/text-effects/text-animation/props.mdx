@@ -1,0 +1,9 @@
+| Prop      | Type                                                                                  | Required | Default  | Description                                                                 |
+|-----------|---------------------------------------------------------------------------------------|----------|----------|-----------------------------------------------------------------------------|
+| text      | `string`                                                                              | Yes      | —        | The text content to be animated.                                           |
+| variant   | `"fadeIn"` <br /> `"slideUp"` <br /> `"slideDown"` <br /> `"slideLeft"` <br /> `"slideRight"` <br /> `"zoomIn"` <br /> `"zoomOut"` <br /> `"blurIn"` | No       | `"fadeIn"` | Animation style applied to the text.                                       |
+| unit      | `"letter"` \| `"word"` \| `"text"`                                                    | No       | `"letter"` | Determines how the text is split and animated.                             |
+| stagger   | `number`                                                                              | No       | `20`     | Time delay between each animated unit (in milliseconds).                  |
+| delay     | `number`                                                                              | No       | `0`      | Delay before the animation starts (in milliseconds).                       |
+| className | `string`                                                                              | No       | —        | Additional CSS classes for styling.                                        |
+| style     | `React.CSSProperties`                                                                 | No       | —        | Inline styles applied to the container.                                    |
