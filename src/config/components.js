@@ -42,6 +42,7 @@ import fallingTilesLoaderMeta from "@/docs/loaders/falling-tiles-loader";
 import hamburgerButtonMeta from "@/docs/interactions/hamburger-button";
 import luminousCardMeta from "@/docs/interactions/luminous-card";
 import orbitToggleSwitchMeta from "@/docs/interactions/orbit-toggle-switch";
+import spotlightCardMeta from "@/docs/interactions/spotlight-card";
 
 /* -- Visual Effects -- */
 import borderBeamMeta from "@/docs/visual-effects/border-beam";
@@ -107,6 +108,7 @@ const interactions = {
     [hamburgerButtonMeta.key]: hamburgerButtonMeta,
     [luminousCardMeta.key]: luminousCardMeta,
     [orbitToggleSwitchMeta.key]: orbitToggleSwitchMeta,
+    [spotlightCardMeta.key]: spotlightCardMeta,
   },
 };
 

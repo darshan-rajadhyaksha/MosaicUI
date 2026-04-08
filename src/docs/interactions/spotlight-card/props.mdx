@@ -1,0 +1,30 @@
+import TableWrapper from "@/internal-components/table-wrapper.astro";
+
+#### SpotlightCardsContainer Props
+
+<TableWrapper>
+| Prop       | Type                    | Required | Default   | Description                                                                 |
+|------------|-------------------------|----------|-----------|-----------------------------------------------------------------------------|
+| children   | `React.ReactNode`       | Yes      | —         | One or more `SpotlightCard` components to be rendered inside the container. |
+| tagName    | `string`                | No       | `"div"`   | HTML tag used to render the container element.                              |
+| className  | `string`                | No       | —         | Additional CSS classes applied to the container.                            |
+| style      | `React.CSSProperties`   | No       | —         | Inline styles applied to the container element.                             |
+</TableWrapper>
+
+<br />
+
+#### SpotlightCard Props
+
+<TableWrapper>
+| Prop             | Type                          | Required | Default                          | Description                                                                                  |
+|------------------|-------------------------------|----------|----------------------------------|----------------------------------------------------------------------------------------------|
+| children         | `React.ReactNode`             | Yes      | —                                | Content to be rendered inside the card.                                                      |
+| spotlightColor   | `string`                      | No       | `"rgb(127, 127, 127)"`         | Spotlight color. Accepts RGB or HEX; alpha channel is used to control spotlight intensity.   |
+| spotlightSize    | `number`                      | No       | `100`                            | Size of the spotlight effect in pixels.                                                      |
+| spotlightBorderWidth      | `number`                      | No       | `1`                     | Width of the card border in pixels; adopts spotlight color on hover proximity.               |
+| tagName          | `string`                      | No       | `"div"                           | HTML tag used to render the card container.                                                  |
+| className        | `string`                      | No       | —                                | Additional CSS classes applied to the card.                                                  |
+| style            | `React.CSSProperties`         | No       | —                                | Inline styles applied to the card.                                                           |
+| wrapperTagName   | `string`                      | No       | `"div"`                          | HTML tag used for the inner wrapper around children.                                         |
+| wrapperProps     | `Record<string, any>`         | No       | `{}`                             | Props passed to the wrapper element (e.g., `className`, `style`, etc.).                      |
+</TableWrapper>

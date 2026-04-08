@@ -1,0 +1,54 @@
+.spotlight-card-container {
+
+  .spotlight-card {
+    position: relative;
+
+    .wrapper {
+      position: relative;
+      top: var(--spotlight-border-width) !important;
+      left: var(--spotlight-border-width) !important;
+      width: calc(100% - calc(var(--spotlight-border-width) * 2)) !important;
+      height: calc(100% - calc(var(--spotlight-border-width) * 2)) !important; 
+      border-radius: inherit;
+      z-index: 2;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      border-radius: inherit;
+      transition: all 250ms ease-in-out; 
+    }
+
+    &:before {
+      background: radial-gradient(
+        var(--spotlight-size) circle at var(--mx) var(--my),
+        var(--spotlight-before-color),
+        rgba(0, 0, 0, 0)
+      );
+      z-index: 1;
+    }
+
+    &:after {
+      background: radial-gradient(
+        var(--spotlight-size) circle at var(--mx) var(--my),
+        var(--spotlight-after-color),
+        rgba(0, 0, 0, 0)
+      );
+      z-index: 3;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    .spotlight-card:before {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+---
+import meta from "./index";
+import CodeBlock from "@/internal-components/code-block.astro";
+import PreviewAndCodeTabs from "@/internal-components/preview-and-code-tabs.astro";
+import SpotlightCardSpotlightSizePreview from "./previews/spotlight-card-spotlight-size-preview";
+import SpotlightCardSpotlightSizePreviewCode from "./previews/spotlight-card-spotlight-size-preview?raw";
+import SpotlightCardSpotlightBorderWidthPreview from "./previews/spotlight-card-spotlight-border-width-preview";
+import SpotlightCardSpotlightBorderWidthPreviewCode from "./previews/spotlight-card-spotlight-border-width-preview?raw";
+---
+
+<div class="example">
+  <h3>Spotlight Size</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <SpotlightCardSpotlightSizePreview client:only />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={SpotlightCardSpotlightSizePreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
+
+<div class="example">
+  <h3>Spotlight Border Width</h3>
+  <PreviewAndCodeTabs>
+    <div class="preview" slot="preview">
+      <SpotlightCardSpotlightBorderWidthPreview client:only />
+    </div>
+    <div slot="code">
+      <CodeBlock
+        code={SpotlightCardSpotlightBorderWidthPreviewCode}
+        lang="jsx"
+        fileName={meta.key}
+      />
+    </div>
+  </PreviewAndCodeTabs>
+</div>
