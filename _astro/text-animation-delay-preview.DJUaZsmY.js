@@ -1,1 +1,0 @@
-import{j as t}from"./jsx-runtime.D_zvdyIk.js";import{T as e}from"./text-animation.lZ0usT92.js";import"./index.DiEladB3.js";import"./_component_.abe5225a.BCq87sAG.js";const m=()=>t.jsx(e,{text:"Good things take time to appear",variant:"slideDown",delay:5e3});export{m as default};
