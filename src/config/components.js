@@ -121,20 +121,20 @@ const visualEffects = {
 };
 
 export const componentMap = {
-  ...textEffects.items,
-  ...loaders.items,
-  ...esssentials.items,
   ...backgrounds.items,
+  ...esssentials.items,
   ...interactions.items,
+  ...loaders.items,
+  ...textEffects.items,
   ...visualEffects.items,
 };
 
 export default ([
+  backgrounds,
+  interactions,
   esssentials,
   visualEffects,
-  backgrounds,
   textEffects,
-  interactions,
   loaders,
 ].map(entry => ({
   ...entry,

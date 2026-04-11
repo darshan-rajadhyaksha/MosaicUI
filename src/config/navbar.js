@@ -18,14 +18,8 @@ export default Object.freeze({
   secondaryLinks: [
     {
       type: "icon-button",
-      title: "Twitter / X",
-      href: project.social.x.url,
-      icon: "x"
-    },
-    {
-      type: "icon-button",
       title: "Github",
-      href: project.social.github.url,
+      href: project.github,
       icon: "github"
     },
   ],
@@ -39,14 +33,8 @@ export const landingPageConfig = Object.freeze({
   secondaryLinks: [
     {
       type: "icon-button",
-      title: "Twitter / X",
-      href: project.social.x.url,
-      icon: "x"
-    },
-    {
-      type: "icon-button",
       title: "Github",
-      href: project.social.github.url,
+      href: project.github,
       icon: "github"
     },
   ],

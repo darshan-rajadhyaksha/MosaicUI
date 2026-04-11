@@ -1,6 +1,5 @@
 ---
 import project from "@/config/project";
-import { Icon } from "astro-icon/components";
 ---
 
 <div class="support-banner">
@@ -11,18 +10,10 @@ import { Icon } from "astro-icon/components";
 	<div class="controls">
 		<a 
 			class="github"
-			href={project.social.github.url} 
+			href={project.github} 
 			target="_blank"
 		>
 			⭐ Star on GitHub
-		</a>
-		<a
-			class="x"
-			href={project.social.x.url}
-			target="_blank"
-			aria-label="Shoutout on X"
-		>
-			Shoutout on <Icon aria-hidden={true} name="x">
 		</a>
 		<a 
 			class="linkedin"

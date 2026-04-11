@@ -17,7 +17,7 @@ export default Object.freeze({
   },
   interactions: {
     key: "interactions",
-    title: "Micro Interactions",
+    title: "Interactions",
   },
   visualEffect: {
     key: "visual-effects",
