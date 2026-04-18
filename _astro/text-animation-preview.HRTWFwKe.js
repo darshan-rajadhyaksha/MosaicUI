@@ -1,1 +1,0 @@
-import{j as t}from"./jsx-runtime.D_zvdyIk.js";import{T as i}from"./text-animation.CE0imE-g.js";import"./index.DiEladB3.js";import"./_component_.abe5225a.DEd31ltF.js";const e=()=>t.jsx(i,{text:"Transform static text into fluid animation",variant:"slideDown"});export{e as default};
