@@ -3,14 +3,14 @@ import ModularGrid, { ModularGridItem } from "@/components/essentials/modular-gr
 import TextRevealAnimationPreview from "@/docs/text-effects/text-reveal-animation/previews/text-reveal-animation-preview";
 import FloatingTabsPreview from "@/docs/essentials/floating-indicator-tabs/previews/floating-indicator-tabs-preview";
 import OrbitToggleSwitchPreview from "@/docs/interactions/orbit-toggle-switch/previews/orbit-toggle-switch-preview";
-import TypewriterAnimationPreview from "@/docs/text-effects/typewriter-animation/previews/typewriter-animation-preview";
 import StarFieldBackground from "@/components/backgrounds/star-field-background/star-field-background";
-import MazePatternBackground from "@/components/backgrounds/maze-pattern-background/maze-pattern-background";
+import WavyDotsBackground from "@/components/backgrounds/wavy-dots-background/wavy-dots-background";
+import VerticalTextSliderPreview from "@/docs/text-effects/vertical-text-slider/previews/vertical-text-slider-preview";
 
 const componentShowCaseCards = [
   {
-    component: "TypewriterAnimation",
-    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
+    component: "VerticalTextSlider",
+    sizing: { xxl: 3, xl: 4, lg: 6, md: 6 },
     fullscreen: false,
   },
   {
@@ -19,9 +19,9 @@ const componentShowCaseCards = [
     fullscreen: false,
   },
   {
-    component: "OrbitToggleSwitch",
-    sizing: { xxl: 4, xl: 4, lg: 6, md: 6 },
-    fullscreen: false,
+    component: "WavyDotsBackground",
+    sizing: { xxl: 5, xl: 4, lg: 6, md: 6 },
+    fullscreen: true,
   },
   {
     component: "StarFieldBackground",
@@ -34,9 +34,9 @@ const componentShowCaseCards = [
     fullscreen: false,
   },
   {
-    component: "MazePatternBackground",
+    component: "OrbitToggleSwitch",
     sizing: { xxl: 3, xl: 3, lg: 6, md: 6 },
-    fullscreen: true,
+    fullscreen: false,
   },
 ];
 ---
@@ -59,8 +59,8 @@ const componentShowCaseCards = [
               ].join(" ")}
             >
               <div class="preview">
-                {component === "TypewriterAnimation" && (
-                  <TypewriterAnimationPreview client:visible />
+                {component === "VerticalTextSlider" && (
+                  <VerticalTextSliderPreview client:visible />
                 )}
                 {component === "FloatingTabs" && (
                   <FloatingTabsPreview client:visible />
@@ -71,10 +71,9 @@ const componentShowCaseCards = [
                 {component === "TextRevealAnimation" && (
                   <TextRevealAnimationPreview client:visible />
                 )}
-                {component === "MazePatternBackground" && (
-                  <MazePatternBackground 
+                {component === "WavyDotsBackground" && (
+                  <WavyDotsBackground 
                     client:visible 
-                    mazeSize={15}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -86,13 +85,18 @@ const componentShowCaseCards = [
                         display: "grid",
                         placeItems: "center",
                         padding: "24px",
-                        background: "rgba(0,0,0,0.25)",
                         textAlign: "center",
                       },
                     }}
                   >
-                    <h2 style={{ color: "#ffffff" }}>Maze Pattern Background</h2>
-                  </MazePatternBackground>
+                    <h2 
+                      style={{ 
+                        color: "var(--text-primary)",
+                      }}
+                      >
+                      Wavy Dots Background
+                    </h2>
+                  </WavyDotsBackgroundPreview>
                 )}
                 {component === "StarFieldBackground" && (
                   <StarFieldBackground
@@ -111,7 +115,13 @@ const componentShowCaseCards = [
                     }}
                     client:only
                   >
-                    <h2 style={{ color: "#ffffff" }}>Starfield Background</h2>
+                    <h2 
+                      style={{ 
+                        color: "#ffffff"
+                      }}
+                    >
+                      Starfield Background
+                    </h2>
                   </StarFieldBackground>
                 )}
               </div>
