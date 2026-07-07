@@ -1,0 +1,25 @@
+---
+import Navbar from "@/components/navbar.astro";
+import Sidebar from "@/components/sidebar";
+const { fullWidth = false } = Astro.props;
+---
+
+<Navbar />
+<Sidebar
+  activePath={Astro.url.pathname}
+  client:load
+/>
+<main class={`${fullWidth ? "max-w-7xl" : "max-w-4xl"} mx-auto px-5 py-10 sm:py-16 space-y-12`}>
+  <!-- Header -->
+  <section class="space-y-4">
+    <h1 class="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
+      <slot name="heading" />
+    </h1>
+    <p class="text-md sm:text-lg leading-7 text-neutral-600 dark:text-neutral-400">
+      <slot name="description" />
+    </p>
+  </section>
+
+  <!-- Slot -->
+  <slot />
+</main>

@@ -1,204 +1,143 @@
 ---
-import CodeBlock from "@/internal-components/code-block.astro";
-import { componentMap } from "@/config/components";
-import project from "@/config/project";
 import BaseLayout from "@/layouts/base.astro";
-import getUniqueId from "@/lib/get-unique-id";
-import getUrl from "@/lib/get-url";
-
-const exampleInstallationMeta = Object.values(componentMap)[0];
-const exampleInstallationSteps = exampleInstallationMeta?.previewAndCode?.installationSteps;
-
-const cliExampleCommand = `
-# npx mosaicui-cli@latest <component-type>/<component-name> 
-npx mosaicui-cli@latest ${exampleInstallationMeta.info.category.key}/${exampleInstallationMeta.key}
-`.trim();
-
-const tabId = getUniqueId('component-installation-tab');
+import PageLayout from "@/layouts/page.astro";
+import project from "@/configs/project";
+import resolveProjectURL from "@/utils/resolve-project-url";
+import cnCode from "@/utils/cn?raw";
+import CodeBlock from "@/components/code-block.astro";
 
 const title = "Installation";
 
 const meta = {
 	title: `${title} | ${project.name}`,
-	image: getUrl(`assets/index.jpg`),
-	url: getUrl("installation/"),
+	image: resolveProjectURL(`assets/index.jpg`),
+	url: resolveProjectURL("installation/"),
 };
 ---
 
 <BaseLayout meta={meta}>
-	<section class="info">
-		<h1>{title}</h1>
-		<p>Follow these simple steps to add {project.name} components to your React project:</p>
-	</section>
+  <PageLayout>
+    <span slot="heading">
+      Installation
+    </span>
 
-	<section class="steps-section">
-		<h2>Steps</h2>
-		<div class="steps">
-			<div class="step">
-				<h3>1. Choose a Component</h3>
-				<p>Browse the <a href="/components">components</a> library and select the component you want to use.</p>
-			</div>
-			<div class="step">
-				<h3>2. Installation</h3>
-				<p>Navigate to the <b>Code</b> tab of the selected component to view installation instructions.</p>
-				<p>
-					There are two ways to install the component in your React project: CLI or Manual.
-					Click on one of the options below and follow the instructions.
-				</p>
-			</div>
-			<div class="static-tabs" id={tabId}>
-				<div class="head">
-					<button class="tab active">
-						CLI
-					</button>
-					<button class="tab">
-						Manual
-					</button>
-				</div>
-				<div class="body">
-					<div class="tab-panel active">
-						<div class="step">
-							<h3>3. Install via CLI</h3>
-							<p>
-								Run the provided command from your project root directory (the folder containing package.json).
-								This will automatically add the component code to your specified components directory.
-							</p>	
-							<div class="code-container">
-								<CodeBlock 
-									code={cliExampleCommand}
-									lang="bash" 
-									fileName="Terminal / Console"
-								/>
-							</div>
-						</div>
-						<div class="step">
-							<h3>4. Use the Component in Your Project</h3>
-							<p>
-								Import the installed component into your React app and render it. 
-								Follow the example code provided with the component, and check the <strong>Props</strong> section to see which props are supported for customization.
-							</p>
-							<div class="code-container">
-								<CodeBlock 
-									code={exampleInstallationSteps.at(2).code} 
-									lang="jsx" 
-									fileName={exampleInstallationSteps.at(2).fileName}
-								/>
-							</div>
-						</div>
-					</div>
-					<div class="tab-panel">
-						<div class="step">
-							<h3>3. Install Dependencies (If Required)</h3>
-							<p>Some components rely on additional packages like react-three-fiber or framer-motion. Only install these when needed.</p>
-							<div class="code-container">
-								<CodeBlock 
-									code="npm install react-thee-fiber" 
-									lang="bash" 
-									fileName="Terminal / Console"
-								/>
-							</div>
-						</div>
-						<div class="step">
-							<h3>4. Copy the Code</h3>
-							<p>Each component provides a code tab containing the component file and a corresponding CSS module.</p>
-							<br>
-							<h4>4.1. Copy the Component File</h4>
-							<p>Copy the component code into your reusable components folder in your project (For example: <code>/src/components/</code>)</p>
-							<div class="code-container">
-								<CodeBlock 
-									code={exampleInstallationSteps.at(0).code} 
-									lang="jsx" 
-									fileName={exampleInstallationSteps.at(0).fileName}
-								/>
-							</div>
-							<br>
-							<h4>4.2. Copy the CSS Module File</h4>
-							<p>Copy the associated CSS module file into the <strong>same</strong> folder:</p>
-							<div class="code-container">
-								<CodeBlock 
-									code={exampleInstallationSteps.at(1).code} 
-									lang="css" 
-									fileName={exampleInstallationSteps.at(1).fileName}
-								/>
-							</div>
-							<br>
-							<p>Using CSS Modules ensures:</p>
-							<ul>
-								<li>Scoped styles, preventing class name collisions</li>
-								<li>Seamless integration with React components</li>
-							</ul>
-						</div>
-						<div class="step">
-							<h3>5. Use the Component in Your Project</h3>
-							<p>
-								Import the component into your React app and render it. 
-								Follow the example code provided with the component, and check the <strong>Props</strong> section to see which props are supported for customization.
-							</p>
-							<div class="code-container">
-								<CodeBlock 
-									code={exampleInstallationSteps.at(2).code} 
-									lang="jsx" 
-									fileName={exampleInstallationSteps.at(2).fileName}
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <span slot="description">
+      Follow these simple steps to add
+      <span class="font-semibold text-zinc-900 dark:text-zinc-100">
+        {project.name}
+      </span>
+      components to your React project.
+    </span>
+
+    <!-- Prerequisites -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+        Prerequisites
+      </h2>
+
+      <p class="text-zinc-600 dark:text-zinc-400">
+        Make sure you have 
+        <span class="font-medium text-zinc-900 dark:text-zinc-100">Tailwind CSS (v4)</span>,
+        <span class="font-medium text-zinc-900 dark:text-zinc-100">Motion</span>,
+        <span class="font-medium text-zinc-900 dark:text-zinc-100">clsx</span> and
+        <span class="font-medium text-zinc-900 dark:text-zinc-100">tailwind-merge</span> installed in your project.
+      </p>
+
+      <div>
+        <CodeBlock
+          code="npm install tailwindcss motion clsx tailwind-merge"
+          lang="bash"
+        />
+      </div>
+
+      <p class="text-zinc-600 dark:text-zinc-400">
+        Add the utility function <span class="font-medium text-zinc-900 dark:text-zinc-100">cn</span> inside your utils folder.
+      </p>
+
+      <div>
+        <CodeBlock
+          fileName="/utils/cn.ts",
+          code={cnCode}
+          lang="tsx"
+        />
+      </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="space-y-6">
+
+      <h2 class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+        Steps
+      </h2>
+
+      <div class="space-y-6">
+
+        <!-- Step 1 -->
+        <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2 bg-white dark:bg-zinc-900">
+          <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">
+            1. Choose a Component
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            Browse the components library and select the component you want to use.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2 bg-white dark:bg-zinc-900">
+          <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">
+            2. Install Dependencies
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            Some components may require additional external dependencies. Install them before use.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2 bg-white dark:bg-zinc-900">
+          <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">
+            3. Copy Component Code
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            Copy the component source code into your project. You can modify it freely to fit your needs.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 space-y-2 bg-white dark:bg-zinc-900">
+          <h3 class="font-semibold text-zinc-900 dark:text-zinc-100">
+            4. Use the Component
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            Import and use the component in your project. Check the Props section for available customization options.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950 p-8">
+
+      <!-- subtle glow decoration -->
+      <div class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl"></div>
+
+      <div class="relative space-y-4">
+        <h3 class="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+          Ready to explore?
+        </h3>
+
+        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+          Check the Components section to discover production-ready React UI components built with Tailwind CSS and Motion.
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="/components/"
+            class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 transition">
+            Browse Components 
+          </a>
+        </div>
+      </div>
+    </section>
+  </PageLayout>
 </BaseLayout>
-
-
-<style>
-	.steps-section {
-		margin-top: 8px;
-		padding-bottom: 0;
-		.steps {
-			margin-top: 24px;
-			.step {
-				margin-bottom: 32px;
-				&:last-child {
-					margin-bottom: 0;
-				}
-				br {
-					margin: 8px 0;
-				}
-				h3 {
-					font-size: 1.25rem;
-					margin-bottom: 8px;
-				}
-				h4 {
-					font-size: 1rem;
-					margin-bottom: 8px;
-				}
-				p {
-					margin-bottom: 8px;
-					color: var(--text-secondary);
-				}
-				.code-container {
-					margin-top: 8px;
-				}
-				ul {
-					margin: 8px 0;
-					padding-left: 24px;
-					li {
-						margin-bottom: 4px;
-					}
-				}
-			}
-		}
-	}
-	.static-tabs {
-		margin-top: -8px;
-		> .body {
-			margin-top: 24px;
-		}
-	}
-</style>
-
-<script define:vars={{ tabId }}>
-  document.addEventListener("astro:page-load", () => {
-    initStaticTabs(tabId);
-  });
-</script>

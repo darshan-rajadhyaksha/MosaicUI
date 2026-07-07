@@ -1,0 +1,18 @@
+---
+import CodeBlock from "@/components/code-block.astro";
+
+const {
+  componentId,
+  componentCategory,
+} = Astro.props;
+
+const command = `npx mosaicui-cli@latest ${componentCategory}/${componentId}`
+---
+
+<div class="">
+  <CodeBlock
+    code={command}
+    lang="bash"
+    showCopyButton={false}
+  />
+</div>

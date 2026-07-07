@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+const featuesCard = [
+  {
+    icon: "code",
+    title: "Open-Source & Free",
+    description:
+      "Fully open-source and free to use in personal or commercial projects.",
+  },
+  {
+    icon: "customize",
+    title: "Fully Customizable",
+    description:
+      "Easily tweak styles, animation speed, and behavior to match your brand.",
+  },
+  {
+    icon: "stars",
+    title: "Creative & Modern UI",
+    description:
+      "Stand out with unique, polished components that elevate your design.",
+  },
+  {
+    icon: "grid",
+    title: "Clean Component Architecture",
+    description:
+      "Built with predictable logic and reusable patterns to ensure seamless integration.",
+  },
+  {
+    icon: "moon",
+    title: "Dark Mode Ready",
+    description:
+      "Carefully balanced colors and motion ensure consistency across different visual environments.",
+  },
+  {
+    icon: "flash",
+    title: "Lightweight & Performant",
+    description:
+      "Smooth animations and efficient rendering keep your application fast and responsive.",
+  },
+];
+---
+
+<div class="mx-auto max-w-7xl px-5 py-24 lg:py-28">
+  <!-- Header -->
+  <div class="max-w-2xl">
+    <h2 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+      Why Developers Love It
+    </h2>
+
+    <p class="mt-4 text-md sm:text-lg text-neutral-600 dark:text-neutral-400">
+      Clean code, smooth animations, and customizable components that let you focus on building great products.
+    </p>
+  </div>
+
+  <!-- Cards -->
+  <div class="mt-12 sm:mt-14  grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {featuesCard.map(feature => (
+      <div class="rounded-2xl border border-neutral-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950">
+        <div class="text-2xl">
+          <Icon name={feature.icon} class="text-neutral-900 dark:text-white" />
+        </div>
+        <h3 class="mt-4 text-lg font-semibold text-neutral-900 dark:text-white">
+          {feature.title}
+        </h3>
+        <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+          {feature.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>

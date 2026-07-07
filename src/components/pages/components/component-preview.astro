@@ -1,0 +1,66 @@
+---
+import ThemeToggleButton from "@/components/theme-toggle-button.astro";
+import unique from "@/utils/unique";
+import { Icon } from "astro-icon/components";
+import type React from "react";
+import type { PreviewEntry } from "@/utils/component-config";
+
+const {
+  previewClassName = "",
+  PreviewComponent,
+  previews,
+} = Astro.props as {
+  previewClassName: string,
+  PreviewComponent: React.FC,
+  previews: PreviewEntry[]
+};
+
+const previewSelectId = `preview-select-${unique()}`;
+---
+
+<div class="absolute backdrop-blur-md z-[99] top-2 right-2 border border-zinc-100/10 shadow-sm dark:border-zinc-800/50 bg-white/50 dark:bg-zinc-800 rounded-[32px] py-1 px-2 flex gap-1">
+  {previews?.length ? (
+    <select id={previewSelectId} class="text-neutral-800 dark:text-white rounded-[16px]">
+      {previews.map((previewEntry, previewEntryIndex) => (
+        <option class="text-neutral-800" value={previewEntryIndex}>
+          {previewEntry.name}
+        </option>
+      ))}
+    </select>
+  ) : null}
+  <button 
+    class="bg-zinc-200 dark:bg-zinc-600 w-[32px] h-[32px] grid place-items-center rounded-[50%] cursor-pointer"
+    data-component-refresh-button
+  >
+    <Icon name="refresh" class="text-gray-900 dark:text-gray-100 text-md" />
+  </button>
+  <ThemeToggleButton className="bg-zinc-200 dark:bg-zinc-600 dark:hover:bg-zinc-600 rounded-[50%]" />
+</div>
+<div class={`${previewClassName} h-full rounded-[inherit] overflow-hidden`}>
+  <PreviewComponent />
+</div>
+
+<script define:vars={{ previewSelectId }}>
+  document.addEventListener("astro:page-load", () => {
+    /** refresh the component */
+    const componentRefreshBtn = document.querySelector("button[data-component-refresh-button]");
+    if (!componentRefreshBtn) return;
+    componentRefreshBtn.addEventListener("click", () => {
+      const componentRefreshEvent = new CustomEvent("component-refresh");
+      document.documentElement.dispatchEvent(componentRefreshEvent);
+    });
+    /** display different preview */
+    const previewSelectElement = document.querySelector(`#${previewSelectId}`);
+    if (previewSelectElement) {
+      previewSelectElement.addEventListener("change", (e) => {
+        const newIndex = +e.target.value;
+        const componentSwitchEvent = new CustomEvent("component-switch", {
+          detail: {
+            index: newIndex,
+          }
+        });
+        document.documentElement.dispatchEvent(componentSwitchEvent);
+      });
+    }
+  });
+</script>

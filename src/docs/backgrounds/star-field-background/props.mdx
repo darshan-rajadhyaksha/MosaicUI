@@ -1,7 +1,7 @@
 | Prop           | Type                      | Required | Default | Description                                                                 |
 |----------------|---------------------------|----------|---------|-----------------------------------------------------------------------------|
-| speed          | `number`                    | No       | `5`       | Controls the star movement speed. Positive = forward, Negative = backward. |
-| className      | `string`                    | No       | —      | Additional CSS classes applied to the main container.                      |
-| wrapperProps   | `React.HTMLAttributes<any>` | No       | —      | Extra props passed to the wrapper element containing the children.         |
-| wrapperTagName | `string`                    | No       | `"div"`   | HTML tag used as the wrapper element around the children.                  |
-| children       | `ReactNode`                 | Yes      | —       | Content rendered on top of the moving star field.                           |
+| speed          | `number`                  | No       | `5`       | Controls the star movement speed. Positive = forward, Negative = backward. |
+| spaceColor     | `string`                  | No       | `"#000000"` | Sets the background color of the space. Accepts any valid CSS color value. |
+| starColor      | `string`                  | No       | `"#ffffff"` | Sets the color of the stars. Accepts any valid CSS color value. |
+| starTrailColor | `string`                  | No       | `"#555555"` | Sets the color of the star trails. Accepts any valid CSS color value. |
+| className      | `string`                  | No       | —      | Additional CSS classes applied to the main container.                      |

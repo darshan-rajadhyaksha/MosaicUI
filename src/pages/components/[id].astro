@@ -1,0 +1,138 @@
+---
+import { Icon } from "astro-icon/components";
+import { allComponents } from "@/configs/registry";
+import BaseLayout from "@/layouts/base.astro";
+import CodeBlock from "@/components/code-block.astro";
+import Widget from "@/components/pages/components/widget.astro";
+import MdxTableWrapper from "@/components/mdx-table-wrapper.astro";
+import Sidebar from "@/components/sidebar";
+import Navbar from "@/components/navbar.astro";
+import project from "@/configs/project";
+import ComponentPreview from "@/components/pages/components/component-preview.astro";
+import resolveProjectURL from "@/utils/resolve-project-url";
+
+const {
+  id: componentId,
+} = Astro.params as {
+  id: string;
+};
+
+const componentConfig = allComponents[componentId];
+
+const meta = {
+  type: "article",
+	title: `${componentConfig.name} | ${project.name}`,
+	description: componentConfig.description,
+	image: resolveProjectURL(`assets/components/${componentConfig.category}/${componentConfig.id}.jpg`),
+	url: resolveProjectURL(`components/${componentConfig.id}/`),
+};
+
+export const getStaticPaths = async () => {
+  return Object.keys(
+    allComponents
+  ).map((id) => ({
+    params: {
+      id,
+    },
+  }));
+};
+---
+
+<BaseLayout meta={meta}>
+  <Sidebar
+    activePath={Astro.url.pathname}
+    client:load
+  />
+  <!-- Components Section -->
+  <div class="box-border grid grid-cols-1 lg:grid-cols-2 lg:py-4 h-screen overflow-y-auto">
+    <Navbar className="lg:hidden max-lg:mb-6" />
+
+    <!-- Component Code / Usage / Props -->
+    <div class="px-5 max-lg:mt-0 lg:px-12 w-full min-w-0 lg:h-screen order-2 lg:order-1 m-auto max-w-4xl lg:max-w-[unset]">
+
+      <!-- Navbar (breakpoint: >lg) -->
+      <div class="hidden lg:flex mt-4 items-center gap-4">
+        <button
+          class="w-[24px] h-[24px] dark:text-neutral-300 cursor-pointer grid place-items-center"
+          data-sidebar-toggle-button
+        >
+          <Icon name="sidebar" class="text-xl" />
+        </button>
+        <a class="flex items-center gap-2 text-neutral-900 dark:text-white font-bold" href="/">
+          <img
+            class="w-[24px]"
+            src="/assets/logo/logo-50.png"
+            alt=""
+          />
+          <span>MosaicUI</span>
+        </a>
+      </div>
+
+      <!-- Component name & description -->
+      <header class="pt-12 lg:pt-20 pb-6 lg:pb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 dark:text-white mb-4">
+          {componentConfig.name}
+        </h1>
+        <p class="text-md md:text-lg text-balance leading-[1.45] text-neutral-600 dark:text-neutral-400">
+          {componentConfig.description}
+        </p>
+      </header>
+      <!-- 
+      <Widget label="Installation">
+        <CLIInstallation
+          componentId={componentConfig.id}
+          componentCategory={componentConfig.category}
+        />
+      </Widget> 
+      -->
+      <Widget label="Usage">
+        <CodeBlock 
+          fileName={componentConfig.usage[0].name}
+          code={componentConfig.usage[0].content}
+          lang={componentConfig.usage[0].lang}
+        />
+      </Widget>
+      <Widget label="Component">
+        {componentConfig.source.map((sourceEntry, sourceEntryIndex) => (
+          <div class={sourceEntryIndex === 0 ? "" : "mt-4"}>
+            <CodeBlock 
+              fileName={sourceEntry.name}
+              code={sourceEntry.content}
+              lang={sourceEntry.lang}
+            />
+          </div>
+        ))}
+      </Widget>
+      <Widget label="Component API">
+        {componentConfig.componentsAPI.map(component => (
+          <MdxTableWrapper>
+            <component.props></component.props>
+          </MdxTableWrapper>
+        ))}
+      </Widget>
+    </div>
+    <div
+      class="max-lg:mx-4 order-1 lg:order-2 shadow-md relative h-[400px] lg:sticky lg:top-0 lg:right-0 lg:h-[calc(100%_-32px)] bg-white dark:bg-zinc-900 dark:border dark:border-zinc-950/5 rounded-md lg:rounded-[16px_0_0_16px] overflow-hidden"
+      data-name="Preview Section"
+    >
+      <ComponentPreview 
+        previewClassName={componentConfig.previewClassName}
+        PreviewComponent={componentConfig.preview}
+        previews={componentConfig.previews}
+      />
+    </div>
+  </div>
+</BaseLayout>
+
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sidebarToggleBtns = document.querySelectorAll("button[data-sidebar-toggle-button]");
+    sidebarToggleBtns.forEach(button => {
+      button.addEventListener("click", () => {
+        const sidebarEvent = new CustomEvent("sidebar-open");
+        document.documentElement.dispatchEvent(sidebarEvent);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,75 @@
+---
+import { Code } from "astro:components";
+import CopyClipboardButton from "@/components/copy-clipboard-button.astro";
+import { Icon } from "astro-icon/components";
+import unique from "@/utils/unique";
+
+type CodeBlockProps = {
+  fileName: string;
+  code: string,
+  lang: keyof typeof iconMap,
+  showCopyButton: boolean,
+};
+
+const { 
+  fileName = "",
+  code = "",
+  lang = "jsx",
+} = Astro.props as CodeBlockProps;
+
+const codeBlockId = `code-block-${unique()}`;
+
+const iconMap = {
+  "jsx": "react",
+  "tsx": "react",
+  "css": "css",
+  "bash": "terminal",
+};
+---
+
+<div class="code-block border border-zinc-300 dark:border-zinc-800 rounded-md overflow-hidden" id={codeBlockId}>
+  <div class="flex justify-between items-center h-[48px] px-2 border-b border-zinc-300 dark:border-zinc-800">
+    <div class="flex items-center gap-1 text-gray-900 dark:text-gray-200">
+      <Icon 
+        name={iconMap[lang] ?? "terminal"}
+        class="text-md"
+      />
+      <span>
+        {lang === "bash" ? "Terminal / Console" : fileName}
+      </span>
+    </div>
+    <CopyClipboardButton
+      content={code}
+      className="w-[32px] h-[32px] cursor-pointer rounded-[50%] text-gray-900 dark:text-gray-200"
+    />
+  </div>
+  <div class="relative">
+    <Code 
+      code={code} 
+      lang={lang} 
+      theme="night-owl" 
+    />
+  </div>
+</div>
+
+<style>
+  .code-block {
+    --code-block-background: #000;
+    pre {
+      font-size: 0.95rem;
+      padding: 12px;
+      max-height: 480px;
+      min-height: 48px;
+      background: var(--code-block-background) !important;
+      -webkit-overflow-scrolling: touch;
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+  :global(html[data-theme="dark"])  .code-block {
+    --code-block-background: #0d0d0d;
+    pre {
+      filter: unset;
+    }
+  }
+</style>
+

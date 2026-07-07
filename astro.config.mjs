@@ -1,19 +1,21 @@
-// @ts-check
-import { defineConfig } from "astro/config";
+// no @ts-check
+import { defineConfig } from 'astro/config';
 import path from "path";
+import react from '@astrojs/react';
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
-import astroIcon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
-import project from "./src/config/project";
+import tailwindcss from '@tailwindcss/vite';
+import icon from "astro-icon";
+import project from './src/configs/project';
 
+// https://astro.build/config
 export default defineConfig({
   site: project.url,
   output: "static",
   integrations: [
     mdx(),
     react(),
-    astroIcon(),
+    icon(),
     sitemap({
       serialize(item) {
         if(
@@ -27,8 +29,7 @@ export default defineConfig({
         }
         if(
           [
-            "/components", 
-            "/changelog",
+            "/components",
           ].some(e => item.url.includes(e))
         ) {
           item.changefreq = "weekly";
@@ -42,42 +43,11 @@ export default defineConfig({
     }),
   ],
   vite: {
-    css: {
-      postcss: {
-        plugins: [
-          {
-            postcssPlugin: "transform-nested-dark-mode",
-            AtRule(atRule, { Rule }) {
-              const isDarkMode = (
-                atRule.name === "media" &&
-                /prefers-color-scheme\s*:\s*dark/.test(atRule.params)
-              );
-              if (isDarkMode) {
-                let parent = atRule.parent;
-                let selectorParts = [];
-                while (parent && parent.type === "rule") {
-                  selectorParts.unshift(parent.selector);
-                  parent = parent.parent;
-                }
-                if (selectorParts.length > 0) {
-                  const fullSelector = `:global(html.dark) ${selectorParts.join(" ")}`;
-                  const newRule = new Rule({
-                    selector: fullSelector,
-                    nodes: atRule.nodes
-                  });
-                  atRule.root().append(newRule);
-                  atRule.remove();
-                }
-              }
-            },
-          },
-        ],
-      },
-    },
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "@": path.resolve("./src"),
       },
     },
-  },
+  }
 });

@@ -1,0 +1,10 @@
+| Prop            | Type                                | Required | Default        | Description |
+|-----------------|-------------------------------------|----------|---------------|-------------|
+| text            | `string`                            | Yes      | —             | The text content to render around the circle. |
+| radius          | `number`                            | Yes      | —             | Radius of the circle in **pixels (px)** used to position the letters. |
+| addTrailingSpace| `boolean`                           | No       | `true`        | Adds a trailing space after the text to improve spacing when looping around the circle. |
+| rotate          | `boolean`                           | No       | `true`        | Enables continuous rotation animation of the circular text. |
+| direction       | `"clockwise" \| "anti-clockwise"`   | No       | `"clockwise"` | Controls the rotation direction of the text around the circle. |
+| duration        | `number`                            | No       | `10`          | Duration of one full rotation in **seconds** (range: `0.1` – `60`). |
+| pauseOnHover    | `boolean`                           | No       | `true`        | Pauses the rotation animation when the user hovers over the component. |
+| className       | `string`                            | No       | —             | Optional class name applied to the root circular text container. |

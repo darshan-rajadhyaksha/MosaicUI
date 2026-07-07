@@ -1,5 +1,8 @@
 ---
-import Component from "./previews/text-emerge-animation-preview";
+import ComponentRefresh from "@/components/component-refresh";
+import Preivew from "./preview.tsx";
 ---
 
-<Component client:only />
+<ComponentRefresh client:only>
+  <Preivew client:only />
+</ComponentRefresh>

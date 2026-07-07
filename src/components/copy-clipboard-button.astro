@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+const { content, className = "" } = Astro.props;
+const uniqueId = "copy-clipboard-button-" + Math.random().toString(36).substring(2, 8);
+---
+
+<button
+  class={`${className} w-[32px] h-[32px] cursor-pointer rounded-md text-gray-900 dark:text-gray-100 grid place-items-center`}
+  title="Copy code"
+  id={uniqueId}
+>
+  <Icon aria-hidden={true} name="clipboard" class="clipboard-icon" />
+  <Icon aria-hidden={true} name="check" class="check-icon text-blue-500 text-2xl" />
+</button>
+
+<style>
+  button {
+    &.copied {
+      .clipboard-icon {
+        display: none;
+      }
+      .check-icon {
+        display: block;
+      }
+    }
+    .check-icon {
+      display: none;
+    }
+  }
+</style>
+
+<script define:vars={{ uniqueId, content }}>
+  document.addEventListener("astro:page-load", () => {
+    const copyToClipboardBtn = document.querySelector(`#${uniqueId}`);
+    copyToClipboardBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(content);
+        copyToClipboardBtn.classList.add("copied");
+        setTimeout(() => {
+          copyToClipboardBtn.classList.remove("copied");
+        }, 2000);
+      } catch(error) {
+        console.error("failed to copy", error);
+      }
+    });
+  });
+</script>

@@ -1,123 +1,100 @@
 ---
-import IndexLayout from "@/layouts/index.astro";
-import Navbar from "@/internal-components/navbar.astro";
-import Sidebar from "@/internal-components/sidebar.astro";
-import NavbarConfig from "@/config/navbar";
-import SidebarConfig from "@/config/sidebar";
-import SupportBanner from "@/internal-components/support-banner.astro";
+import { ClientRouter } from "astro:transitions";
+import project from "@/configs/project";
+import "../styles/global.css";
 
-const { meta } = Astro.props;
+const websiteDescription = (
+  `${project.name} - a free and open-source collection of high-performance, accessible React components built to power your next web app.`
+); 
+
+const { 
+  meta: {
+    title,
+    description = websiteDescription,
+    url,
+    image,
+    type = "website",
+  },
+} = Astro.props;
 ---
 
-<IndexLayout meta={meta}>
-  <Navbar
-    {...NavbarConfig}
-  />
-  <div class="wrapper">
-    <Sidebar 
-      items={SidebarConfig} 
-    />
-    <main>
-      <article>
-        <slot />
-      </article>
-      <aside class="support-banner-wrapper">
-        <SupportBanner />
-      </aside>
-    </main>
-  </div>
-</IndexLayout>
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
-  .wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    > * {
-      min-height: calc(100dvh - var(--header-height));
-      max-height: calc(100dvh - var(--header-height));
-    }
-  }
-  
-  .support-banner-wrapper {
-    display: none;
-    position: sticky;
-    top: 0px;
-    width: 100%;
-  }
+    <title>{title}</title>
 
-  main {
-    padding: 32px 16px 32px 32px;
-    background: var(--background);
-    overflow-y: auto;
+    <!-- Generic -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={project.keywords.join(" ")}>
+    <meta name="author" content={project.author}>
+    <link rel="canonical" href={url} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
 
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 48px;
+    <!-- OG -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:url" content={url} />
+    <meta property="og:site_name" content={project.name} />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:width" content="1280" />
+    <meta name="twitter:image:height" content="720" />
 
-    > * {
-      min-width: 0;
-    }
+    <!-- Theme and Icon -->
+    <meta name="theme-color" content="#0c0c0d" />
+    <link rel="icon" href="/assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
 
-    section {
-      width: 100%;
-      max-width: 1080px;
-      margin-inline: auto;
-      padding: 16px 0;
-      &:first-child {
-        padding-top: 0;
+    <!-- Google site verification -->
+    <!-- <meta name="google-site-verification" content="4Ejym4QvFBMwRVV0PAwo0EuaMMn_B36HouOc-Np0GqY" /> -->
+
+    <script is:inline>
+      const htmlNode = document.querySelector("html");
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const applyThemeBasedOnSystemTheme = () => {
+        if (media.matches) {
+          htmlNode.dataset.theme = "dark";
+          localStorage.setItem("theme", "dark");
+        } else {
+          htmlNode.dataset.theme = "light";
+          localStorage.setItem("theme", "light");
+        }
       }
-      &:last-child {
-        padding-bottom: 0;
-      }
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 8px;
-      }
-      h1 + p {
-        font-size: 1rem;
-        color: var(--text-secondary);
-      }
-      h2 {
-        font-size: 1.75rem;
-        margin-bottom: 6px;
-      }
-      h2 + p {
-        font-size: 1rem;
-        color: var(--text-secondary);
-      }
-    }
-  }
-  @media (min-width: 1580px) {
-    main {
-      grid-template-columns: 1fr 280px;
-    }
-    .support-banner-wrapper {
-      display: block;
-    }
-  }
-  @media (max-width: 1400px) {
-    main {
-      padding: 32px 20px 32px 32px;
-    }
-  }
-  @media (max-width: 994px) {
-    .wrapper {
-      display: block;
-    }
-    main {
-      border-radius: 0;
-      padding: 32px 20px;
-    }
-  }
-  @media (max-width: 568px) {
-    main {
-      padding: 24px 16px;
-      gap: 24px;
-    }
-    .support-banner-wrapper {
-      position: static;
-      display: block;
-    }
-  }
-</style>
+      media.addEventListener("change", applyThemeBasedOnSystemTheme);
+      document.addEventListener("astro:page-load", () => {
+        const theme = localStorage.getItem("theme");
+        if(!theme) {
+          applyThemeBasedOnSystemTheme();
+        } else {
+          htmlNode.dataset.theme = theme;
+        }
+      }); 
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <ClientRouter />
+  </head>
+  <body class="bg-neutral-50 dark:bg-neutral-950">
+    <slot />
+  </body>
+</html>

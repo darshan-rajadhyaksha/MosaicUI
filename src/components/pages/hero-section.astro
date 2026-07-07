@@ -1,0 +1,134 @@
+---
+import { Icon } from "astro-icon/components";
+import StarFieldBackground from "@/registry/backgrounds/star-field-background/star-field-background";
+import DecryptingTextAnimation from "@/registry/text-effects/decrypting-text-animation/decrypting-text-animation";
+import TypewriterAnimation from "@/registry/text-effects/typewriter-animation/typewriter-animation";
+import VerticalTextSlider from "@/registry/text-effects/vertical-text-slider/vertical-text-slider";
+---
+
+<section class="relative mx-auto max-w-7xl px-5 py-20 lg:py-28">
+  <div class="absolute -top-40 -left-40 z-[-1] h-96 w-96 rounded-full bg-blue-500/20 blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 z-[-1] h-80 w-80 rounded-full bg-blue-700/20 blur-3xl"></div>
+  <div class="grid items-center gap-14 lg:grid-cols-2">
+    <!-- Header -->
+    <div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
+        Beautiful React Components for Your Project
+      </h1>
+
+      <p class="sm:text-balance mt-6 text-md sm:text-lg leading-7 text-neutral-600 dark:text-neutral-400">
+        A collection of lightweight, reusable components built with React,
+        styled with Tailwind CSS, and powered by Motion for smooth animations.
+        Copy, customize, and ship production-ready interfaces in minutes.
+      </p>
+
+      <!-- CTA -->
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="/components/"
+          class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-500"
+        >
+          Explore Components
+        </a>
+
+        <a
+          href="/introduction/"
+          class="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900"
+        >
+          Get Started
+        </a>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="mt-10">
+        <p class="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+          Built with
+        </p>
+
+        <div class="mt-4 flex items-center gap-6">
+          <!-- React -->
+          <div class="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+            <div class="h-8 w-8 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-500 font-bold">
+              <Icon name="react" class="text-xl" />
+            </div>
+            <span class="text-sm font-medium">React</span>
+          </div>
+
+          <!-- Tailwind -->
+          <div class="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+            <div class="h-8 w-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 font-bold">
+              <Icon name="tailwind" class="text-xl" />
+            </div>
+            <span class="text-sm font-medium">Tailwind</span>
+          </div>
+
+          <!-- Motion -->
+          <div class="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+            <div class="h-8 w-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-gray-500 font-bold">
+              <Icon name="motion" class="text-xl" />
+            </div>
+            <span class="text-sm font-medium">Motion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Component Showcase -->
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Card 1 -->
+      <div
+        class="rounded-2xl relative border border-neutral-200 bg-white p-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden aspect-video"
+      >
+        <div class="relative w-full h-full rounded-lg overflow-hidden">
+          <StarFieldBackground client:load />
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 aspect-video"
+      >
+        <div class="relative w-full h-full rounded-lg overflow-hidden grid place-items-center bg-zinc-200/80 dark:bg-zinc-800">
+          <DecryptingTextAnimation 
+            className="text-gray-900 dark:text-gray-100 sm:text-xl font-mono"
+            text="Decrypting Text"
+            speed={25}
+            client:only 
+          />
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 aspect-video grid place-items-center"
+      >
+        <div class="relative w-full h-full rounded-lg overflow-hidden grid place-items-center bg-zinc-200/80 dark:bg-zinc-800">
+          <TypewriterAnimation
+            className="text-gray-900 dark:text-gray-100 sm:text-xl overflow-hidden"
+            text="Typing the future, live."
+            cursorVariant="block"
+            client:only
+          />
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 aspect-video grid place-items-center"
+      >
+        <div class="relative w-full h-full rounded-lg overflow-hidden grid place-items-center bg-zinc-200/80 dark:bg-zinc-800">
+          <VerticalTextSlider
+            className="text-gray-900 dark:text-gray-100 sm:text-xl"
+            texts={[
+              "Build faster",
+              "Ship smarter",
+              "Scale confidently",
+              "Delight users"
+            ]}
+            client:only
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

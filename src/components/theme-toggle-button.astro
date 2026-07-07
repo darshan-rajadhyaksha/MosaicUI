@@ -1,0 +1,56 @@
+---
+import cn from "@/utils/cn";
+import { Icon } from "astro-icon/components";
+
+const {
+  className = "rounded-md",
+} = Astro.props;
+---
+
+<button
+  aria-label="Change theme"
+  class={cn("w-[32px] h-[32px] grid place-items-center text-gray-900 dark:text-gray-100 text-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer", className)}
+  data-theme-toggle-button
+>
+  <Icon name="sun" class="light" />
+  <Icon name="moon" class="dark" />
+</button>
+
+<style>
+  button[data-theme-toggle-button] {
+    .light {
+      display: none;
+    }
+    .dark {
+      display: block;
+    }
+  }
+  :global(html[data-theme="dark"]) button[data-theme-toggle-button] {
+    .light {
+      display: block;
+    }
+    .dark {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const themeBtns = document.querySelectorAll("button[data-theme-toggle-button]");
+    themeBtns.forEach(themeBtn => {
+      themeBtn.addEventListener("click", () => {
+        const htmlNode = document.querySelector("html");
+        if (!htmlNode) return;
+        const theme = htmlNode.dataset.theme || "light";
+        if(theme === "light") {
+          htmlNode.dataset.theme = "dark";
+          localStorage.setItem("theme", "dark");
+        } else {
+          htmlNode.dataset.theme = "light";
+          localStorage.setItem("theme", "light");
+        }
+      });
+    });
+  });
+</script>

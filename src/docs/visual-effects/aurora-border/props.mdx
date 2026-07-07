@@ -1,0 +1,9 @@
+| Prop        | Type                     | Required | Default                                | Description                                                                 |
+|-------------|-------------------------|----------|----------------------------------------|-----------------------------------------------------------------------------|
+| children    | `ReactNode`             | Yes      | —                                      | The content to be wrapped inside the AuraBorder.                             |
+| colors      | `string[]`              | No       | `["rgba(127, 127, 127, 1)"]`          | Array of colors or gradients for the border glow. Accepts any valid CSS color. |
+| width       | `number`                | No       | `1`                                    | Width of the border in pixels. Minimum value: 0.                               |
+| speed       | `number`                | No       | `0.5`                                  | Speed of rotation. Value between 0 (no rotation) and 1 (fastest).           |
+| intensity   | `number`                | No       | `0.5`                                  | Glow intensity. Value between 0 (no glow) and 1 (maximum glow).             |
+| className   | `string`                | No       | —                                      | Additional CSS class names applied to the wrapper.                           |
+| style       | `React.CSSProperties`   | No       | —                                      | Inline styles applied directly to the wrapper container.                     |

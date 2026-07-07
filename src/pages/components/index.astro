@@ -1,65 +1,60 @@
 ---
 import BaseLayout from "@/layouts/base.astro";
-import project from "@/config/project";
-import { componentMap } from "@/config/components";
-import ComponentCard from "@/internal-components/component-card.astro";
-import getUrl from "@/lib/get-url";
-
-const componentsList = Object.entries(componentMap);
+import PageLayout from "@/layouts/page.astro";
+import registry from "@/configs/registry";
+import project from "@/configs/project";
+import componentCategory from "@/configs/categories";
+import resolveProjectURL from "@/utils/resolve-project-url";
 
 const title = "Components";
 
 const meta = {
 	title: `${title} | ${project.name}`,
-	image: getUrl(`assets/index.jpg`),
-	url: getUrl("components/"),
+	image: resolveProjectURL(`assets/index.jpg`),
+	url: resolveProjectURL("components/"),
 };
 ---
 
-<BaseLayout meta={meta}>
-  <section class="info">
-    <h1>{title}</h1>
-    <p>Explore all available components and find the ones you need for your project.</p>
-  </section>
+<BaseLayout meta={meta}> 
+  <PageLayout fullWidth>
+    <span slot="heading">
+      Components
+    </span>
+    
+    <span slot="description">
+      Explore all available components and find the ones you need for your project.
+    </span>
 
-  <section class="components-list">
     {
-      componentsList
-        .sort((a, b) => (
-          a[0].localeCompare(b[0])
-        ))
-        .map(([componentKey, component]) => (
-          <ComponentCard
-            href={`/components/${componentKey}`}
-            title={component.info.title}
-            description={component.info.description}
-            thumbnail={{
-              src: `/assets/components/${component.info.category.key}/${componentKey}.jpg`,
-              alt: component.info.title,
-            }}
-          />
+      Object.keys(registry).map((categoryId) => (
+        <div class="mb-16">
+          <h2 class="text-2xl text-gray-800 dark:text-gray-200 mb-4 font-semibold">
+            {componentCategory[categoryId].name}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {Object.values(registry[categoryId]).map((componentConfig) => (
+              <a  
+                class="block border border-dashed border-neutral-300 dark:border-neutral-800 bg-zinc-200/20 dark:bg-zinc-900 p-2 rounded-lg" 
+                href={`/components/${componentConfig.id}/`}
+              >
+                <div class="w-full aspect-video bg-gray-500/20 mb-2 rounded-md overflow-hidden">
+                  <img
+                    src={`/assets/registry/${componentConfig.category}/${componentConfig.id}.jpg`}
+                    alt={`${componentConfig.name} preview`}
+                    loading="lazy"
+                  />
+                </div>
+                <h3 class="text-neutral-900 dark:text-white font-bold">
+                  {componentConfig.name}
+                </h3>
+                <p class="text-neutral-600 dark:text-neutral-400 text-ellipsis whitespace-nowrap overflow-hidden">
+                  {componentConfig.description}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
       ))
     }
-  </section>
+  </PageLayout>
 </BaseLayout>
-
-<style>
-  .components-list {
-    margin: 8px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 1200px) {
-    .components-list {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-  }
-  @media (max-width: 568px) {
-    .components-list {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-  }
-</style>
