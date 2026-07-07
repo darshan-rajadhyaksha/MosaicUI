@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime.u17CrQMm.js";import e from"./decrypting-text-animation.Diw8Of2B.js";const o=()=>t.jsx(e,{className:"text-gray-900 dark:text-gray-100 text-xl font-mono",text:"Pure Awareness",speed:25});export{o as default};
