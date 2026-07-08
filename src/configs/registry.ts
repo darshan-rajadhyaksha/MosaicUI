@@ -6,6 +6,7 @@ import starFieldBackgroundConfig from "@/docs/backgrounds/star-field-background"
 
 /** components */
 import circularListConfig from "@/docs/components/circular-list";
+import fluidDockConfig from "@/docs/components/fluid-dock";
 import marqueeConfig from "@/docs/components/marquee";
 
 /** text-effects */
@@ -24,6 +25,7 @@ import borderBeamConfig from "@/docs/visual-effects/border-beam";
 const registry = {
   [componentCategory.component.key]: {
     [circularListConfig.id]: circularListConfig,
+    [fluidDockConfig.id]: fluidDockConfig,
     [marqueeConfig.id]: marqueeConfig,
   },
   [componentCategory.textEffect.key]: {

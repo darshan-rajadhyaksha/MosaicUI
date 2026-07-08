@@ -104,10 +104,19 @@ export const getStaticPaths = async () => {
         ))}
       </Widget>
       <Widget label="Component API">
-        {componentConfig.componentsAPI.map(component => (
-          <MdxTableWrapper>
-            <component.props></component.props>
-          </MdxTableWrapper>
+        {componentConfig.componentsAPI.map((component, index) => (
+          <>
+            {
+              componentConfig.componentsAPI.length > 1 && (
+                <h3 class={"text-lg text-neutral-900 dark:text-neutral-100 mb-3 mt-8"}>
+                  {component.name}
+                </h3>
+              )
+            }
+            <MdxTableWrapper>
+              <component.props></component.props>
+            </MdxTableWrapper>
+          </>
         ))}
       </Widget>
     </div>
