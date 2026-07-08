@@ -43,6 +43,6 @@
     @apply bg-gray-50 dark:bg-zinc-900/40;
   }
   .mdx-table code {
-    @apply inline-block break-all bg-zinc-200 dark:bg-zinc-800 px-[4px] py-[2px] m-[1px] rounded;
+    @apply text-sm inline-block break-all bg-zinc-200 dark:bg-zinc-800 px-[4px] py-[2px] m-[1px] rounded;
   }
 }
