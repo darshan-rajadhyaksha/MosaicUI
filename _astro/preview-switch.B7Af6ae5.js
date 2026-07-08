@@ -1,4 +1,4 @@
-import{j as t}from"./jsx-runtime.u17CrQMm.js";import{C as p}from"./component-switch.CB6-HSIM.js";import{a as s}from"./index.UEuQJ2Tp.js";import{c as v}from"./cn.BOX8fIfo.js";import{m as y}from"./proxy.C7iNHNTD.js";const T=`import TextAnimation from "@/registry/text-effects/text-animation/text-animation";
+import{j as t}from"./jsx-runtime.u17CrQMm.js";import{C as p}from"./component-switch.CB6-HSIM.js";import{a as s}from"./index.UEuQJ2Tp.js";import{c as v}from"./cn.BOX8fIfo.js";import{m as y}from"./proxy.DMw4xDb8.js";const T=`import TextAnimation from "@/registry/text-effects/text-animation/text-animation";
 
 const TextAnimationPreview = () => {
   return (
