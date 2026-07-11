@@ -9,6 +9,7 @@ import circularListConfig from "@/docs/components/circular-list";
 import fluidDockConfig from "@/docs/components/fluid-dock";
 import floatingActionMenuConfig from "@/docs/components/floating-action-menu";
 import marqueeConfig from "@/docs/components/marquee";
+import sectionNavigatorConfig from "@/docs/components/section-navigator";
 
 /** text-effects */
 import circularTextAnimationConfig from "@/docs/text-effects/circular-text-animation";
@@ -29,6 +30,7 @@ const registry = {
     [fluidDockConfig.id]: fluidDockConfig,
     [floatingActionMenuConfig.id]: floatingActionMenuConfig,
     [marqueeConfig.id]: marqueeConfig,
+    [sectionNavigatorConfig.id]: sectionNavigatorConfig,
   },
   [componentCategory.textEffect.key]: {
     [circularTextAnimationConfig.id]: circularTextAnimationConfig,

@@ -1,0 +1,10 @@
+| Prop | Type | Required | Default | Description |
+|---|---|---|---|---|
+| sections | `Array<{ id: string; name: string; className?: string }>` | Yes | — | List of sections displayed in the navigator. Each section requires a unique `id` and display `name`, with an optional `className` for custom styling. |
+| position | `"left" \| "right" \| "top" \| "bottom"` | No | `"right"` | Defines the position/orientation of the section navigator. |
+| activeSectionId | `string` | No | — | ID of the currently visible section. |
+| onSectionClick | `(section: { id: string; name: string; className?: string }) => void` | No | — | Callback fired when a section is clicked. Returns the selected section object. |
+| className | `string` | No | — | Custom CSS classes applied to the root navigator container. |
+| triggerButtonClassName | `string` | No | — | Custom CSS classes applied to the main trigger button that opens the section list. |
+| sectionListClassName | `string` | No | — | Custom CSS classes applied to the section list wrapper. |
+| sectionListItemClassName | `string` | No | — | Custom CSS classes applied to individual section list items. |
