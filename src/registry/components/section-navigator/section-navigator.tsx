@@ -100,7 +100,7 @@ const SectionNavigator = (
             )}
             onMouseOver={navigatorOpenHandler}
             onFocus={navigatorOpenHandler}
-            onClick={navigatorOpenHandler}
+            onTap={navigatorOpenHandler}
           >
             {sections.map((sectionEntry) => (
               <span

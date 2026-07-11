@@ -56,7 +56,7 @@ const FluidDock = (
   }), [mouseX, itemSize, magnificationScale]);
 
   return (
-    <DockContext
+    <DockContext.Provider
       value={dockContextValue}
     >
       <motion.div
@@ -81,7 +81,7 @@ const FluidDock = (
       >
         {children}
       </motion.div>
-    </DockContext>
+    </DockContext.Provider>
   )
 };
 

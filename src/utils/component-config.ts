@@ -28,7 +28,7 @@ export type ComponentConfig = {
   id: string;
   name: string;
   description: string;
-  category: keyof typeof categories;
+  category: (typeof categories)[keyof typeof categories]["id"];
   dependencies: any;
   preview: any;
   previews?: PreviewEntry[];

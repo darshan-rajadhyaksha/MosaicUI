@@ -9,23 +9,25 @@ const StarFieldBackgroundPreview = () => {
   );
 };
 
-const HeroSection = () => {
-  return (
-    <div className="text-center relative z-[2] max-w-xl p-4">
-      <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
-        Big Bang, Again?
+const HeroSection = () => (
+  <section className="relative z-10 flex items-center justify-center p-8">
+    <div className="mx-auto max-w-xl text-center">
+      <div className="mb-6 inline-flex items-center rounded-full border border-white/15 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-md">
+        ⚛️ Background Component
+      </div>
+      <h1 className="text-4xl font-bold tracking-tight text-white lg:text-5xl text-balance">
+        Space Is Mostly Empty. Your Background Doesn't Have to Be.
       </h1>
-      <p className="mx-auto mt-6 text-balance max-w-xl text-lg leading-6 text-zinc-400">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem dignissimos voluptatum molestias at reprehenderit odit, dolor aspernatur corrupti aperiam ipsa facere pariatur impedit.
+      <p className="mx-auto mt-6 max-w-lg text-lg leading-7 text-white/70">
+        Elegant animated starfields that transform simple layouts into captivating digital experiences.
       </p>
-      <a 
-        href="#"
-        className="inline-block mt-6 rounded-full border px-6 py-3 font-medium backdrop-blur-md transition hover:shadow-lg border-white/15 bg-white/1 text-white hover:bg-white/10"
-      >
-        Get Component
-      </a>
+      <div className="mt-8">
+        <button className="rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20">
+          Get Component
+        </button>
+      </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default StarFieldBackgroundPreview;

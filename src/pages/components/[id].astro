@@ -10,6 +10,8 @@ import Navbar from "@/components/navbar.astro";
 import project from "@/configs/project";
 import ComponentPreview from "@/components/pages/components/component-preview.astro";
 import resolveProjectURL from "@/utils/resolve-project-url";
+import cn from "@/utils/cn";
+import categories from "@/configs/categories";
 
 const {
   id: componentId,
@@ -104,7 +106,7 @@ export const getStaticPaths = async () => {
         ))}
       </Widget>
       <Widget label="Component API">
-        {componentConfig.componentsAPI.map((component, index) => (
+        {componentConfig.componentsAPI.map((component) => (
           <>
             {
               componentConfig.componentsAPI.length > 1 && (
@@ -121,7 +123,12 @@ export const getStaticPaths = async () => {
       </Widget>
     </div>
     <div
-      class="max-lg:mx-4 order-1 lg:order-2 shadow-md relative h-[400px] lg:sticky lg:top-0 lg:right-0 lg:h-[calc(100%_-32px)] bg-white dark:bg-zinc-900 dark:border dark:border-zinc-950/5 rounded-md lg:rounded-[16px_0_0_16px] overflow-hidden"
+      class={cn(
+        "max-lg:mx-4 order-1 lg:order-2 shadow-md relative min-h-[400px] lg:sticky lg:top-0 lg:right-0 lg:h-[calc(100%_-32px)] bg-white dark:bg-zinc-900 dark:border dark:border-zinc-950/5 rounded-md lg:rounded-[16px_0_0_16px] overflow-hidden",
+        {
+          "min-h-[540px]": componentConfig.category === categories.background.id
+        }
+      )}
       data-name="Preview Section"
     >
       <ComponentPreview 
