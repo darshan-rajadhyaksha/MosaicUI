@@ -1,1 +1,0 @@
-import{j as t}from"./jsx-runtime.u17CrQMm.js";import e from"./typewriter-animation.B-Y_16UQ.js";const o=()=>t.jsx(e,{className:"text-gray-900 dark:text-gray-100 text-xl overflow-hidden",text:"Typing the future, live."});export{o as default};
