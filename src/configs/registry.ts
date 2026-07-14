@@ -22,6 +22,7 @@ import verticalTextSliderConfig from "@/docs/text-effects/vertical-text-slider/"
 /** visual effetcs */
 import auroraBorderConfig from "@/docs/visual-effects/aurora-border";
 import borderBeamConfig from "@/docs/visual-effects/border-beam";
+import spotlightCardConfig from "@/docs/visual-effects/spotlight-card";
 
 /** registry */
 const registry = {
@@ -47,6 +48,7 @@ const registry = {
   [componentCategory.visualEffects.key]: {
     [auroraBorderConfig.id]: auroraBorderConfig,
     [borderBeamConfig.id]: borderBeamConfig,
+    [spotlightCardConfig.id]: spotlightCardConfig,
   },
 };
 
