@@ -1,4 +1,4 @@
-import{j as N}from"./jsx-runtime.u17CrQMm.js";import{a as Ce}from"./index.UEuQJ2Tp.js";import{p as ht,m as ut}from"./preview-switch.UBkuet_E.js";import{p as mt,m as pt}from"./preview-switch.B7Af6ae5.js";import{A as ft}from"./index.DWouYTcC.js";import{m as Oe}from"./proxy.DMw4xDb8.js";const y=Object.freeze({background:{key:"background",id:"backgrounds",name:"Backgrounds"},component:{key:"component",id:"components",name:"Components"},textEffect:{key:"textEffect",id:"text-effects",name:"Text Effects"},visualEffects:{key:"visualEffects",id:"visual-effects",name:"Visual Effects"}}),w=t=>({...t}),gt=`import { useState, useRef, useEffect, useLayoutEffect, useMemo, useCallback } from "react";
+import{j as N}from"./jsx-runtime.u17CrQMm.js";import{a as Ce}from"./index.UEuQJ2Tp.js";import{p as ht,m as ut}from"./preview-switch.C7drxiXe.js";import{p as mt,m as pt}from"./preview-switch.B7Af6ae5.js";import{A as ft}from"./index.DWouYTcC.js";import{m as Oe}from"./proxy.DMw4xDb8.js";const y=Object.freeze({background:{key:"background",id:"backgrounds",name:"Backgrounds"},component:{key:"component",id:"components",name:"Components"},textEffect:{key:"textEffect",id:"text-effects",name:"Text Effects"},visualEffects:{key:"visualEffects",id:"visual-effects",name:"Visual Effects"}}),w=t=>({...t}),gt=`import { useState, useRef, useEffect, useLayoutEffect, useMemo, useCallback } from "react";
 import cn from "@/utils/cn";
 
 export type NightSkyBackgroundProps = {
@@ -1250,8 +1250,6 @@ const Marquee = (
     style,
     ...restProps
   } = props;
-
-  console.log(axis);
 
   const _repeat = Math.max(1, repeat);
   const _duration = Math.max(1, duration);
