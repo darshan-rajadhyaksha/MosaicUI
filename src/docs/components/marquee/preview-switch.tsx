@@ -8,7 +8,7 @@ import PreviewVerticalCode from "./preview-vertical.tsx?raw";
 
 /** preview map */
 export const mapping = [
-  { name: "Default", component: DefaultPreivew, code: DefaultPreivewCode },
+  { name: "Horizontal", component: DefaultPreivew, code: DefaultPreivewCode },
   { name: "Vertical", component: PreviewVertical, code: PreviewVerticalCode },
 ];
 

@@ -40,7 +40,7 @@
     @apply p-[12px] max-w-[480px];
   }
   .mdx-table tbody tr:hover {
-    @apply bg-gray-50 dark:bg-zinc-900/40;
+    @apply bg-gray-100 dark:bg-zinc-900/80;
   }
   .mdx-table code {
     @apply text-sm inline-block break-all bg-zinc-200 dark:bg-zinc-800 px-[4px] py-[2px] m-[1px] rounded;

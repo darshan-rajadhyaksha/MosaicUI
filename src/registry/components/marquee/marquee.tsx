@@ -29,8 +29,6 @@ const Marquee = (
     ...restProps
   } = props;
 
-  console.log(axis);
-
   const _repeat = Math.max(1, repeat);
   const _duration = Math.max(1, duration);
 
