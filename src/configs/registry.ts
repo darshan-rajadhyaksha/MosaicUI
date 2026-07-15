@@ -6,8 +6,8 @@ import starFieldBackgroundConfig from "@/docs/backgrounds/star-field-background"
 
 /** components */
 import circularListConfig from "@/docs/components/circular-list";
-import fluidDockConfig from "@/docs/components/fluid-dock";
 import floatingActionMenuConfig from "@/docs/components/floating-action-menu";
+import fluidDockConfig from "@/docs/components/fluid-dock";
 import marqueeConfig from "@/docs/components/marquee";
 import sectionNavigatorConfig from "@/docs/components/section-navigator";
 
@@ -28,8 +28,8 @@ import spotlightCardConfig from "@/docs/visual-effects/spotlight-card";
 const registry = {
   [componentCategory.component.key]: {
     [circularListConfig.id]: circularListConfig,
-    [fluidDockConfig.id]: fluidDockConfig,
     [floatingActionMenuConfig.id]: floatingActionMenuConfig,
+    [fluidDockConfig.id]: fluidDockConfig,
     [marqueeConfig.id]: marqueeConfig,
     [sectionNavigatorConfig.id]: sectionNavigatorConfig,
   },

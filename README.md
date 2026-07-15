@@ -17,9 +17,9 @@ Built with **Tailwind CSS v4** and **Motion**, these components are designed to 
 
 ## Documentation
 
-- [Introduction](https://mosaicui.com/introduction)
-- [Installation](https://mosaicui.com/installation)
-- [Components](https://mosaicui.com/components)
+- [Introduction](https://mosaicui.com/introduction/)
+- [Installation](https://mosaicui.com/installation/)
+- [Components](https://mosaicui.com/components/)
 
 
 ## Overview
