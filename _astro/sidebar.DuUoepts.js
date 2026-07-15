@@ -640,7 +640,274 @@ const PintrestIcon = ({ color } : IconProps) => (
   </svg>
 );
 
-export default CircularListPreview;`,Po={},Io={};function pn(t){const e={code:"code",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:"Elements that will be arranged along the circle’s circumference."})]}),n(e.tr,{children:[n(e.td,{children:"radius"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"100"})}),n(e.td,{children:["Radius of the circle in ",n(e.strong,{children:"pixels (px)"})," used to position the children around the center."]})]}),n(e.tr,{children:[n(e.td,{children:"duration"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"10"})}),n(e.td,{children:"Time (in seconds) it takes to complete one full 360° rotation."})]}),n(e.tr,{children:[n(e.td,{children:"rotationLock"}),n(e.td,{children:n(e.code,{children:"boolean"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"true"})}),n(e.td,{children:"Prevents orbiting items from rotating with the path, keeping them upright."})]}),n(e.tr,{children:[n(e.td,{children:"direction"}),n(e.td,{children:n(e.code,{children:'"clockwise" | "anti-clockwise"'})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:'"clockwise"'})}),n(e.td,{children:"Controls the direction of rotation."})]}),n(e.tr,{children:[n(e.td,{children:"degreeOffset"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"0"})}),n(e.td,{children:"Starting angle offset (in degrees) from which the circular layout begins."})]}),n(e.tr,{children:[n(e.td,{children:"pauseOnHover"}),n(e.td,{children:n(e.code,{children:"boolean"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"false"})}),n(e.td,{children:"Pauses the rotation animation when the user hovers over the component."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS class names applied to the root container."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the root container."})]})]})]})}function $o(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(pn,{...t})}):pn(t)}const ie=(t={})=>$o({...t,components:{Fragment:v,...t.components}});ie[Symbol.for("mdx-component")]=!0;ie[Symbol.for("astro.needsHeadRendering")]=!Io.layout;ie.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/circular-list/props.mdx";const j="circular-list",fn=w({id:j,name:"Circular List",description:"A circular orbit component that displays elements around a center and rotates them continuously, ideal for galleries, dashboards, and navigation menus.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Po,previewClassName:"grid place-items-center",source:[{name:`${j}.tsx`,content:zo,lang:"tsx"}],usage:[{name:`${j}-preview.tsx`,content:Mo,lang:"tsx"}],componentsAPI:[{name:`${j}.tsx`,props:ie}]}),To=`import { type ReactNode, type MouseEvent, memo, useState, useRef, useContext, createContext, useCallback, useMemo } from "react";
+export default CircularListPreview;`,Po={},Io={};function pn(t){const e={code:"code",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:"Elements that will be arranged along the circle’s circumference."})]}),n(e.tr,{children:[n(e.td,{children:"radius"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"100"})}),n(e.td,{children:["Radius of the circle in ",n(e.strong,{children:"pixels (px)"})," used to position the children around the center."]})]}),n(e.tr,{children:[n(e.td,{children:"duration"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"10"})}),n(e.td,{children:"Time (in seconds) it takes to complete one full 360° rotation."})]}),n(e.tr,{children:[n(e.td,{children:"rotationLock"}),n(e.td,{children:n(e.code,{children:"boolean"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"true"})}),n(e.td,{children:"Prevents orbiting items from rotating with the path, keeping them upright."})]}),n(e.tr,{children:[n(e.td,{children:"direction"}),n(e.td,{children:n(e.code,{children:'"clockwise" | "anti-clockwise"'})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:'"clockwise"'})}),n(e.td,{children:"Controls the direction of rotation."})]}),n(e.tr,{children:[n(e.td,{children:"degreeOffset"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"0"})}),n(e.td,{children:"Starting angle offset (in degrees) from which the circular layout begins."})]}),n(e.tr,{children:[n(e.td,{children:"pauseOnHover"}),n(e.td,{children:n(e.code,{children:"boolean"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"false"})}),n(e.td,{children:"Pauses the rotation animation when the user hovers over the component."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS class names applied to the root container."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the root container."})]})]})]})}function $o(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(pn,{...t})}):pn(t)}const ie=(t={})=>$o({...t,components:{Fragment:v,...t.components}});ie[Symbol.for("mdx-component")]=!0;ie[Symbol.for("astro.needsHeadRendering")]=!Io.layout;ie.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/circular-list/props.mdx";const j="circular-list",fn=w({id:j,name:"Circular List",description:"A circular orbit component that displays elements around a center and rotates them continuously, ideal for galleries, dashboards, and navigation menus.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Po,previewClassName:"grid place-items-center",source:[{name:`${j}.tsx`,content:zo,lang:"tsx"}],usage:[{name:`${j}-preview.tsx`,content:Mo,lang:"tsx"}],componentsAPI:[{name:`${j}.tsx`,props:ie}]}),To=`import { type ReactNode, type ReactElement, Children, cloneElement, isValidElement, createContext, memo, useCallback, useContext, useMemo, useState } from "react";
+import { AnimatePresence, motion, type HTMLMotionProps } from "motion/react";
+import cn from "@/utils/cn";
+
+export type FloatingActionMenuProps = {
+  children?: ReactNode;
+  radius?: number;
+  gap?: number;
+  actionButtonClassName?: string;
+} & React.ComponentProps<"div">;
+
+export type FloatingActionMenuItemProps = {
+  icon: ReactNode;
+  name: string;
+  index?: number;
+} & HTMLMotionProps<"button">;
+
+type FloatingActionMenuContextValue = {
+  showMenuItems: boolean;
+  radius: number;
+  gap: number;
+};
+
+const FloatingActionMenuContext  = (
+  createContext<FloatingActionMenuContextValue>({
+    showMenuItems: false,
+    radius: 540,
+    gap: 4.5,
+  })
+);
+
+const degreeToRadian = (
+  degree: number,
+) => (
+  (Math.PI / 180) * degree
+);
+
+const FloatingActionMenu = (
+  props: FloatingActionMenuProps
+) => {
+  const {
+    children,
+    radius = 540,
+    gap = 4.5,
+    actionButtonClassName = "",
+    ...restProps
+  } = props;
+
+  const [showMenuItems, setShowMenuItems] = useState(false);
+
+  const handleToggleClick = useCallback(() => {
+    setShowMenuItems(prev => !prev);
+  }, []);
+
+  const floatingActionMenuContextValue = (
+    useMemo<FloatingActionMenuContextValue>(() => ({
+      showMenuItems,
+      radius,
+      gap,
+    }), [showMenuItems, radius, gap])
+  );
+
+  return (
+    <div {...restProps}>
+      <FloatingActionMenuContext.Provider 
+        value={floatingActionMenuContextValue}
+      >
+        {Children.map(children, (child, childIndex) => {
+          if (!isValidElement(child)) {
+            return child;
+          }
+          return cloneElement(
+            child as ReactElement<FloatingActionMenuItemProps>, { 
+              index: childIndex
+            },
+          );
+        })}
+      </FloatingActionMenuContext.Provider>
+      <motion.button
+        className={cn(
+          "w-[48px] h-[48px] grid place-items-center rounded-[50%]",
+          "bg-gray-100 dark:bg-neutral-800",
+          "shadow shadow-md cursor-pointer",
+          actionButtonClassName,
+        )}
+        onTap={handleToggleClick}
+        whileTap={{
+          scale: 1.25
+        }}
+        animate={{
+          rotate: showMenuItems ? 45 : 0,
+        }}
+      >
+        <PlusIcon className="text-2xl text-neutral-900 dark:text-white" />
+      </motion.button>
+    </div>
+  );
+};
+
+export const FloatingActionMenuItem = memo((
+  props: FloatingActionMenuItemProps
+) => {
+  const {
+    icon,
+    name,
+    index = 0,
+    className,
+    style,
+    ...restProps
+  } = props;
+
+  const { showMenuItems, radius, gap } = useContext(FloatingActionMenuContext);
+
+  const getMenuItemPosAndDeg = (index: number) => {
+    const deg = index * gap;
+    const angle = degreeToRadian(deg);
+    const x = (radius * Math.cos(angle)) - radius;
+    const y = (-radius * Math.sin(angle)) - 50;
+    return {
+      x,
+      y,
+      deg,
+    };
+  };
+
+  const menuItemStyle = {
+    x: 0,
+    y: 0,
+    rotate: 0,
+    opacity: 0,
+    filter: "blur(5px)",
+  };
+
+  const menuItemAnimate = (index: number) => {
+    const { x, y, deg } = getMenuItemPosAndDeg(index);
+    return {
+      x,
+      y,
+      rotate: -deg,
+      opacity: 1,
+      filter: "blur(0px)",
+    }
+  };
+
+  const menuItemExit = {
+    ...menuItemStyle,
+    transition: {
+      duration: 0.15,
+    },
+  };
+
+  return (
+    <AnimatePresence>
+      {showMenuItems && (
+        <motion.button
+          {...restProps}
+          className={cn(
+            "absolute flex items-center gap-2 py-1 px-4 rounded-2xl",
+            "origin-left whitespace-nowrap cursor-pointer",
+            "bg-neutral-50 dark:bg-zinc-900",
+            "border border-neutral-200 dark:border-neutral-800",
+            "text-neutral-900 dark:text-neutral-50",
+            "shadow shadow-md",
+            className,
+          )}
+          style={{
+            ...style,
+            ...menuItemStyle,
+          }}
+          animate={menuItemAnimate(index)}
+          exit={menuItemExit}
+          transition={{
+            type: "tween",
+            duration: 0.3,
+            delay: 0.01 * index,
+          }}
+        >
+          {icon}
+          {name && (
+            <span>{name}</span>
+          )}
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+});
+
+const PlusIcon = (
+  props: React.ComponentProps<"svg">
+) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14" />
+  </svg>
+);
+
+export default memo(FloatingActionMenu);`,Ao=`import FloatingActionMenu, { FloatingActionMenuItem } from "@/registry/components/floating-action-menu/floating-action-menu";
+
+const FloatingActionMenuPreview = () => {
+  const items=[
+    { icon: <DocumentIcon />, name: "Document"},
+    { icon: <ProjectIcon />, name: "Project"},
+    { icon: <TaskIcon />, name: "Task"},
+    { icon: <CalendarIcon />, name: "Calendar"},
+    { icon: <TeamIcon />, name: "Team"},
+    { icon: <DiscussionIcon />, name: "Discussion"},
+  ];
+
+  return (
+    <FloatingActionMenu className="absolute bottom-[16px] lg:bottom-[48px]">
+      {items.map(item => (
+        <FloatingActionMenuItem
+          key={item.name}
+          icon={item.icon}
+          name={item.name}
+        />
+      ))}
+    </FloatingActionMenu>
+  );
+};
+
+const DocumentIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="currentColor" d="M15 4H6v16h12V7h-3zM6 2h10l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m2 9h8v2H8zm0 4h8v2H8z" />
+  </svg>
+);
+
+const ProjectIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+    <path d="M0 0h16v16H0z" fill="none" />
+    <path fill="currentColor" d="M4 1a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2zm0 1h12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" />
+  </svg>
+);
+
+const TaskIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="currentColor" d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M4 19V5h16v14z" />
+    <path fill="currentColor" d="M13 8h5v2h-5zm-5 .59L6.96 7.54L5.54 8.96L8 11.41l3.46-3.45l-1.42-1.42zM13 14h5v2h-5zm-5 .59l-1.04-1.05l-1.42 1.42L8 17.41l3.46-3.45l-1.42-1.42z" />
+  </svg>
+);
+
+const CalendarIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <g fill="currentColor">
+      <path d="M16 2a1 1 0 0 1 .993.883L17 3v1h1a3 3 0 0 1 2.995 2.824L21 7v12a3 3 0 0 1-2.824 2.995L18 22H6a3 3 0 0 1-2.995-2.824L3 19V7a3 3 0 0 1 2.824-2.995L6 4h1V3a1 1 0 0 1 1.993-.117L9 3v1h6V3a1 1 0 0 1 1-1m3 7H5v9.625c0 .705.386 1.286.883 1.366L6 20h12c.513 0 .936-.53.993-1.215l.007-.16z" />
+      <path d="M12 12a1 1 0 0 1 .993.883L13 13v3a1 1 0 0 1-1.993.117L11 16v-2a1 1 0 0 1-.117-1.993L11 12z" />
+    </g>
+  </svg>
+);
+
+const TeamIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="currentColor" d="M12 11a5 5 0 0 1 5 5v6h-2v-6a3 3 0 0 0-2.824-2.995L12 13a3 3 0 0 0-2.995 2.824L9 16v6H7v-6a5 5 0 0 1 5-5m-6.5 3q.42.001.81.094a6 6 0 0 0-.301 1.575L6 16v.086a1.5 1.5 0 0 0-.356-.08L5.5 16a1.5 1.5 0 0 0-1.493 1.355L4 17.5V22H2v-4.5A3.5 3.5 0 0 1 5.5 14m13 0a3.5 3.5 0 0 1 3.5 3.5V22h-2v-4.5a1.5 1.5 0 0 0-1.355-1.493L18.5 16q-.264.001-.5.085V16c0-.666-.108-1.306-.308-1.904c.258-.063.53-.096.808-.096m-13-6a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m13 0a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m-13 2a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m13 0a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M12 2a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4" />
+  </svg>
+);
+
+const DiscussionIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path fill="currentColor" d="M20 8h-3V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h1v2c0 .38.21.72.55.89c.14.07.29.11.45.11c.21 0 .42-.07.6-.2L9 15v2c0 1.1.9 2 2 2h3.67l3.73 2.8c.18.13.39.2.6.2c.15 0 .31-.04.45-.11A1 1 0 0 0 20 21v-2c1.1 0 2-.9 2-2v-7c0-1.1-.9-2-2-2M6 12H4V4h11v8h-5c-.12 0-.24.03-.35.07c-.04.02-.07.04-.11.06c-.05.02-.09.04-.14.07L7 14v-1c0-.55-.45-1-1-1m14 5h-1c-.55 0-1 .45-1 1v1l-2.4-1.8a1 1 0 0 0-.6-.2h-4v-3h4c1.1 0 2-.9 2-2v-2h3z" />
+  </svg>
+);
+
+export default FloatingActionMenuPreview;`,Ro={},Do={};function gn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:["One or more ",n(e.code,{children:"FloatingActionMenuItem"})," components to display in the menu."]})]}),n(e.tr,{children:[n(e.td,{children:"radius"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"640"})}),n(e.td,{children:"Radius of the imaginary circle used to position menu items. A larger radius creates a flatter arc, while a smaller radius creates a more curved layout. Adjust this based on the number of menu items and the desired curvature."})]}),n(e.tr,{children:[n(e.td,{children:"gap"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"4"})}),n(e.td,{children:"Angular gap (in degrees) between adjacent menu items. Increase the gap to spread items farther apart or decrease it to make the menu more compact. Tune this according to the number of menu items."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the menu container."})]}),n(e.tr,{children:[n(e.td,{children:"actionButtonClassName"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the floating action button."})]})]})]})}function Oo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(gn,{...t})}):gn(t)}const se=(t={})=>Oo({...t,components:{Fragment:v,...t.components}});se[Symbol.for("mdx-component")]=!0;se[Symbol.for("astro.needsHeadRendering")]=!Do.layout;se.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/floating-action-menu/FloatingActionMenu-props.mdx";const Eo={};function yn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"icon"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Content displayed as the menu item’s icon."})]}),n(e.tr,{children:[n(e.td,{children:"name"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Text label displayed for the menu item."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the menu item."})]})]})]})}function Lo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(yn,{...t})}):yn(t)}const ae=(t={})=>Lo({...t,components:{Fragment:v,...t.components}});ae[Symbol.for("mdx-component")]=!0;ae[Symbol.for("astro.needsHeadRendering")]=!Eo.layout;ae.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/floating-action-menu/FloatingActionMenuItem-props.mdx";const Se="floating-action-menu",vn=w({id:Se,name:"Floating Action Menu",description:"A customizable floating action menu that arranges items along a curved arc with configurable radius and spacing.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Ro,previewClassName:"grid place-items-center",source:[{name:`${Se}.tsx`,content:To,lang:"tsx"}],usage:[{name:`${Se}-preview.tsx`,content:Ao,lang:"tsx"}],componentsAPI:[{name:"FloatingActionMenu",props:se},{name:"FloatingActionMenuItem",props:ae}]}),Ho=`import { type ReactNode, type MouseEvent, memo, useState, useRef, useContext, createContext, useCallback, useMemo } from "react";
 import { type HTMLMotionProps, type MotionValue, motion, AnimatePresence, useTransform, useSpring, useMotionValue} from "motion/react";
 import cn from "@/utils/cn";
 
@@ -855,7 +1122,7 @@ export const FluidDockItem = memo((
   )
 });
 
-export default memo(FluidDock);`,Ao=`import FluidDock, { FluidDockItem } from "@/registry/components/fluid-dock/fluid-dock";
+export default memo(FluidDock);`,Bo=`import FluidDock, { FluidDockItem } from "@/registry/components/fluid-dock/fluid-dock";
 
 const FluidDockPreview = () => {
   const items = [
@@ -953,274 +1220,7 @@ const SettingsIcon = (props: React.ComponentProps<"svg">) => (
   </svg>
 );
 
-export default FluidDockPreview;`,Ro={},Do={};function gn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:["The ",n(e.code,{children:"FluidDockItem"})," components rendered inside the dock."]})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the dock container."})]}),n(e.tr,{children:[n(e.td,{children:"itemSize"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"40"})}),n(e.td,{children:"Base size (in pixels) of each dock item before magnification."})]}),n(e.tr,{children:[n(e.td,{children:"magnificationScale"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"1.5"})}),n(e.td,{children:"Maximum scale applied to a dock item when hovered."})]}),n(e.tr,{children:[n(e.td,{children:"padding"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"8"})}),n(e.td,{children:"Inner padding (in pixels) of the dock container."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the dock container."})]})]})]})}function Oo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(gn,{...t})}):gn(t)}const se=(t={})=>Oo({...t,components:{Fragment:v,...t.components}});se[Symbol.for("mdx-component")]=!0;se[Symbol.for("astro.needsHeadRendering")]=!Do.layout;se.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/fluid-dock/FluidDock-props.mdx";const Eo={};function yn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:"The content of the dock item, typically an icon or image."})]}),n(e.tr,{children:[n(e.td,{children:"tooltip"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Content displayed in the tooltip when the item is hovered."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the dock item."})]}),n(e.tr,{children:[n(e.td,{children:"tooltipClassName"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the tooltip."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the dock item."})]})]})]})}function Lo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(yn,{...t})}):yn(t)}const ae=(t={})=>Lo({...t,components:{Fragment:v,...t.components}});ae[Symbol.for("mdx-component")]=!0;ae[Symbol.for("astro.needsHeadRendering")]=!Eo.layout;ae.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/fluid-dock/FluidDockItem-props.mdx";const Se="fluid-dock",vn=w({id:Se,name:"Fluid Dock",description:"A modern dock navigation with fluid hover animations and interactive tooltips.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Ro,previewClassName:"grid place-items-center",source:[{name:`${Se}.tsx`,content:To,lang:"tsx"}],usage:[{name:`${Se}-preview.tsx`,content:Ao,lang:"tsx"}],componentsAPI:[{name:"FluidDock",props:se},{name:"FluidDockItem",props:ae}]}),Ho=`import { type ReactNode, type ReactElement, Children, cloneElement, isValidElement, createContext, memo, useCallback, useContext, useMemo, useState } from "react";
-import { AnimatePresence, motion, type HTMLMotionProps } from "motion/react";
-import cn from "@/utils/cn";
-
-export type FloatingActionMenuProps = {
-  children?: ReactNode;
-  radius?: number;
-  gap?: number;
-  actionButtonClassName?: string;
-} & React.ComponentProps<"div">;
-
-export type FloatingActionMenuItemProps = {
-  icon: ReactNode;
-  name: string;
-  index?: number;
-} & HTMLMotionProps<"button">;
-
-type FloatingActionMenuContextValue = {
-  showMenuItems: boolean;
-  radius: number;
-  gap: number;
-};
-
-const FloatingActionMenuContext  = (
-  createContext<FloatingActionMenuContextValue>({
-    showMenuItems: false,
-    radius: 540,
-    gap: 4.5,
-  })
-);
-
-const degreeToRadian = (
-  degree: number,
-) => (
-  (Math.PI / 180) * degree
-);
-
-const FloatingActionMenu = (
-  props: FloatingActionMenuProps
-) => {
-  const {
-    children,
-    radius = 540,
-    gap = 4.5,
-    actionButtonClassName = "",
-    ...restProps
-  } = props;
-
-  const [showMenuItems, setShowMenuItems] = useState(false);
-
-  const handleToggleClick = useCallback(() => {
-    setShowMenuItems(prev => !prev);
-  }, []);
-
-  const floatingActionMenuContextValue = (
-    useMemo<FloatingActionMenuContextValue>(() => ({
-      showMenuItems,
-      radius,
-      gap,
-    }), [showMenuItems, radius, gap])
-  );
-
-  return (
-    <div {...restProps}>
-      <FloatingActionMenuContext.Provider 
-        value={floatingActionMenuContextValue}
-      >
-        {Children.map(children, (child, childIndex) => {
-          if (!isValidElement(child)) {
-            return child;
-          }
-          return cloneElement(
-            child as ReactElement<FloatingActionMenuItemProps>, { 
-              index: childIndex
-            },
-          );
-        })}
-      </FloatingActionMenuContext.Provider>
-      <motion.button
-        className={cn(
-          "w-[48px] h-[48px] grid place-items-center rounded-[50%]",
-          "bg-gray-100 dark:bg-neutral-800",
-          "shadow shadow-md cursor-pointer",
-          actionButtonClassName,
-        )}
-        onTap={handleToggleClick}
-        whileTap={{
-          scale: 1.25
-        }}
-        animate={{
-          rotate: showMenuItems ? 45 : 0,
-        }}
-      >
-        <PlusIcon className="text-2xl text-neutral-900 dark:text-white" />
-      </motion.button>
-    </div>
-  );
-};
-
-export const FloatingActionMenuItem = memo((
-  props: FloatingActionMenuItemProps
-) => {
-  const {
-    icon,
-    name,
-    index = 0,
-    className,
-    style,
-    ...restProps
-  } = props;
-
-  const { showMenuItems, radius, gap } = useContext(FloatingActionMenuContext);
-
-  const getMenuItemPosAndDeg = (index: number) => {
-    const deg = index * gap;
-    const angle = degreeToRadian(deg);
-    const x = (radius * Math.cos(angle)) - radius;
-    const y = (-radius * Math.sin(angle)) - 50;
-    return {
-      x,
-      y,
-      deg,
-    };
-  };
-
-  const menuItemStyle = {
-    x: 0,
-    y: 0,
-    rotate: 0,
-    opacity: 0,
-    filter: "blur(5px)",
-  };
-
-  const menuItemAnimate = (index: number) => {
-    const { x, y, deg } = getMenuItemPosAndDeg(index);
-    return {
-      x,
-      y,
-      rotate: -deg,
-      opacity: 1,
-      filter: "blur(0px)",
-    }
-  };
-
-  const menuItemExit = {
-    ...menuItemStyle,
-    transition: {
-      duration: 0.15,
-    },
-  };
-
-  return (
-    <AnimatePresence>
-      {showMenuItems && (
-        <motion.button
-          {...restProps}
-          className={cn(
-            "absolute flex items-center gap-2 py-1 px-4 rounded-2xl",
-            "origin-left whitespace-nowrap cursor-pointer",
-            "bg-neutral-50 dark:bg-zinc-900",
-            "border border-neutral-200 dark:border-neutral-800",
-            "text-neutral-900 dark:text-neutral-50",
-            "shadow shadow-md",
-            className,
-          )}
-          style={{
-            ...style,
-            ...menuItemStyle,
-          }}
-          animate={menuItemAnimate(index)}
-          exit={menuItemExit}
-          transition={{
-            type: "tween",
-            duration: 0.3,
-            delay: 0.01 * index,
-          }}
-        >
-          {icon}
-          {name && (
-            <span>{name}</span>
-          )}
-        </motion.button>
-      )}
-    </AnimatePresence>
-  );
-});
-
-const PlusIcon = (
-  props: React.ComponentProps<"svg">
-) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14" />
-  </svg>
-);
-
-export default memo(FloatingActionMenu);`,Bo=`import FloatingActionMenu, { FloatingActionMenuItem } from "@/registry/components/floating-action-menu/floating-action-menu";
-
-const FloatingActionMenuPreview = () => {
-  const items=[
-    { icon: <DocumentIcon />, name: "Document"},
-    { icon: <ProjectIcon />, name: "Project"},
-    { icon: <TaskIcon />, name: "Task"},
-    { icon: <CalendarIcon />, name: "Calendar"},
-    { icon: <TeamIcon />, name: "Team"},
-    { icon: <DiscussionIcon />, name: "Discussion"},
-  ];
-
-  return (
-    <FloatingActionMenu className="absolute bottom-[16px] lg:bottom-[48px]">
-      {items.map(item => (
-        <FloatingActionMenuItem
-          key={item.name}
-          icon={item.icon}
-          name={item.name}
-        />
-      ))}
-    </FloatingActionMenu>
-  );
-};
-
-const DocumentIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill="currentColor" d="M15 4H6v16h12V7h-3zM6 2h10l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m2 9h8v2H8zm0 4h8v2H8z" />
-  </svg>
-);
-
-const ProjectIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
-    <path d="M0 0h16v16H0z" fill="none" />
-    <path fill="currentColor" d="M4 1a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2zm0 1h12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" />
-  </svg>
-);
-
-const TaskIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill="currentColor" d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M4 19V5h16v14z" />
-    <path fill="currentColor" d="M13 8h5v2h-5zm-5 .59L6.96 7.54L5.54 8.96L8 11.41l3.46-3.45l-1.42-1.42zM13 14h5v2h-5zm-5 .59l-1.04-1.05l-1.42 1.42L8 17.41l3.46-3.45l-1.42-1.42z" />
-  </svg>
-);
-
-const CalendarIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <g fill="currentColor">
-      <path d="M16 2a1 1 0 0 1 .993.883L17 3v1h1a3 3 0 0 1 2.995 2.824L21 7v12a3 3 0 0 1-2.824 2.995L18 22H6a3 3 0 0 1-2.995-2.824L3 19V7a3 3 0 0 1 2.824-2.995L6 4h1V3a1 1 0 0 1 1.993-.117L9 3v1h6V3a1 1 0 0 1 1-1m3 7H5v9.625c0 .705.386 1.286.883 1.366L6 20h12c.513 0 .936-.53.993-1.215l.007-.16z" />
-      <path d="M12 12a1 1 0 0 1 .993.883L13 13v3a1 1 0 0 1-1.993.117L11 16v-2a1 1 0 0 1-.117-1.993L11 12z" />
-    </g>
-  </svg>
-);
-
-const TeamIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill="currentColor" d="M12 11a5 5 0 0 1 5 5v6h-2v-6a3 3 0 0 0-2.824-2.995L12 13a3 3 0 0 0-2.995 2.824L9 16v6H7v-6a5 5 0 0 1 5-5m-6.5 3q.42.001.81.094a6 6 0 0 0-.301 1.575L6 16v.086a1.5 1.5 0 0 0-.356-.08L5.5 16a1.5 1.5 0 0 0-1.493 1.355L4 17.5V22H2v-4.5A3.5 3.5 0 0 1 5.5 14m13 0a3.5 3.5 0 0 1 3.5 3.5V22h-2v-4.5a1.5 1.5 0 0 0-1.355-1.493L18.5 16q-.264.001-.5.085V16c0-.666-.108-1.306-.308-1.904c.258-.063.53-.096.808-.096m-13-6a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m13 0a2.5 2.5 0 1 1 0 5a2.5 2.5 0 0 1 0-5m-13 2a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m13 0a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M12 2a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4" />
-  </svg>
-);
-
-const DiscussionIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill="currentColor" d="M20 8h-3V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h1v2c0 .38.21.72.55.89c.14.07.29.11.45.11c.21 0 .42-.07.6-.2L9 15v2c0 1.1.9 2 2 2h3.67l3.73 2.8c.18.13.39.2.6.2c.15 0 .31-.04.45-.11A1 1 0 0 0 20 21v-2c1.1 0 2-.9 2-2v-7c0-1.1-.9-2-2-2M6 12H4V4h11v8h-5c-.12 0-.24.03-.35.07c-.04.02-.07.04-.11.06c-.05.02-.09.04-.14.07L7 14v-1c0-.55-.45-1-1-1m14 5h-1c-.55 0-1 .45-1 1v1l-2.4-1.8a1 1 0 0 0-.6-.2h-4v-3h4c1.1 0 2-.9 2-2v-2h3z" />
-  </svg>
-);
-
-export default FloatingActionMenuPreview;`,Fo={},qo={};function bn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:["One or more ",n(e.code,{children:"FloatingActionMenuItem"})," components to display in the menu."]})]}),n(e.tr,{children:[n(e.td,{children:"radius"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"640"})}),n(e.td,{children:"Radius of the imaginary circle used to position menu items. A larger radius creates a flatter arc, while a smaller radius creates a more curved layout. Adjust this based on the number of menu items and the desired curvature."})]}),n(e.tr,{children:[n(e.td,{children:"gap"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"4"})}),n(e.td,{children:"Angular gap (in degrees) between adjacent menu items. Increase the gap to spread items farther apart or decrease it to make the menu more compact. Tune this according to the number of menu items."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the menu container."})]}),n(e.tr,{children:[n(e.td,{children:"actionButtonClassName"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the floating action button."})]})]})]})}function jo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(bn,{...t})}):bn(t)}const ce=(t={})=>jo({...t,components:{Fragment:v,...t.components}});ce[Symbol.for("mdx-component")]=!0;ce[Symbol.for("astro.needsHeadRendering")]=!qo.layout;ce.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/floating-action-menu/FloatingActionMenu-props.mdx";const Zo={};function xn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"icon"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Content displayed as the menu item’s icon."})]}),n(e.tr,{children:[n(e.td,{children:"name"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Text label displayed for the menu item."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the menu item."})]})]})]})}function Vo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(xn,{...t})}):xn(t)}const de=(t={})=>Vo({...t,components:{Fragment:v,...t.components}});de[Symbol.for("mdx-component")]=!0;de[Symbol.for("astro.needsHeadRendering")]=!Zo.layout;de.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/floating-action-menu/FloatingActionMenuItem-props.mdx";const _e="floating-action-menu",wn=w({id:_e,name:"Floating Action Menu",description:"A customizable floating action menu that arranges items along a curved arc with configurable radius and spacing.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Fo,previewClassName:"grid place-items-center",source:[{name:`${_e}.tsx`,content:Ho,lang:"tsx"}],usage:[{name:`${_e}-preview.tsx`,content:Bo,lang:"tsx"}],componentsAPI:[{name:"FloatingActionMenu",props:ce},{name:"FloatingActionMenuItem",props:de}]}),Wo=`import { memo } from "react";
+export default FluidDockPreview;`,Fo={},qo={};function bn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:["The ",n(e.code,{children:"FluidDockItem"})," components rendered inside the dock."]})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the dock container."})]}),n(e.tr,{children:[n(e.td,{children:"itemSize"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"40"})}),n(e.td,{children:"Base size (in pixels) of each dock item before magnification."})]}),n(e.tr,{children:[n(e.td,{children:"magnificationScale"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"1.5"})}),n(e.td,{children:"Maximum scale applied to a dock item when hovered."})]}),n(e.tr,{children:[n(e.td,{children:"padding"}),n(e.td,{children:n(e.code,{children:"number"})}),n(e.td,{children:"No"}),n(e.td,{children:n(e.code,{children:"8"})}),n(e.td,{children:"Inner padding (in pixels) of the dock container."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the dock container."})]})]})]})}function jo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(bn,{...t})}):bn(t)}const ce=(t={})=>jo({...t,components:{Fragment:v,...t.components}});ce[Symbol.for("mdx-component")]=!0;ce[Symbol.for("astro.needsHeadRendering")]=!qo.layout;ce.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/fluid-dock/FluidDock-props.mdx";const Zo={};function xn(t){const e={code:"code",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...t.components};return n(e.table,{children:[n(e.thead,{children:n(e.tr,{children:[n(e.th,{children:"Prop"}),n(e.th,{children:"Type"}),n(e.th,{children:"Required"}),n(e.th,{children:"Default"}),n(e.th,{children:"Description"})]})}),n(e.tbody,{children:[n(e.tr,{children:[n(e.td,{children:"children"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"Yes"}),n(e.td,{children:"—"}),n(e.td,{children:"The content of the dock item, typically an icon or image."})]}),n(e.tr,{children:[n(e.td,{children:"tooltip"}),n(e.td,{children:n(e.code,{children:"React.ReactNode"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Content displayed in the tooltip when the item is hovered."})]}),n(e.tr,{children:[n(e.td,{children:"className"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the dock item."})]}),n(e.tr,{children:[n(e.td,{children:"tooltipClassName"}),n(e.td,{children:n(e.code,{children:"string"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Additional CSS classes applied to the tooltip."})]}),n(e.tr,{children:[n(e.td,{children:"style"}),n(e.td,{children:n(e.code,{children:"React.CSSProperties"})}),n(e.td,{children:"No"}),n(e.td,{children:"—"}),n(e.td,{children:"Inline styles applied to the dock item."})]})]})]})}function Vo(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(xn,{...t})}):xn(t)}const de=(t={})=>Vo({...t,components:{Fragment:v,...t.components}});de[Symbol.for("mdx-component")]=!0;de[Symbol.for("astro.needsHeadRendering")]=!Zo.layout;de.moduleId="/home/runner/work/MosaicUI/MosaicUI/src/docs/components/fluid-dock/FluidDockItem-props.mdx";const _e="fluid-dock",wn=w({id:_e,name:"Fluid Dock",description:"A modern dock navigation with fluid hover animations and interactive tooltips.",category:y.component.id,dependencies:[f.tailwind.key,f.motion.key],preview:Fo,previewClassName:"grid place-items-center",source:[{name:`${_e}.tsx`,content:Ho,lang:"tsx"}],usage:[{name:`${_e}-preview.tsx`,content:Bo,lang:"tsx"}],componentsAPI:[{name:"FluidDock",props:ce},{name:"FluidDockItem",props:de}]}),Wo=`import { memo } from "react";
 import cn from "@/utils/cn";
 import styles from "./marquee.module.css";
 
