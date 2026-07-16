@@ -1,0 +1,11 @@
+| Prop | Type | Required | Default | Description |
+|-----|------|----------|---------|-------------|
+| text | `string` | Yes | — | The text to display and animate with the rolling letter effect. |
+| blockWidth | `number` | No | `16` | Width of each letter container. Helps maintain consistent horizontal spacing when fonts are not monospace. Typically set to match the text `font-size`. |
+| blockHeight | `number` | Yes | `16` | Height of each letter container. Helps maintain consistent vertical alignment and spacing. Typically set to match the text `font-size`. |
+| blockGap | `number` | No | `0` | Horizontal gap between adjacent letter containers. Useful for fine-tuning the spacing between characters. |
+| duration | `number` | No | `2` | Total animation duration in seconds. Minimum value: `0.1`. |
+| className | `string` | No | — | Additional CSS class applied to the root container element. |
+| style | `React.CSSProperties` | No | — | Inline styles applied to the root container element. |
+| blockClassName | `string` | No | — | CSS class applied to each individual letter block element. Useful for custom letter styling or effects. |
+| blockStyle | `React.CSSProperties` | No | — | Inline styles applied to each letter block element. |
