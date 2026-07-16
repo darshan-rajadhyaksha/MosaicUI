@@ -14,6 +14,7 @@ import sectionNavigatorConfig from "@/docs/components/section-navigator";
 /** text-effects */
 import circularTextAnimationConfig from "@/docs/text-effects/circular-text-animation";
 import decryptingTextAnimationConfig from "@/docs/text-effects/decrypting-text-animation";
+import rollingLettersAnimationConfig from "@/docs/text-effects/rolling-letters-animation";
 import textAnimationConfig from "@/docs/text-effects/text-animation/";
 import textEmergeAnimationConfig from "@/docs/text-effects/text-emerge-animation";
 import typewriterAnimationConfig from "@/docs/text-effects/typewriter-animation";
@@ -36,6 +37,7 @@ const registry = {
   [componentCategory.textEffect.key]: {
     [circularTextAnimationConfig.id]: circularTextAnimationConfig,
     [decryptingTextAnimationConfig.id]: decryptingTextAnimationConfig,
+    [rollingLettersAnimationConfig.id]: rollingLettersAnimationConfig,
     [textAnimationConfig.id]: textAnimationConfig, 
     [textEmergeAnimationConfig.id]: textEmergeAnimationConfig,
     [typewriterAnimationConfig.id]: typewriterAnimationConfig,
