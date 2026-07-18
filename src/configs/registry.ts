@@ -3,6 +3,7 @@ import componentCategory from "@/configs/categories";
 /** backgrounds */
 import nightSkyBackgroundConfig from "@/docs/backgrounds/night-sky-background";
 import starFieldBackgroundConfig from "@/docs/backgrounds/star-field-background";
+import wavyThreadsBackgroundConfig from "@/docs/backgrounds/wavy-threads-background";
 
 /** components */
 import circularListConfig from "@/docs/components/circular-list";
@@ -46,6 +47,7 @@ const registry = {
   [componentCategory.background.key]: {
     [nightSkyBackgroundConfig.id]: nightSkyBackgroundConfig,
     [starFieldBackgroundConfig.id]: starFieldBackgroundConfig,
+    [wavyThreadsBackgroundConfig.id]: wavyThreadsBackgroundConfig,
   },
   [componentCategory.visualEffects.key]: {
     [auroraBorderConfig.id]: auroraBorderConfig,
