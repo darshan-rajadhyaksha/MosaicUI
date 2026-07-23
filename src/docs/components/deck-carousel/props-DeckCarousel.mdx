@@ -1,0 +1,9 @@
+| Prop | Type | Required | Default | Description |
+| ---- | ---- | :------: | ------- | ----------- |
+| children | `React.ReactNode` | Yes | — | The carousel items to render, typically `DeckCarouselItem` components. |
+| className | `string` | No | — | Additional CSS classes applied to the carousel container. |
+| yOffset | `number` | No | `-15` | Vertical offset (in pixels) applied between each stacked item. |
+| zOffset | `number` | No | `-50` | Depth offset (in pixels) applied to each successive item using `translateZ()`. |
+| scaleOffset | `number` | No | `0.02` | Scale reduction applied to each successive item to enhance the 3D stack effect. |
+| rotateXOffset | `number` | No | `2` | Rotation around the X-axis (in degrees) applied to each stacked item. |
+| blur | `number` | No | `5` | Blur (in pixels) applied to an item as it transitions out of view. |
