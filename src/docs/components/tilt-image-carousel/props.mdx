@@ -1,0 +1,15 @@
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| items | `TiltCarouselItem[]` | Yes | – | Array of images to display in the carousel. Each item contains a `src` and an optional `alt` text. |
+| items[].src | `string` | Yes | – | Image source URL. |
+| items[].alt | `string` | No | – | Alternative text for the image for accessibility. |
+| imageWidth | `number` | Yes | – | Width of each image in pixels. |
+| imageHeight | `number` | Yes | – | Height of each image in pixels. |
+| imageProps | `HTMLMotionProps<"img">` | No | `undefined` | Additional props passed to the underlying Framer Motion `<img>` element. |
+| xOffset | `number` | No | `50` | Horizontal offset between consecutive images in the stack. |
+| yOffset | `number` | No | `0` | Vertical offset between consecutive images in the stack. |
+| zOffset | `number` | No | `-10` | Z-axis offset applied to each stacked image to create depth. |
+| scaleOffset | `number` | No | `0.05` | Scale difference between stacked images. |
+| rotateY | `number` | No | `50` | Rotation angle (in degrees) applied around the Y-axis to create the tilt effect. |
+| className | `string` | No | `undefined` | Additional CSS class names applied to the carousel container. |
+| style | `React.CSSProperties` | No | `undefined` | Inline styles applied to the carousel container. |
