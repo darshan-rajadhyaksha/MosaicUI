@@ -6,6 +6,7 @@ import starFieldBackgroundConfig from "@/docs/backgrounds/star-field-background"
 import wavyThreadsBackgroundConfig from "@/docs/backgrounds/wavy-threads-background";
 
 /** components */
+import arcCardsConfig from "@/docs/components/arc-cards";
 import circularListConfig from "@/docs/components/circular-list";
 import deckCarouselConfig from "@/docs/components/deck-carousel";
 import floatingActionMenuConfig from "@/docs/components/floating-action-menu";
@@ -31,6 +32,7 @@ import spotlightCardConfig from "@/docs/visual-effects/spotlight-card";
 /** registry */
 const registry = {
   [componentCategory.component.key]: {
+    [arcCardsConfig.id]: arcCardsConfig,
     [circularListConfig.id]: circularListConfig,
     [deckCarouselConfig.id]: deckCarouselConfig,
     [floatingActionMenuConfig.id]: floatingActionMenuConfig,

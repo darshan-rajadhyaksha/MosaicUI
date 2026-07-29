@@ -1,0 +1,8 @@
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| items | `T[]` | Yes | — | Array of data items used to render cards. Odd numbers of items are preferred because the middle item (`items.length / 2`) is treated as the center card of the arc layout. |
+| CardComponent | `ComponentType<{ item: T }>` | Yes | — | React component used to render each card. Receives a single `item` prop containing the corresponding item from `items`. |
+| xOffset | `number` | No | `50` | Horizontal offset applied between cards to create the arc spacing effect. |
+| rotateOffset | `number` | No | `20` | Rotation angle offset applied to cards based on their position relative to the center card. |
+| scaleOffset | `number` | No | `0.125` | Scale difference applied between cards. Cards further from the center are scaled down by this offset. |
+| blurOffset | `number` | No | `0.5` | Blur intensity offset applied to cards based on their distance from the center card. |
