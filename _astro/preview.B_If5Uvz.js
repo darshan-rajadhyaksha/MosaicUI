@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime.u17CrQMm.js";import e from"./vertical-text-slider.CSYdRKPG.js";const s=()=>t.jsx(e,{className:"text-gray-900 dark:text-gray-100 text-xl",texts:["Build faster","Ship smarter","Scale confidently","Delight users"]});export{s as default};
