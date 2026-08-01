@@ -13,6 +13,7 @@ import floatingActionMenuConfig from "@/docs/components/floating-action-menu";
 import fluidDockConfig from "@/docs/components/fluid-dock";
 import marqueeConfig from "@/docs/components/marquee";
 import sectionNavigatorConfig from "@/docs/components/section-navigator";
+import tilt3dConfig from "@/docs/components/tilt-3d";
 import tiltImageCarouselConfig from "@/docs/components/tilt-image-carousel";
 
 /** text-effects */
@@ -39,6 +40,7 @@ const registry = {
     [fluidDockConfig.id]: fluidDockConfig,
     [marqueeConfig.id]: marqueeConfig,
     [sectionNavigatorConfig.id]: sectionNavigatorConfig,
+    [tilt3dConfig.id]: tilt3dConfig,
     [tiltImageCarouselConfig.id]: tiltImageCarouselConfig,
   },
   [componentCategory.textEffect.key]: {
