@@ -1,12 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import project from "@/configs/project";
 import DecryptingTextAnimation from "@/registry/text-effects/decrypting-text-animation/decrypting-text-animation";
 import VerticalTextSlider from "@/registry/text-effects/vertical-text-slider/vertical-text-slider";
 ---
 
 <section class="relative mx-auto max-w-7xl px-5 py-20 lg:py-28">
-  <div class="absolute -top-40 -left-40 z-[-1] h-96 w-96 rounded-full bg-blue-500/20 blur-3xl"></div>
-  <div class="absolute bottom-0 right-0 z-[-1] h-80 w-80 rounded-full bg-blue-700/20 blur-3xl"></div>
   <div class="grid items-center gap-14 lg:grid-cols-2">
     <!-- Header -->
     <div>
@@ -15,9 +14,8 @@ import VerticalTextSlider from "@/registry/text-effects/vertical-text-slider/ver
       </h1>
 
       <p class="sm:text-balance mt-6 text-md sm:text-lg leading-7 text-neutral-600 dark:text-neutral-400">
-        A collection of lightweight, reusable components built with React,
-        styled with Tailwind CSS, and powered by Motion for smooth animations.
-        Copy, customize, and ship production-ready interfaces in minutes.
+        Lightweight, reusable components built for modern applications. 
+        Copy, customize, and ship beautiful, production-ready interfaces in minutes.
       </p>
 
       <!-- CTA -->
@@ -30,10 +28,12 @@ import VerticalTextSlider from "@/registry/text-effects/vertical-text-slider/ver
         </a>
 
         <a
-          href="/introduction/"
+          href={project.github}
           class="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Get Started
+          ⭐ Star on GitHub
         </a>
       </div>
 

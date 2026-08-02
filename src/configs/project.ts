@@ -2,7 +2,7 @@ export default Object.freeze({
 	name: "MosaicUI",
 	version: "2.0.0",
 	url: "https://mosaicui.com/",
-	github: "https://github.com/darshan-rajadhyaksha/mosaicui",
+	github: "https://github.com/darshan-rajadhyaksha/mosaicui/",
 	keywords: [
 		"React",
 		"React components",
@@ -19,14 +19,6 @@ export default Object.freeze({
 		github: {
 			handle: "darshan-rajadhyaksha",
 			url: "https://github.com/darshan-rajadhyaksha/"
-		},
-		linkedin: {
-			handle: "darshan-rajadhyaksha",
-			url: "https://www.linkedin.com/in/darshan-rajadhyaksha/",
-		},
-		x: {
-			handle: "darshan_logs",
-			url: "https://x.com/darshan_logs/"
 		},
 	},
 	logo: {
