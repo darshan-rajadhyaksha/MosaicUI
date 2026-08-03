@@ -6,7 +6,7 @@ export default Object.freeze({
   },
   tailwind: {
     key: "tailwind",
-    name: "Tailwind",
+    name: "Tailwind CSS",
     icon: "tailwind",
   },
   motion: {
@@ -14,4 +14,4 @@ export default Object.freeze({
     name: "Motion",
     icon: "motion",
   },
-});
+} as const);

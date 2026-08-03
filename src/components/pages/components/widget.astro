@@ -2,10 +2,12 @@
 const { label } = Astro.props;
 ---
 
-<section class="py-8 md:py-12">
-  <h2 class="text-2xl text-neutral-900 dark:text-neutral-100 font-semibold mb-4 lg:mb-5">
-    {label}
-  </h2>
+<section class="py-6.5 md:py-8.5">
+  {label && (
+    <h2 class="text-2xl text-neutral-900 dark:text-neutral-100 font-semibold mb-4 lg:mb-5">
+      {label}
+    </h2>
+  )}
   <div>
     <slot />
   </div>
