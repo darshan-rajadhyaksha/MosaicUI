@@ -1,6 +1,7 @@
 import componentCategory from "@/configs/categories";
 
 /** backgrounds */
+import gridPatternBackgroundConfig from "@/docs/backgrounds/grid-pattern-background";
 import nightSkyBackgroundConfig from "@/docs/backgrounds/night-sky-background";
 import starFieldBackgroundConfig from "@/docs/backgrounds/star-field-background";
 import wavingDotsBackgroundConfig from "@/docs/backgrounds/waving-dots-background";
@@ -54,6 +55,7 @@ const registry = {
     [verticalTextSliderConfig.id]: verticalTextSliderConfig,
   },
   [componentCategory.background.key]: {
+    [gridPatternBackgroundConfig.id]: gridPatternBackgroundConfig,
     [nightSkyBackgroundConfig.id]: nightSkyBackgroundConfig,
     [starFieldBackgroundConfig.id]: starFieldBackgroundConfig,
     [wavingDotsBackgroundConfig.id]: wavingDotsBackgroundConfig,
